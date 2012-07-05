@@ -1,0 +1,242 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet"  type="text/css" href="css/core1.css"/>		<title>Emacs 配置与使用</title>
+    <script type="text/javascript">
+      
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-22006679-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+  </head>
+  <body>	
+    <h1>Emacs 配置与使用
+      <p class="time">2011年3月20日 Bimeichun</h1>
+
+    <div class="menu">
+      <p class="menu"><a class="menu" href="../index.htm">Home</a> <a class="menu" href="../about.htm">About</a></p>
+      <div class="contents">
+	<dl>
+	  <dt>
+	    <a href="#sec1">安装</a>
+	  </dt>
+	  <dt>
+	    <a href="#sec2">配置</a>
+	  </dt>
+	  <dd>
+	    <dl>
+	      <dt>
+		<a href="#sec3">中文输入</a>
+	      </dt>
+	    </dl>
+	  </dd>
+	  <dt>
+	    <a href="#sec4">快捷键</a>
+	  </dt>
+	  <dt>
+	    <a href="#sec5">Emacs 其他配置</a>
+	  </dt>
+	  <dd>
+	    <dl>
+	      <dt>
+		<a href="#sec6">显示行号</a>
+	      </dt>
+	      <dt>
+		<a href="#sec7">颜色</a>
+	      </dt>
+	      <dt>
+		<a href="#sec8">关闭启动画面</a>
+	      </dt>
+	      <dt>
+		<a href="#sec9">时间与工具栏</a>
+	      </dt>
+	      <dt>
+		<a href="#sec10">自动补全</a>
+	      </dt>
+	    </dl>
+	  </dd>
+	  <dt>
+	    <a href="#sec11">Emacs Auctex</a>
+	  </dt>
+	  <dt>
+	    <a href="#sec12">Emacs Auctex preview</a>
+	  </dt>
+	  <dt><a href="emacs_html.htm">Emacs html-mode</a></dt>
+	</dl>
+      </div>
+    </div>
+
+    <div class="main">
+      <h2><a name="sec1" id="sec1"></a>
+	安装</h2>
+
+      <ul>
+	<li>Gentoo 下直接 emerge emacs</li>
+
+	<li>cvs 版本的安装:
+
+	  <ul>
+	    <li>emerge cvs</li>
+	    <li>cvs -z3 -d:pserver:<a href="mailto:anonymous@cvs.savannah.gnu.org">anonymous@cvs.savannah.gnu.org</a>:/sources/emacs co emacs</li>
+	    <li>cd emacs</li>
+	    <li>./configure &mdash;prefix=/usr/local &mdash;with-x-toolkit=gtk  &mdash;with-xpm  &mdash;with-xft  &mdash;with-freetype &mdash;with-jpeg  &mdash;with-tiff &mdash;with-gif &mdash;with-png &mdash;with-x &mdash;enable-font-backend</li>
+	    <li>make bootstrap</li>
+	    <li>make info</li>
+	    <li>src/emacs -q 没有问题，继续安装</li>
+	    <li>sudo make install</li>
+	    <li>make clean</li>
+	</ul></li>
+      </ul>
+
+
+      <h2><a name="sec2" id="sec2"></a>
+	配置</h2>
+
+      <p class="first">配置文件为 ~/.emacs
+	<h3>设置字体</h3></p>
+
+      <p>在~/.emacs添加如下：</p>
+
+      <pre class="example">
+	(set-default-font &quot;-bitstream-bitstream vera sans-medium-r-normal--16-*-*-*-m-*-iso8859-1&quot;)
+      </pre>
+      可以使用&quot;M-x set-default-font RET Tab Tab&quot; 查看哪些可以使用的字体（M-x 表示 Alt+x, RET 表示回车， Tab Tab就是连续按两次Tab键）。用鼠标点一下列表里的字体也可以设定。
+
+
+      <h3><a name="sec3" id="sec3"></a>
+	中文输入</h3>
+
+      <p class="first">有时 emacs 不能使用 fcitx ， 我的解决办法是在启动 emacs 的前面加上 LC_CTYPE=zh_CN.utf8 。我在我的 .sawfishrc 里面绑定这样的快捷键</p>
+
+      <pre class="example">
+	(bind-keys window-keymap &quot;Super-e&quot; '(system &quot;LC_CTYPE=zh_CN.utf8 emacs &amp;&quot;))
+      </pre>
+
+      <blockquote>
+	<p class="quoted">Gentoo 下可能需要安装 font-adobe-75dpi 并在 /etc/X11/xorg.conf 中添加 字体路径 /usr/share/fonts/TTF</p>
+      </blockquote>
+
+
+
+      <h2><a name="sec4" id="sec4"></a>
+	快捷键</h2>
+
+      <p class="first">emacs 的快捷键可以参照这里: <a href="emacskey.htm">Emacs 快捷键</a></p>
+
+
+      <h2><a name="sec5" id="sec5"></a>
+	Emacs 其他配置</h2>
+
+      <h3><a name="sec6" id="sec6"></a>
+	显示行号</h3>
+
+      <p class="first">在 ~/.emacs 里添加：</p>
+
+      <pre class="example">
+	(require 'linum)
+	(global-linum-mode 1)
+      </pre>
+
+
+      <h3><a name="sec7" id="sec7"></a>
+	颜色</h3>
+
+      <pre class="example">
+	;; 光标颜色设置
+	(set-cursor-color &quot;gray60&quot;)
+	;; 设置背景颜色和字体颜色
+	(set-foreground-color &quot;gray&quot;)
+	(set-background-color &quot;black&quot;)
+      </pre>
+
+
+      <h3><a name="sec8" id="sec8"></a>
+	关闭启动画面</h3>
+
+      <p class="first">如果不想看到启动时的画面，可以在配置文件里面添加如下代码：</p>
+
+      <pre class="example">
+	(setq inhibit-startup-message t)
+      </pre>
+
+
+      <h3><a name="sec9" id="sec9"></a>
+	时间与工具栏</h3>
+
+      <pre class="example">
+	;;去掉工具栏
+	(tool-bar-mode nil)
+	;;时间显示设置
+	;;启用时间显示设置
+	(display-time-mode 1)
+	;;时间使用24小时制
+	(setq display-time-24hr-format t)
+	;;时间显示包括日期和具体时间
+	(setq display-time-day-and-date t)
+	;;时间栏旁边启用邮件设置
+	(setq display-time-use-mail-icon t)
+	;;设置你的全名和邮件
+	(setq user-full-name &quot;Bi meichun&quot;)
+	(setq user-mail-address &quot;bimeichun@163.com&quot;)
+	;;时间的变化频率
+	(setq display-time-interval 10)
+	;;指针不要闪
+	(blink-cursor-mode -1)
+	(transient-mark-mode 1)
+	;;设置日历的一些颜色
+	(setq calendar-load-hook
+	'(lambda ()
+	(set-face-foreground 'diary-face &quot;skyblue&quot;)
+	(set-face-background 'holiday-face &quot;slate blue&quot;)
+	(set-face-foreground 'holiday-face &quot;white&quot;)))
+      </pre>
+
+
+      <h3><a name="sec10" id="sec10"></a>
+	自动补全</h3>
+
+      <p class="first">使用的是 auto-complete</p>
+
+      <pre class="example">
+	(require 'auto-complete-config)
+	(ac-config-default)
+      </pre>
+
+
+
+      <h2><a name="sec11" id="sec11"></a>
+	Emacs Auctex</h2>
+
+      <p class="first">请参看这里 <a href="auctex.htm">Emacs Auctex</a></p>
+
+
+      <h2><a name="sec12" id="sec12"></a>
+	Emacs Auctex preview</h2>
+
+      <p class="first">请参看这里 <a href="preview.htm">preview 预览公式</a></p>
+
+
+    </div>
+     <div class="newfooter">
+       bimeichun.com &copy 2011
+      您是第
+<script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      位访问者
+      <script language="javascript" type="text/javascript" src="http://js.users.51.la/4499176.js">
+      </script> 
+      <noscript>
+	<a href="http://www.51.la/?4499176" target="_blank">
+	  <img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/4499176.asp" style="border:none" />
+	</a>
+      </noscript>
+    </div>
+  </body>
+</html>

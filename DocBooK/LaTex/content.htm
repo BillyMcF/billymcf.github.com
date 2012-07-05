@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>第 6 章 目录</title>
+    <link rel="stylesheet" type="text/css" href="css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <link rel="home" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="up" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="prev" href="title.html" title="第 5 章 标题" />
+    <link rel="next" href="bookmark.html" title="第 7 章 书签" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">第 6 章 目录</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="title.htm">上一页</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="bookmark.htm">下一页</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter" title="第 6 章 目录">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="content"></a>第 6 章 目录</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>目录</strong>
+        </p>
+        <dl>
+          <dt>
+            <span class="section">
+              <a href="content.htm#id2530332">6.1. 生成目录</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="content.htm#id2530161">6.2. 将 Contents 变成 “目录”</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <div class="section" title="6.1. 生成目录">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2530332"></a>6.1. 生成目录</h2>
+            </div>
+          </div>
+        </div>
+        <p>我们可以用 \tableofcontents 命令来生成文档的目录，LaTeX 会自动设定目录的章节层次，可以使用 \setcounter 命令来指定目录层次深度。</p>
+        <pre class="programlisting">
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+    </pre>
+        <div class="tip" title="提示" style="margin-left: 0.5in; margin-right: 0.5in;">
+          <table border="0" summary="Tip">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[提示]" src="images/tip.png" />
+              </td>
+              <th align="left">提示</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>如果使用 hyperref 宏包生成书签，目录可能会变成 蓝色并带有边框，可以在 hyperref 宏包中加入选项 <code class="code">colorlinks=no,pdfborder=no</code></p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>如果不想让某个章节标题出现在我们的目录中，可以使用带 * 的命令来声明。</p>
+        <pre class="programlisting">
+    \chapter*{...}
+    \section*{...}
+    \subsection*{...}
+    </pre>
+      </div>
+      <div class="section" title="6.2. 将 Contents 变成 “目录”">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2530161"></a>6.2. 将 Contents 变成 “目录”</h2>
+            </div>
+          </div>
+        </div>
+        <p>有时，我们生成的目录内容是中文的，但却是 Contents 字样表示目录。当我们想将"Contents"变成“目录”时，可以使用下面的命令。注意这条命令的位置，应该在 \tableofcontents 前面。</p>
+        <pre class="programlisting">
+    \renewcommand{\contentsname}{目录}
+    \tableofcontent
+    </pre>
+        <p>当然，你也可以将“目录“换成别的。</p>
+        <div class="tip" title="提示" style="margin-left: 0.5in; margin-right: 0.5in;">
+          <table border="0" summary="Tip">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[提示]" src="images/tip.png" />
+              </td>
+              <th align="left">提示</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>值得说明的是，有时候 LaTeX 会无法生成我们需要的中文目录，比如，什么内容都没有。那么，我们可以在 \end{CJK*}前面加上一行： \newpage 。</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="title.htm">上一页</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="bookmark.htm">下一页</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">第 5 章 标题 </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="latex.htm">起始页</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 第 7 章 书签</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

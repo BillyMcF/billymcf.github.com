@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>第 1 章 安装与开始</title>
+    <link rel="stylesheet" type="text/css" href="css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <link rel="home" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="up" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="prev" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="next" href="ctex.html" title="第 2 章 ctex 宏包" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">第 1 章 安装与开始</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="latex.htm">上一页</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="ctex.htm">下一页</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter" title="第 1 章 安装与开始">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="Basis"></a>第 1 章 安装与开始</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>目录</strong>
+        </p>
+        <dl>
+          <dt>
+            <span class="section">
+              <a href="Basis.htm#id2526455">1.1. 安装</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="Basis.htm#id2526480">1.2. Hello LaTeX</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="Basis.htm#id2526534">1.3. 你好 LaTeX</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <div class="section" title="1.1. 安装">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2526455"></a>1.1. 安装</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+      建议安装 texlive 套装，里面包含有 LaTeX, xeTeX 等，很方便。
+    </p>
+        <div class="orderedlist">
+          <ol class="orderedlist" type="1">
+            <li class="listitem">
+              <p>安装 Texlive</p>
+              <code class="code"># pacman -S texlive-bin texlive-cn texlive-latexextra latex-science</code>
+            </li>
+            <li class="listitem">
+              <p>安装 CJK</p>
+              <code class="code"># pacman -S texlive-langcjk</code>
+            </li>
+            <li class="listitem">
+              <p>安装中文字体</p>
+              <p>我现在使用 xelatex 命令编译 tex 文件，可以直接使用系统中的字体。</p>
+              <p>可以安装 ttf-ms-fonts<sup>[<a id="id2526460" href="#ftn.id2526460" class="footnote">1</a>]</sup>:
+	</p>
+              <code class="code"># yaourt -S ttf-ms-fonts</code>
+              <p>也可以使用 mkfontdir 和 mkfontscale 安装网上下载的字体。</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="section" title="1.2. Hello LaTeX">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2526480"></a>1.2. Hello LaTeX</h2>
+            </div>
+          </div>
+        </div>
+        <p>安装完成之后，我们可以编写一个简单的 tex 文件来测试一下：</p>
+        <p>
+      </p>
+        <pre class="programlisting">
+      \documentclass{article}
+      \begin{document}
+      Hello,\LaTeX
+      \end{document}
+      </pre>
+        <p>
+    </p>
+        <p>将这个文件保存为 test.tex，然后使用 latex<sup>[<a id="id2526502" href="#ftn.id2526502" class="footnote">2</a>]</sup> 命令进行编译</p>
+        <pre class="programlisting">
+    $ latex test.tex
+    </pre>
+        <p>如果没有报错，会在同目录下生成 test.dvi 文件，可以使用 xdvi 等软件打开查看。当然，可以使用下面的命令使之生成 pdf 文件</p>
+        <pre class="programlisting">
+    $ dvipdf test.dvi
+    </pre>
+        <p>或者可以使用 pdflatex 命令直接生成 pdf 文件</p>
+        <pre class="programlisting">
+    $ pdflatex test.tex
+    </pre>
+      </div>
+      <div class="section" title="1.3. 你好 LaTeX">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2526534"></a>1.3. 你好 LaTeX</h2>
+            </div>
+          </div>
+        </div>
+        <p>下面我们测试一下中文支持是否正常</p>
+        <pre class="programlisting">
+    \documentclass{article}
+    \usepackage{CJKutf8}
+    \begin{document}
+    \begin{CJK*}{UTF8}{gbsn}
+    你好，\LaTeX
+    \end{CJK*}
+    \end{document}
+    </pre>
+        <p>同样地，我们使用 pdflatex 命令来编译并查看生成的pdf文件。</p>
+        <div class="mediaobject">
+          <img src="images/hello_latex.png" />
+        </div>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr width="100" align="left" />
+        <div class="footnote">
+          <p><sup>[<a id="ftn.id2526460" href="#id2526460" class="para">1</a>] </sup>这些字体即windows下的宋体、黑体、仿宋、隶书等，使用 ctex 宏包很方便。</p>
+        </div>
+        <div class="footnote">
+          <p><sup>[<a id="ftn.id2526502" href="#id2526502" class="para">2</a>] </sup>当然可以使用诸如 pdflatex, xelatex等命令进行编译，直接生成pdf文件。</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="latex.htm">上一页</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="ctex.htm">下一页</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">LaTeX 学习笔记 </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="latex.htm">起始页</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 第 2 章 ctex 宏包</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

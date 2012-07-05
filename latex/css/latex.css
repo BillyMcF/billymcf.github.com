@@ -1,0 +1,91 @@
+html {
+    background: gray;
+    background-attachment: fixed;
+    background-image: url(../images/linux1.png);
+    background-repeat:no-repeat;
+    background-position: 30px 10px;
+}
+body {
+    margin: 10px 6% 10px 250px;
+    font-family: Verdana;
+    font-size: 11pt;
+    text-align: left;
+    background: #F1F1EA;
+
+    padding: 0em 1em 0em 3em;
+    border: 3px solid #003333;
+    color: black;
+    align: center;
+}
+#org-div-home-and-up a{
+    font-size: 12pt;
+    color: gray;
+}
+
+a { text-decoration: none; color: blue; }
+a:visited { text-decoration: none; color: blue; }  
+a:hover { text-decoration: underline; color: green; }
+#table-of-contents a { color: #D7E7FF; font-style: oblique; }
+#table-of-contents a:visited { color: #C2C5CA;}
+#table-of-contents a:hover { color: blue; }
+
+#table-of-contents {
+    font-size: 10pt;
+    border: none;
+    position: fixed;
+    display: bloc;
+    left: 30px;
+    top: 140px;
+    width: 150px;
+    line-height: 14pt;
+}
+
+#table-of-contents h2 {
+    display:none;
+}
+
+#table-of-contents ul {
+    list-style: none; 
+    margin: 0px 0px 0px 10px; 
+    padding: 0px;
+}
+
+.title {
+    color: green;
+    font-size: 2.4em;
+    margin-bottom: 0;
+}
+
+pre{
+    color: white;
+    font-family: monospace;
+    background: black;
+    font-size: 12pt;
+    padding: 1em;
+}
+pre.ncolor{
+    color: green;
+    background: none;
+    border: none;
+}
+pre.src-ncolor {
+    color: green;
+    background: none;
+    border: none;
+}
+#postamble{
+    font-size: 9pt;
+    color: gray;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+#footer {
+    color: gray;
+    text-align: right;
+}
+
+td.right {
+    width: 50%;
+    vertical-align: middle; 
+    valign: middle;
+}

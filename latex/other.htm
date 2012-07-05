@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Linux 下 Ctex 宏包字体设置</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-11-20"/>
+<meta name="author" content="Bi Meichun"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style><link rel="stylesheet"
+    href="css/latex.css"
+    type="text/css"/>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="latex.htm"> UP </a>
+ |
+ <a accesskey="H" href="../index.htm"> HOME </a>
+</div>
+
+<h1 class="title">Linux 下 Ctex 宏包字体设置</h1>
+<div id="postamble">
+<p class="author"> Author: Bi Meichun
+&nbsp;&nbsp;Date: 2011-11-20</p>
+</div>
+<p>安装 texlive 后，可以使用 ctex 包，用 xelatex 命令编译文件，但是会提示找不到 SIMKAI.TTF 。
+</p>
+<p>
+这时，需要编辑(ArchLinux 环境下) /usr/share/texmf-dist/tex/latex/ctex/fontset/ctex-xecjk-winfonts.def
+</p>
+<p>
+改为如下：
+</p>
+
+
+
+<pre class="src src-latex"><span style="color: #ff7f24;">% </span><span style="color: #ff7f24;">ctex-xecjk-winfonts.def: Windows &#30340; xeCJK &#23383;&#20307;&#35774;&#32622;&#65292;&#40664;&#35748;&#20026;&#20845;&#31181;&#20013;&#26131;&#23383;&#20307;
+</span><span style="color: #ff7f24;">% </span><span style="color: #ff7f24;">vim:ft=tex
+</span>
+<span style="color: #d3d3d3;">\setCJKmainfont</span>[BoldFont={SimHei},ItalicFont={KaiTi_GB2312}]
+  {SimSun}
+<span style="color: #d3d3d3;">\setCJKsansfont</span>{SimHei}
+<span style="color: #d3d3d3;">\setCJKmonofont</span>{FangSong_GB2312}
+
+<span style="color: #d3d3d3;">\setCJKfamilyfont</span>{zhsong}{SimSun}
+<span style="color: #d3d3d3;">\setCJKfamilyfont</span>{zhhei}{SimHei}
+<span style="color: #d3d3d3;">\setCJKfamilyfont</span>{zhkai}{KaiTi_GB2312}
+<span style="color: #d3d3d3;">\setCJKfamilyfont</span>{zhfs}{FangSong_GB2312}
+<span style="color: #d3d3d3;">\setCJKfamilyfont</span>{zhli}{LiSu}
+<span style="color: #d3d3d3;">\setCJKfamilyfont</span>{zhyou}{YouYuan}
+
+<span style="color: #00ffff;">\newcommand</span><span style="color: #00ffff;">*</span>{<span style="color: #87cefa;">\songti</span>}{<span style="color: #87cefa;">\CJKfamily</span><span style="color: #87cefa;">{zhsong}</span>} <span style="color: #ff7f24;">% &#23435;&#20307;
+</span><span style="color: #00ffff;">\newcommand</span><span style="color: #00ffff;">*</span>{<span style="color: #87cefa;">\heiti</span>}{<span style="color: #87cefa;">\CJKfamily</span><span style="color: #87cefa;">{zhhei}</span>}   <span style="color: #ff7f24;">% &#40657;&#20307;
+</span><span style="color: #00ffff;">\newcommand</span><span style="color: #00ffff;">*</span>{<span style="color: #87cefa;">\kaishu</span>}{<span style="color: #87cefa;">\CJKfamily</span><span style="color: #87cefa;">{zhkai}</span>}  <span style="color: #ff7f24;">% &#26999;&#20070;
+</span><span style="color: #00ffff;">\newcommand</span><span style="color: #00ffff;">*</span>{<span style="color: #87cefa;">\fangsong</span>}{<span style="color: #87cefa;">\CJKfamily</span><span style="color: #87cefa;">{zhfs}</span>} <span style="color: #ff7f24;">% &#20223;&#23435;
+</span><span style="color: #00ffff;">\newcommand</span><span style="color: #00ffff;">*</span>{<span style="color: #87cefa;">\lishu</span>}{<span style="color: #87cefa;">\CJKfamily</span><span style="color: #87cefa;">{zhli}</span>}    <span style="color: #ff7f24;">% &#38582;&#20070;
+</span><span style="color: #00ffff;">\newcommand</span><span style="color: #00ffff;">*</span>{<span style="color: #87cefa;">\youyuan</span>}{<span style="color: #87cefa;">\CJKfamily</span><span style="color: #87cefa;">{zhyou}</span>} <span style="color: #ff7f24;">% &#24188;&#22278;
+</span>
+<span style="color: #d3d3d3;">\endinput</span>
+</pre>
+
+
+
+
+<p>
+或者你可以在自己的 tex 文件中设置。
+</p>
+</dvi>
+</body>
+</html>

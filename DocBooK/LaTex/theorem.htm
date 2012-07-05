@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>第 10 章 数学定理</title>
+    <link rel="stylesheet" type="text/css" href="css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <link rel="home" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="up" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="prev" href="graphics.html" title="第 9 章 LaTeX 插图" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">第 10 章 数学定理</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="graphics.htm">上一页</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> </td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter" title="第 10 章 数学定理">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="theorem"></a>第 10 章 数学定理</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>目录</strong>
+        </p>
+        <dl>
+          <dt>
+            <span class="section">
+              <a href="theorem.htm#id2532960">10.1. 定理环境</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="theorem.htm#id2533694">10.2. 定理序号</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="theorem.htm#id2533730">10.3. 去除编号</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="theorem.htm#id2533761">10.4. 使用相同编号</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="theorem.htm#id2533800">10.5. 定理说明</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="theorem.htm#id2533856">10.6. 定理样式</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <p>LaTeX 中提供了 amsthm 宏包设置数学定理环境，我们可以通过该宏包很好地定义定理环境。</p>
+      <p>当然这些环境也可以用于诸如 <span class="bold"><strong>例子</strong></span> <span class="bold"><strong>说明</strong></span> <span class="bold"><strong>注意</strong></span> 等等。 </p>
+      <div class="section" title="10.1. 定理环境">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2532960"></a>10.1. 定理环境</h2>
+            </div>
+          </div>
+        </div>
+        <p>可以通过 \newtheorem 命令设定定理环境：</p>
+        <div class="example">
+          <a id="id2532970"></a>
+          <p class="title">
+            <strong>例 10.1. 使用 \newtheorem 命令设置定理环境</strong>
+          </p>
+          <div class="example-contents">
+            <div class="informaltable">
+              <table border="0">
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td align="left">
+		<pre class="programlisting">
+		\usepackage{amsthm}
+		\newtheorem{theo}{Theorem}
+		\begin{document}
+		\section{Theorem}
+		\begin{theo}
+		This i s a Theorem.
+		\end{theo}
+		\begin{theo}
+		This is a Theorem.
+		\end{theo}
+		\end{document}
+		</pre>
+	      </td>
+                    <td align="left">
+		<div class="mediaobject"><img src="images/t1.png" /></div>
+	      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br class="example-break" />
+      </div>
+      <div class="section" title="10.2. 定理序号">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2533694"></a>10.2. 定理序号</h2>
+            </div>
+          </div>
+        </div>
+        <p>上面的例子中，定理是自动编号的，我们可以设置，让编号使用 section 号： </p>
+        <pre class="programlisting">
+    \newtheorem{theo}{Theorem}[section]
+    </pre>
+        <div class="mediaobject" align="center">
+          <img src="images/t2.png" align="middle" />
+        </div>
+        <p>当然，你可以设置成诸如 chapter, subsection 等，这些都是有效的。 </p>
+      </div>
+      <div class="section" title="10.3. 去除编号">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2533730"></a>10.3. 去除编号</h2>
+            </div>
+          </div>
+        </div>
+        <p>如果不需要编号，你可以在 newtheorem 后面加上一个星号(*) ，比如这样设置： </p>
+        <pre class="programlisting">
+    \newtheorem*{nt}{Note}
+    </pre>
+        <div class="mediaobject" align="center">
+          <img src="images/t3.png" align="middle" />
+        </div>
+      </div>
+      <div class="section" title="10.4. 使用相同编号">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2533761"></a>10.4. 使用相同编号</h2>
+            </div>
+          </div>
+        </div>
+        <p>在我们定义了不同的定理环境后，这些环境默认是各自编号的，如果我们想让这些编号使用统一的计数，那么，在 \newtheorem 后面添加选项完成这样的设置： </p>
+        <pre class="programlisting">
+    \newtheorem{defi}[theo]{Definition}
+    </pre>
+        <p>    这样， defi 环境就继承了 theo 的属性，使得它们使用相同的编号计数： </p>
+        <div class="mediaobject" align="center">
+          <img src="images/t5.png" align="middle" />
+        </div>
+      </div>
+      <div class="section" title="10.5. 定理说明">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2533800"></a>10.5. 定理说明</h2>
+            </div>
+          </div>
+        </div>
+        <p>有时我们需要对定理进行说明，比如是什么什么定理，这时直接在 \begin{theo}后面添加就可以了： </p>
+        <div class="informaltable">
+          <table border="0">
+            <colgroup>
+              <col />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td align="left">
+	      <pre class="programlisting">
+	      \begin{theo}{xxx Theorem}
+	      A B C D
+	      \end{theo}
+	      </pre>
+	    </td>
+                <td align="left">
+	      <div class="mediaobject"><img src="images/t6.png" /></div>
+	    </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="section" title="10.6. 定理样式">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2533856"></a>10.6. 定理样式</h2>
+            </div>
+          </div>
+        </div>
+        <p>我们可以通过 \theoremstyle{} 来设置定理的样式：</p>
+        <div class="informaltable">
+          <table border="0">
+            <colgroup>
+              <col />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td align="left">
+	      <pre class="programlisting">
+	      \theoremstyle{theorem}
+	      \newtheorem{theo}{Theorem}[section]
+
+	      \theoremstyle{definition}
+	      \newtheorem{defi}[theo]{Definition}
+
+	      \theoremstyle{remark}
+	      \newtheorem*{nt}{Note}
+
+	      \begin{document}
+	      \section{Theorem}
+	      \begin{theo}
+	      This is a Theorem.
+	      \end{theo}
+	      \begin{defi}
+	      This is a Definition.
+	      \end{defi}
+	      \begin{nt}
+	      This is a Note.
+	      \end{nt}
+	      </pre>
+	    </td>
+                <td align="left">
+	      <div class="mediaobject"><img src="images/t7.png" /></div>
+	    </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="graphics.htm">上一页</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> </td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">第 9 章 LaTeX 插图 </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="latex.htm">起始页</a>
+          </td>
+          <td width="40%" align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

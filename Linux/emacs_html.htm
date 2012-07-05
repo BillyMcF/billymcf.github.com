@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Emacs html-mode</title>
+    <meta name="author" content="Billy Meichun F" />
+    <meta name="generator" content="screem 0.16.1" />
+    <meta name="description" content="Personal Homepage" />
+    <meta name="keywords" content="Linux Gentoo Latex Emacs Free " />
+    <meta http-equiv="content-type" content="text/html; charset=GB2312" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/core1.css" />
+
+    <script type="text/javascript">
+      
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22006679-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+    </script>
+
+  </head>
+  <body>	
+    <h1>Emacs html-mode
+      <p class="time">2011年3月24日 Bimeichun</p>
+    </h1>
+    
+    <div class="menu">
+      <p class="menu"><a class="menu" href="../index.htm">Home</a> <a class="menu" href="../about.htm">About</a></p>
+      <div class="contents">
+	<dl>
+	  <dt><a href="emacs.htm#sec1">安装</a></dt>
+	  <dt><a href="emacs.htm#sec2">配置</a></dt>
+	<dd>
+	  <dl>
+	    <dt><a href="emacs.htm#sec3">中文输入</a></dt>
+	  </dl>
+	</dd>
+	<dt><a href="emacs.htm#sec4">快捷键</a></dt>
+	<dt><a href="emacs.htm#sec5">Emacs 其他配置</a></dt>
+	<dd>
+	  <dl>
+	    <dt><a href="emacs.htm#sec6">显示行号</a></dt>
+	    <dt><a href="emacs.htm#sec7">颜色</a></dt>
+	    <dt><a href="emacs.htm#sec8">关闭启动画面</a></dt>
+	    <dt><a href="emacs.htm#sec9">时间与工具栏</a></dt>
+	    <dt><a href="emacs.htm#sec10">自动补全</a></dt>
+	  </dl>
+	</dd>
+	<dt><a href="emacs.htm#sec11">Emacs Auctex</a></dt>
+	<dt><a href="emacs.htm#sec12">Emacs Auctex preview</a></dt>
+	<dt>Emacs html-mode</dt>
+      </dl>
+      </div>
+    </div>
+
+    <div class="main">
+      Emacs 默认为我们提供了一个编写 html 文件的模式 -- html-mode 。这给我们带来了不小的方便。当然，你也可以尝试功能更加强大的 <a href="http://tuvalu.santafe.edu/~nelson/tools/">html-helper-mode</a>。
+      <h3>1、开始</h3>
+      当我们打开一个 .html 格式的文件时，emacs 已经自动进入 HTML 模式了，这时你应该可以看到 底部状态条上显示 HTML 字样。 如果没有自动进入，你也可以使用 M-x html-mode 。
+      Emacs 为我们提供了一个简单的 HTML 模板，C-c C-t html ，然后输入title回车就可以调用这个模板了。M-x html-autoview-mode(C-c C-s)，可以在Emacs保存HTML文档时打开浏览器浏览效果。不过我更喜欢在浏览器中打开着编写的网页，保存后按F5就可以查看效果了。
+ 
+      <h3>2、隐藏和显示HTML标记</h3>
+      有时候，我们编写html文件时，整个窗口都是高亮显示的标记，你会不会感觉到眼花呢？想要隐藏这些标记很简单，html-mode 里边只需要 C-c Tab 便可以将这些标记隐藏起来，当要显示它们时，再次按 C-c Tab 就可以了。不用担心隐藏的标记会被我们不小心删除掉，当光标移动到隐藏的标记位置时，Mini-buffer中会显示出来。
+      <h3>3、快捷键</h3>
+      <xmp>
+	C-c C-f : 光标移动到当前所在位置的下一个HTML标签。
+	C-c C-b : 光标移到到当前所在位置的上一个HTML标签。
+	C-c <left>/<right> : 跳到该标签的开始/结束。
+	C-c DEL : 删除标签。
+	C-c 1~6 : 插入标题h1~h6。
+	C-c Enter : 插入段落标记 <p>。
+	C-c / ：闭合b标签。比如可以结合上一条使用，就会自动插入</p>。
+	C-c C-c h : 插入超级链接标记。
+	C-c C-c n : 插入anchor（锚标），便于在文档其他位置跳转到该位置。需要在Mini-buffer中输入锚标名称。
+	C-c C-c u : 插入无序列表标记<ul><li></ul>。
+	C-c C-c o : 插入有序列表标记<ol><li></ol>。
+	C-c C-c p : 插入标记<li>。
+	C-c C-c - : 插入水平线 <hr>。
+	C-c C-c i : 插入图像引用标记 <img>。
+	C-c C-j : 插入换行符<br>。
+      </xmp>
+      更多的按键绑定可以使用 C-c C-h 查看。
+      <h3>4、特殊字符输入</h3>
+      有时需要在html文本中显示html标记，比如&lt;p&gt;，不能直接输入。可以这样： C-c C-n &lt; ，然后输入 p ，然后再 C-c C-n &gt;;。其实 C-c C-n 后输入的字符都不会被html解析而直接输出了。
+     
+    </div>
+
+</div>
+    <div class="navfoot">
+      <hr>
+      <table width="100%" border="0" summary="Footer navigation">
+	<tr>
+	  <td align="left" width="30%" class="n">
+	    <font color="#78D987">
+	      <i> Updated: 2011-03-22</i>
+	  </font></td>
+	  <td align="center" width="40%" class="n">
+	    <font color="#78D987">
+	      <i><a href="../index.htm" target="_parent">Home</a></i>
+	    </font>
+	  </td>
+	  <td align="right" width="30%" class="n"><font color="#78D987"><i>    </i></font>
+	    <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=2">
+	    </script>
+	    <font color="#78D987"><i>    </i></font> 
+	    <script language="javascript" type="text/javascript" src="http://js.users.51.la/4499176.js">
+	    </script> 
+	    <noscript>
+	      <a href="http://www.51.la/?4499176" target="_blank">
+		<img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/4499176.asp" style="border:none" />
+	      </a>
+	    </noscript>
+	  </td>
+	</tr>
+      </table>
+    </div>
+  </body>
+</html>

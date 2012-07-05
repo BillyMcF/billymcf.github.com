@@ -1,0 +1,241 @@
+body{
+    background: gray;
+    margin: 0px 0px 0px 0px; 
+    font-family: sans-serif, Verdana, Arial, Helvetica;
+    background-attachment: fixed;
+    background-image: url(../images/linux1.png);
+    /*  background-position:center center;*/
+    background-repeat:no-repeat;
+    background-position: 30px 10px;
+}
+
+/* 链接 */
+A { 
+    TEXT-DECORATION: none;
+    font-family: monospace,serif,sans-serif;
+}
+A:hover {
+    color: #cce8cf;
+}
+
+a.menu {
+    color: white;
+    font-weight: bold;
+}
+a.menu:hover {
+    color: blue;
+}
+
+h1 {
+    background:#F1F1EA;
+    margin: 20px 100px 0px 240px;
+    font-size: 2.4em;
+    border: 3px solid #003333;
+    border-bottom: none;
+    padding: 0.5em 0em 0.5em 1.5em;
+    color: green;
+}
+
+
+h2 { 
+    font-size: 1.2em;
+    color: white;
+    padding: 1px 0px 2px 7px;
+    background: #669999;
+    margin-right: 1em;
+}
+
+h3 {
+    font-size: 1.0em;
+    color: blue;
+}
+
+h4 {
+    font-size: 1.0em;
+    margin-left: 1.2em;
+}
+
+h5 {
+    font-size: 1.2em;
+    margin-left: 1.4em;
+}
+
+h6 {
+    font-size: 1.2em;
+    margin-left: 1.6em;
+}
+
+pre {
+    font-family: sans-serif;
+    font-size: 12pt;
+    border: #98976B 1px solid;
+    color: #002900;
+    padding: 0.5em 0.5em 0.5em 1em;
+    margin-left: 3em;
+    margin-right: 200px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+pre.syntax {
+    background: lightblue;
+}
+
+pre.floatl {
+    float: left;
+    border: 1px green;
+}
+
+hr {
+    border-style: dashed;
+    border-color: #4C8455;
+}
+
+/* 表格 */
+table {
+    padding: 0em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border: none;
+    border-collapse:collapse
+}  
+
+th {
+    border: solid 1px green;
+    font-style: bold;
+    font-size: 1.0em;
+}
+
+td {
+    font-size: 0.9em;
+    font-style: bold;
+    border: solid 1px green;
+}
+
+td.n {
+    border: none;
+    font-size: 1.0em;
+}
+
+div{
+    word-wrap: break-word; 
+    word-break: normal;
+    overflow: auto;
+}
+
+div.top{
+    position: fixed;
+    width: 150px;
+    margin-top: 10px;
+    margin-right: 20x;
+    margin-left: 50px;
+    border: none;
+}
+
+div.m{
+    background: #5A722C;
+    margin: 120px 0px 0px 30px;
+    position: fixed;
+    width: 160px;
+    text-align: center;
+    border: 1px black solid;
+}
+
+div.contents{
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+    height: auto;
+}
+
+div.menu{
+    background: #FF9900;
+    font-size: 0.8em;
+    line-height: 1.2em;
+    position: fixed;
+    border: 1px solid black;
+    margin: 10px 0px 0px 40px;
+    width: 150px;
+}
+p.menu {
+    margin: 0px 0px 0px 0px;
+    padding: 1em 1em 1em 1em;
+    background: #5A722C;
+}
+
+div.main{
+    padding: 0em 1em 1em 3em;
+    background: #F1F1EA;
+    color: black;
+    margin: 0px 100px 10px 240px;
+    align: center;
+    border: 3px solid #003333;
+    border-top: none;
+}
+
+div.navfoot{
+    margin-left: 230px;
+    margin-right: 20px;
+}
+
+div.newfooter {
+    color: #3E3E3E;
+    font-size: 12pt;
+    float: right;
+    margin-right: 100px;
+}
+
+div.floatl {
+    float: left;
+    margin: 0px 10px 0px 10px;
+    text-align: center;
+}
+
+div.floatr {
+    float: right;
+    margin: 1px 10px 1px 10px;
+    text-align: center;
+}
+
+div.textimg {
+    margin: 1px 10px 1px 10px;
+    text-align: center;
+    background: #EBEBE0;
+}
+
+div.img {
+    text-align: center;
+}
+
+img.floatl {
+    float: left;
+    margin: 5px 10px 5px 10px;
+}
+
+img.right {
+    float: right;
+    margin: 5px 10px 5px 10px;
+}
+
+span.first {
+    float:left;
+    width:0.7em;
+    font-size:300%;
+    font-family:algerian,courier;
+    line-height:80%;
+    padding: 0.1em 0.3em 0em 0.1em;
+}
+span.en {
+    float:left;
+    width:0.7em;
+    font-size:300%;
+    font-family:algerian,courier;
+    line-height:80%;
+    padding: 0px 0px 2px 2px;
+}
+
+p.time {
+    font-size: 9pt;
+    color: gray;
+    padding-left: 1em;
+}
+

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>LaTeX 字体</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-12-04 "/>
+<meta name="author" content="Billy"/>
+<meta name="description" content=""/>
+<meta name="keywords" content="Linux LaTeX Font"/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="latex.htm"> UP </a>
+ |
+ <a accesskey="H" href="../index.htm"> HOME </a>
+</div>
+
+<h1 class="title">LaTeX 字体</h1>
+<div id="postamble">
+<p class="author"> Author: Billy
+&nbsp;&nbsp;Date: 2011-12-04 </p>
+</div>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">字体样式 </a></li>
+<li><a href="#sec-2">字体尺寸 </a></li>
+<li><a href="#sec-3">ctex 宏包 </a></li>
+<li><a href="#sec-4">其他 </a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">字体样式 </h2>
+<div class="outline-text-2" id="text-1">
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" /><col align="left" />
+</colgroup>
+<thead>
+<tr><th scope="col">命令</th><th scope="col">简写</th><th scope="col">说明</th></tr>
+</thead>
+<tbody>
+<tr><td>\textrm{}</td><td>\rm</td><td>罗马体字族</td></tr>
+<tr><td>\textsf{}</td><td>\sf</td><td>等线体字族</td></tr>
+<tr><td>\texttt{}</td><td>\tt</td><td>打字机字族</td></tr>
+<tr><td>\textbf{}</td><td>\bf</td><td>粗宽序列</td></tr>
+<tr><td>\textmd{}</td><td></td><td>常规序列</td></tr>
+<tr><td>\textit{}</td><td>\it</td><td>斜体形状</td></tr>
+<tr><td>\textsc{}</td><td>\sc</td><td>小型大写形状</td></tr>
+<tr><td>\textsl{}</td><td>\sl</td><td>倾斜形状</td></tr>
+<tr><td>\textup{}</td><td></td><td>直立形状</td></tr>
+<tr><td>\textnormal{}</td><td></td><td>常规字体</td></tr>
+<tr><td>\emph{}</td><td>\em</td><td>强调文字</td></tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>
+效果:
+</li>
+</ul>
+
+
+<div style="text-align: center">
+<p><img src="images/font1.png"  alt="./images/font1.png" />    
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">字体尺寸 </h2>
+<div class="outline-text-2" id="text-2">
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="right" /><col align="right" /><col align="right" />
+</colgroup>
+<thead>
+<tr><th scope="col">命令</th><th scope="col">10pt(默认值)</th><th scope="col">11pt</th><th scope="col">12pt</th></tr>
+</thead>
+<tbody>
+<tr><td>\tiny</td><td>5</td><td>6</td><td>6</td></tr>
+<tr><td>\scriptsize</td><td>7</td><td>8</td><td>8</td></tr>
+<tr><td>\footnotesize</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td>\small</td><td>9</td><td>10</td><td>11</td></tr>
+<tr><td>\normalsize</td><td>10</td><td>11</td><td>12</td></tr>
+<tr><td>\large</td><td>12</td><td>12</td><td>14</td></tr>
+<tr><td>\Large</td><td>14</td><td>14</td><td>17</td></tr>
+<tr><td>\LARGE</td><td>17</td><td>17</td><td>20</td></tr>
+<tr><td>\huge</td><td>20</td><td>20</td><td>25</td></tr>
+<tr><td>\Huge</td><td>25</td><td>25</td><td>25</td></tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>
+效果:
+</li>
+</ul>
+
+
+<div style="text-align: center">
+<p><img src="images/font2.png"  alt="./images/font2.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">ctex 宏包 </h2>
+<div class="outline-text-2" id="text-3">
+
+<p>ctex 宏包中可以这样设定字体大小:
+</p>
+
+
+<pre class="example">\zihao{代码}
+</pre>
+
+
+
+
+
+
+<div style="text-align: center">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption>对应表</caption>
+<colgroup><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" />
+</colgroup>
+<tbody>
+<tr><td>字号</td><td>初号</td><td>小初</td><td>一号</td><td>小一</td><td>二号</td><td>小二</td><td>三号</td><td>小三</td><td>四号</td><td>小四</td><td>五号</td><td>小五</td><td>六号</td><td>小六</td><td>七号</td><td>八号</td></tr>
+<tr><td>代码</td><td>0</td><td>-0</td><td>1</td><td>-1</td><td>2</td><td>-2</td><td>3</td><td>-3</td><td>4</td><td>-4</td><td>5</td><td>-5</td><td>6</td><td>-6</td><td>7</td><td>8</td></tr>
+</tbody>
+</table>
+
+
+</div>
+
+<ul>
+<li>
+效果：
+</li>
+</ul>
+
+
+<div style="text-align: center">
+<p><img src="images/font3.png"  alt="./images/font3.png" />
+</p>
+</div>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">其他 </h2>
+<div class="outline-text-2" id="text-4">
+
+<p>英文与中文之间如果没有空格，可以使用 ~ 号加入空格：
+</p>
+
+
+<pre class="example">\LaTeX~学习笔记
+</pre>
+
+
+
+
+<p>
+<a href="http://www.bimeichun.com/latex/files/3font.tex">本页例程</a>
+</p>
+
+
+<div id="copyright">
+<p>Copyright &copy; 2011, bimeichun.com</p>
+<p>bimeichun@163.com</p>
+</div>
+
+
+<div style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+<script type="text/javascript" src="http://js.users.51.la/4499176.js">
+</script>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>

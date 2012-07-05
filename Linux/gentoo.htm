@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Gentoo 使用笔记</title>
+    <meta name="author" content="Billy Meichun F" />
+    <meta name="generator" content="screem 0.16.1" />
+    <meta name="description" content="Personal Homepage" />
+    <meta name="keywords" content="Linux Gentoo Latex Emacs Free " />
+    <meta http-equiv="content-type" content="text/html; charset=GB2312" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/core1.css" />
+
+    <script type="text/javascript">
+      
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22006679-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+    </script>
+
+  </head>
+  <body>	
+    <h1>Gentoo 使用笔记
+      <p class="time">2011年3月1日 Bimeichun</p>
+    </h1>
+<div class="menu">
+  <p class="menu"><a class="menu" href="../index.htm">Home</a> <a class="menu" href="../about.htm">About</a></p>
+  <div class="contents">
+    <dl>
+      <dt>
+	<a href="#sec1">使用 ext4 无法启动的问题</a>
+      </dt>
+      <dt>
+	<a href="#sec2">安装中时间问题</a>
+      </dt>
+      <dt>
+	<a href="#sec3">U盘挂载 Not Authorized</a>
+      </dt>
+      <dt>
+	<a href="#sec4">Flash 插件</a>
+      </dt>
+      <dt>
+	<a href="#sec5">进X后鼠标键盘没响应</a>
+      </dt>
+      <dt>
+	<a href="#sec6">安装 emacs-cvs</a>
+      </dt>
+      <dt>
+	<a href="#sec7">layman gentoo-china</a>
+      </dt>
+      <dt>
+	<a href="#sec8">masked 和 license</a>
+      </dt>
+      <dt>
+	<a href="#sec9">麦克风</a>
+      </dt>
+      <dt>
+	<a href="#sec10">挂载 ntfs 分区</a>
+      </dt>
+      <dt>
+	<a href="#sec11">自动选择镜像服务器</a>
+      </dt>
+      <dt>
+	<a href="#sec12">无线网卡驱动</a>
+      </dt>
+      <dt>
+	<a href="#sec13">蓝牙 bluetooth</a>
+      </dt>
+    </dl>
+  </div>
+</div>
+    <div class="main">
+<h2><a name="sec1" id="sec1"></a>
+Gentoo 使用 ext4 无法启动的问题</h2>
+
+<p class="first">编译内核的时候，要把 file system 下对ext4的支持选项选上，并且编译进内核里面，而不是模块。</p>
+
+<p>emerge e2fsprogs</p>
+
+<p>e2fsprogs 是对ext4等的支持</p>
+
+<p>nano -w /etc/fstab</p>
+
+<pre class="example">
+...
+kernel /boot/kernel-2.6.36-gentoo-r5 root=/dev/sda3 rootfs=ext4
+...
+</pre>
+记得如果你使用的 / 分区是ext4 ，请加上 rootfs=ext4
+
+
+<h2><a name="sec2" id="sec2"></a>
+Gentoo 安装中时间问题</h2>
+
+<p class="first">Gentoo安装时要注意时间是否正确了。否则有可能出现循环编译。出现循环编译时，可以查看log，然后查找出是那个包上出现了循环编译，重新编译安装那个包就可以了。</p>
+
+<p>为了防止由于时间不对而引起系统各种诡异的情况，在安装的时候，应该注意时间。有两次需要注意。</p>
+
+<ul>
+<li>第一次是安装开始的是时候，date 查看时间，如果不对，请用诸如 date 031713302011 格式设定时间。</li>
+<li>第二次出现时间差错应该在cp时区到/etc/local/time之后，这时，时间会提前8小时。更正后再emerge软件。</li>
+</ul>
+
+
+<h2><a name="sec3" id="sec3"></a>
+Gentoo U盘挂载 Not Authorized</h2>
+
+<p class="first">这时，可以修改 nano /usr/share/polkit-1/actions/org.freedesktop.udisks.policy 文件:</p>
+
+<pre class="example">
+&lt;action id=&quot;org.freedesktop.udisks.filesystem-mount&quot;&gt;
+...
+&lt;allow_any&gt;no&lt;/allow_any&gt; # 将  no 改成 yes
+...
+</pre>
+
+
+<h2><a name="sec4" id="sec4"></a>
+Gentoo Flash 插件</h2>
+
+<p class="first">下载adobe flash player for linux 解压得到 libflashplayer.so ，将其复制到 /usr/lib64/firefox/plugins/ 目录下。</p>
+
+<p>chromium 则复制到 /usr/lib64/chromium-browser/plugins/目录下，没有这个目录就新建一个。</p>
+
+
+<h2><a name="sec5" id="sec5"></a>
+Gentoo 进X后鼠标键盘没响应</h2>
+
+<p class="first">这是热插拔的问题。</p>
+
+<ul>
+<li>emerge xf86-input-evdev</li>
+<li>emerge hal 并且启动之 /etc/init.d/hal start
+要让hal开机启动，可以 rc-update add hal default</li>
+<li>groupadd -g 81 dbus</li>
+<li>useradd -c 'System message bus' -u 81 -g dbus -d '/' -s /bin/false dbus</li>
+</ul>
+
+
+<h2><a name="sec6" id="sec6"></a>
+Gentoo 安装 emacs-cvs</h2>
+
+<ul>
+<li>emerge cvs</li>
+<li>cvs -z3 -d:pserver:<a href="mailto:anonymous@cvs.savannah.gnu.org">anonymous@cvs.savannah.gnu.org</a>:/sources/emacs co emacs</li>
+<li>cd emacs</li>
+<li>./configure &mdash;prefix=/usr/local &mdash;with-x-toolkit=gtk  &mdash;with-xpm  &mdash;with-xft  &mdash;with-freetype &mdash;with-jpeg  &mdash;with-tiff &mdash;with-gif &mdash;with-png &mdash;with-x &mdash;enable-font-backend</li>
+<li>make bootstrap</li>
+<li>make info</li>
+<li>src/emacs -q 没有问题，继续安装</li>
+<li>sudo make install</li>
+<li>make clean</li>
+</ul>
+
+
+<h2><a name="sec7" id="sec7"></a>
+Gentoo layman</h2>
+
+<pre class="example">
+# sed -i -e 's/\(nocheck.*\)no/\1yes/' /etc/layman/layman.cfg
+# echo &quot;source /usr/local/portage/layman/make.conf&quot; &gt;&gt; /etc/make.conf
+# mkdir -p /usr/local/portage/layman
+# echo PORTDIR_OVERLAY=\&quot;\&quot; &gt; /usr/local/portage/layman/make.conf
+# USE=&quot;-nowebdav&quot; emerge subversion
+# layman -f -a gentoo-china
+</pre>
+更新所有layman管理的overlay
+
+<p>$ sudo layman -S</p>
+
+<p>注意编辑/usr/local/portage/layman/make.conf使其指向gentoo-china的路径
+PORTDIR_OVERLAY=&quot;/var/lib/layman/gentoo-china&quot;</p>
+
+<p>然后就可以用emerge来安装gentoo-china中的软件了。</p>
+
+
+<h2><a name="sec8" id="sec8"></a>
+Gentoo masked 和 license</h2>
+
+<ul>
+<li>masked
+编辑或者新建/etc/portage/package.keywords,加入被mask的软件。比如:</li>
+</ul>
+
+<pre class="example">
+net-im/openfetion
+</pre>
+
+<ul>
+<li>License
+诸如 Virtualbox-bin 和 skype 的 license问题，可以在 /etc/make.conf 中添加</li>
+</ul>
+
+<pre class="example">
+ACCEPT_LICENSE=&quot;PUEL skype-eula&quot;
+</pre>
+
+
+<h2><a name="sec9" id="sec9"></a>
+Gentoo 麦克风</h2>
+
+<p class="first">alsamixer 然后按 F5 显示所有选项，移动到 CAPTURE 上按 空格 键，这时CAPTURE上会出现 L  R 的字样。现在可以使用麦克风了。调节CAPTURE以调节你麦克风的灵敏度。</p>
+
+
+<h2><a name="sec10" id="sec10"></a>
+Gentoo 挂载 ntfs 分区</h2>
+
+<p class="first">首先需要安装 ntfs3g:</p>
+
+<pre class="example">
+$ sudo emerge ntfs3g
+</pre>
+这时会自动安装 fuse 。
+
+<p>如果你的内核没有打开 fuse 支持，请打开并重新编译内核：</p>
+
+<pre class="example">
+File systems ---&gt;
+   [M] FUSE (Filesystem in Userspace Support
+</pre>
+sudo mount -t ntfs-3g /dev/sda8 /share -o rw
+
+<p>如果提示 没有加载 fuse 加载便是了 sudo modprobe fuse</p>
+
+
+<h2><a name="sec11" id="sec11"></a>
+Gentoo 自动选择镜像服务器</h2>
+
+<p class="first"># mirrorselect -D -s10</p>
+
+<p>这时 mirrorselect 将从可用的gentoo镜像服务器中，测试每个服务器的速度(每个下载100K文件），将速度最快的 10 个服务器添加进 /etc/make.conf 里面。</p>
+
+
+<h2><a name="sec12" id="sec12"></a>
+Gentoo 无线网卡驱动</h2>
+
+<p class="first">我的笔记本是 DELL D630</p>
+
+<pre class="example">
+$lspci
+...
+03:01.4 FireWire (IEEE 1394): O2 Micro, Inc. Firewire (IEEE 1394) (rev 02)
+09:00.0 Ethernet controller: Broadcom Corporation NetXtreme BCM5755M Gigabit Ethernet PCI Express (rev 02)
+0c:00.0 Network controller: Broadcom Corporation BCM4312 802.11a/b/g (rev 01)
+...
+</pre>
+
+<ul>
+<li>首先你需要安装 b43-fwcutter: sudo emerge b43-fwcutter</li>
+<li>然后下载(右键另存为) <a href="http://www.bimeichun.com/Linux/files/broadcom-wl-4.80.53.0.tar.bz2">broadcom-wl-4.80.53.0.tar.bz2</a> 如果这个链接不能使用，请到这里下载 <a href="http://downloads.openwrt.org/sources/broadcom-wl-4.80.53.0.tar.bz2">http://downloads.openwrt.org/sources/broadcom-wl-4.80.53.0.tar.bz2</a> 。
+这个文件有点特别，你需要使用 7z 来解压。gentoo下如果没有安装 p7zip 请</li>
+</ul>
+
+<pre class="example">
+sudo emerge p7zip
+</pre>
+然后使用命令
+
+<pre class="example">
+$7z x broadcom-wl-4.80.53.0.tar.bz2
+$tar -xf broadcom-wl-4.80.53.0.tar
+</pre>
+进入 解压出来的文件夹并进入kmod子目录
+
+<pre class="example">
+$cd broadcom-wl-4.80.53.0/kmod
+</pre>
+下面，你需要做的其实很简单
+
+<pre class="example">
+$sudo b43-fwcutter -w /lib/firmware wl_apsta.o
+$sudo modprobe b43
+</pre>
+好了，驱动安装完了。我使用的是wicd来连接无线网络。记得在wicd 的设置(Preferences)里面设置一下 network interfaces：
+<center>
+<p><img src="images/wicd.png" alt=""></p>
+</center>
+
+
+<h2><a name="sec13" id="sec13"></a>
+Gentoo 蓝牙 bluetooth</h2>
+
+<p class="first">编译内核。我的蓝牙是USB蓝牙。</p>
+
+<pre class="example">
+Networking --&gt;
+&lt;M&gt; Bluetooth subsystem support --&gt;
+Bluetooth device drivers ---&gt;
+&lt;M&gt; HCI USB driver
+
+Networking --&gt;
+&lt;M&gt; Bluetooth subsystem support --&gt;
+&lt;M&gt; L2CAP protocol support
+&lt;M&gt; RFCOMM protocol support
+[*] RFCOMM TTY support
+</pre>
+重新插上蓝牙设备就会自动加载响应的模块。
+
+<p>软件可以使用 gnome-bluetooth 。</p>
+
+
+ </div>
+    <div class="navfoot">
+      <hr>
+      <table width="100%" border="0" summary="Footer navigation">
+	<tr>
+	  <td align="left" width="30%" class="n">
+	    <font color="#78D987">
+	      <i> Updated: 2011-03-22</i>
+	  </font></td>
+	  <td align="center" width="40%" class="n">
+	    <font color="#78D987">
+	      <i><a href="../index.htm" target="_parent">Home</a></i>
+	    </font>
+	  </td>
+	  <td align="right" width="30%" class="n"><font color="#78D987"><i> 您是第</i></font>
+	    <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=2">
+	    </script>
+	    <font color="#78D987"><i>位访问者</i></font> 
+	    <script language="javascript" type="text/javascript" src="http://js.users.51.la/4499176.js">
+	    </script> 
+	    <noscript>
+	      <a href="http://www.51.la/?4499176" target="_blank">
+		<img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/4499176.asp" style="border:none" />
+	      </a>
+	    </noscript>
+	  </td>
+	</tr>
+      </table>
+    </div>
+  </body>
+</html>

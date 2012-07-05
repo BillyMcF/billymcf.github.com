@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>第 8 章 数学公式</title>
+    <link rel="stylesheet" type="text/css" href="css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <link rel="home" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="up" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="prev" href="bookmark.html" title="第 7 章 书签" />
+    <link rel="next" href="graphics.html" title="第 9 章 LaTeX 插图" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">第 8 章 数学公式</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="bookmark.htm">上一页</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="graphics.htm">下一页</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter" title="第 8 章 数学公式">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="math"></a>第 8 章 数学公式</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>目录</strong>
+        </p>
+        <dl>
+          <dt>
+            <span class="section">
+              <a href="math.htm#id2531499">8.1. 数学环境</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="math.htm#id2531545">8.2. 字符</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="math.htm#id2531562">8.3. 希腊字母</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="math.htm#id2531579">8.4. 上标和下标</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="math.htm#id2531627">8.5. 分数、开方</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="math.htm#id2531665">8.6. 数学函数</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="math.htm#id2531816">8.7. 插入文本</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="math.htm#id2531848">8.8. 省略号</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <div class="section" title="8.1. 数学环境">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2531499"></a>8.1. 数学环境</h2>
+            </div>
+          </div>
+        </div>
+        <p>数学宏包是 amsmath</p>
+        <p>LaTeX 中，提供了以下几种数学环境：</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>$...$ 或者 \(...\)</p>
+              <p>行内公式</p>
+            </li>
+            <li class="listitem">
+              <p>\[...]\ 或者 $$...$$</p>
+              <p>公式单独占一行</p>
+            </li>
+            <li class="listitem">
+              <p>equation 环境</p>
+              <p>公式独占一行，并且自动被添加编号</p>
+              <p>如果不想公式被编号，则可以这样使用<code class="code">\begin{equation*}...\end{equation*}</code></p>
+            </li>
+          </ul>
+        </div>
+        <div class="mediaobject" align="center">
+          <img src="images/3.png" align="middle" />
+        </div>
+        <p>如果你想像我一样使用 preview 查看数学公式，请参考这里<a class="ulink" href="../../Linux/preview.htm" target="_top">preview 预览公式</a>。如果提示找不到images，也许是因为你编译emacs及auctex时缺少了点参数。具体请参照auctex wiki。</p>
+      </div>
+      <div class="section" title="8.2. 字符">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2531545"></a>8.2. 字符</h2>
+            </div>
+          </div>
+        </div>
+        <p>普通字符在数学公式中含义一样，但需要使用 # $ % ^ &amp; ~ _ \ { } 这些字符时，需要在他们前面加上\ , 例如 \{ 。 </p>
+      </div>
+      <div class="section" title="8.3. 希腊字母">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2531562"></a>8.3. 希腊字母</h2>
+            </div>
+          </div>
+        </div>
+        <p>请点击<a class="ulink" href="http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html" target="_top">这里</a>。</p>
+      </div>
+      <div class="section" title="8.4. 上标和下标">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2531579"></a>8.4. 上标和下标</h2>
+            </div>
+          </div>
+        </div>
+        <p>用 <span class="bold"><strong>^</strong></span> 表示上标，用 <span class="bold"><strong>_</strong></span> 表示下标。</p>
+        <pre class="programlisting">
+    $$F(t) = \sum_{n=-\infty}^\infty F_n e^{j2 \pi nf_0 t}$$
+    </pre>
+        <div class="mediaobject" align="center">
+          <img src="images/2.png" align="middle" />
+        </div>
+        <div class="important" title="重要" style="margin-left: 0.5in; margin-right: 0.5in;">
+          <table border="0" summary="Important">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[重要]" src="images/important.png" />
+              </td>
+              <th align="left">重要</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">如果上标或者下标不止一个字符，你需要使用 {} 将它们包括在一起。 </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="section" title="8.5. 分数、开方">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2531627"></a>8.5. 分数、开方</h2>
+            </div>
+          </div>
+        </div>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>分数:<code class="code"> \frac{分子}{分母}</code></p>
+            </li>
+            <li class="listitem">
+              <p>开方:<code class="code"> \sqrt{}</code></p>
+            </li>
+            <li class="listitem">
+              <p>n 次方: <code class="code">\sqrt[n]{}</code></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="section" title="8.6. 数学函数">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2531665"></a>8.6. 数学函数</h2>
+            </div>
+          </div>
+        </div>
+        <p>LaTeX 提供了诸如以下命令排版的一些重要的数学函数：</p>
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="id2531676">
+          <caption>表 8.1. 数学函数</caption>
+          <colgroup><col align="left" /><col align="left" /><col align="left" /><col align="left" />
+      </colgroup>
+          <tbody>
+            <tr>
+              <td align="left">cos</td>
+              <td align="left">sin</td>
+              <td align="left">tan</td>
+              <td align="left">cot</td>
+            </tr>
+            <tr>
+              <td align="left">cosh</td>
+              <td align="left">sinh</td>
+              <td align="left">tanh</td>
+              <td align="left">coth</td>
+            </tr>
+            <tr>
+              <td align="left">lim</td>
+              <td align="left">liminf</td>
+              <td align="left">log</td>
+              <td align="left">lg</td>
+            </tr>
+            <tr>
+              <td align="left">ln</td>
+              <td align="left">max</td>
+              <td align="left">min</td>
+              <td align="left">Pr</td>
+            </tr>
+            <tr>
+              <td align="left">…</td>
+              <td align="left">…</td>
+              <td align="left">…</td>
+              <td align="left">…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section" title="8.7. 插入文本">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2531816"></a>8.7. 插入文本</h2>
+            </div>
+          </div>
+        </div>
+        <p>有时我们需要在公式中输入添加文本，这时可以使用 \mbox{}: </p>
+        <pre class="programlisting">
+    $$E_T = \int_{-\infty}^\infty f_T^2(t)d_t = \int_{-\infty}^\infty |F_T(f)|^2d_f \ \ \mbox{(根据帕色瓦尔定理)}$$
+    </pre>
+        <div class="mediaobject" align="center">
+          <img src="images/1.png" align="middle" />
+        </div>
+      </div>
+      <div class="section" title="8.8. 省略号">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2531848"></a>8.8. 省略号</h2>
+            </div>
+          </div>
+        </div>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>\ldots 与文本底线对齐的省略号</p>
+            </li>
+            <li class="listitem">
+              <p>\cdots 与文本中线对齐的省略号</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="bookmark.htm">上一页</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="graphics.htm">下一页</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">第 7 章 书签 </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="latex.htm">起始页</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 第 9 章 LaTeX 插图</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

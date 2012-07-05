@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>第 9 章 LaTeX 插图</title>
+    <link rel="stylesheet" type="text/css" href="css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <link rel="home" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="up" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="prev" href="math.html" title="第 8 章 数学公式" />
+    <link rel="next" href="theorem.html" title="第 10 章 数学定理" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">第 9 章 LaTeX 插图</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="math.htm">上一页</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="theorem.htm">下一页</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter" title="第 9 章 LaTeX 插图">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="graphics"></a>第 9 章 LaTeX 插图</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>目录</strong>
+        </p>
+        <dl>
+          <dt>
+            <span class="section">
+              <a href="graphics.htm#id2531450">9.1. 准备</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="graphics.htm#id2531286">9.2. graphicx 宏包</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="graphics.htm#id2532631">9.3. 图形标题</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="graphics.htm#id2532738">9.4. 调整间距</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="graphics.htm#id2532868">9.5. 修改 Figure 字样</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <div class="section" title="9.1. 准备">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2531450"></a>9.1. 准备</h2>
+            </div>
+          </div>
+        </div>
+        <p>TeX 对 .eps 格式的图片支持最好，所以，我们有必要将图片转换为 eps 格式。</p>
+        <p>下面是我正在使用的方法：</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                <span class="bold">
+                  <strong>使用 convert 命令</strong>
+                </span>
+              </p>
+              <code class="code">$ convert 1.jpg 1.eps</code>
+            </li>
+            <li class="listitem">
+              <p>
+                <span class="bold">
+                  <strong>使用 sam2p</strong>
+                </span>
+              </p>
+              <p>我以前通过脚本使用 scrot 截图并直接转换为 eps 图片，下面是脚本内容。你可以把这个脚本放在 /usr/bin 下，然后赋予可执行权限: <code class="code">chmod +x seps</code>，这样方便在其他地方使用。</p>
+              <pre class="programlisting">
+	#!/bin/bash
+	if [ $# -ne 0 ]; then
+	name=$1
+	else
+	name=tmp
+	fi
+	scrot -s $name.jpg
+	sam2p $name.jpg $name.eps
+	rm $name.jpg
+	</pre>
+              <p>这样，就可以通过 <span class="bold"><strong>$ seps 文件名</strong></span>使用这个脚本了。</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="section" title="9.2. graphicx 宏包">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2531286"></a>9.2. graphicx 宏包</h2>
+            </div>
+          </div>
+        </div>
+        <p>通过以下命令插入图片：</p>
+        <pre class="programlisting">
+    \includegraphics[选项]{eps图片}
+    </pre>
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="id2532415">
+          <caption>表 9.1. 插图选项</caption>
+          <colgroup><col align="left" /><col align="left" />
+      </colgroup>
+          <thead>
+            <tr>
+              <th align="left">选项</th>
+              <th align="left">说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left">height</td>
+              <td align="left">图形的高度（可为任何 TeX 度量单位)</td>
+            </tr>
+            <tr>
+              <td align="left">totalheight</td>
+              <td align="left">图形的全部高度（可为任何 TeX 度量单位）</td>
+            </tr>
+            <tr>
+              <td align="left">width</td>
+              <td align="left">图形的宽度 （可为任何 TeX 度量单位）</td>
+            </tr>
+            <tr>
+              <td align="left">scale</td>
+              <td align="left">图形缩放因子，比如 scale=0.5，即为原大小的一半</td>
+            </tr>
+            <tr>
+              <td align="left">angle</td>
+              <td align="left">旋转角度，以度为单位，顺时针为正</td>
+            </tr>
+            <tr>
+              <td align="left">origin</td>
+              <td align="left">指定图形绕某个点旋转</td>
+            </tr>
+            <tr>
+              <td align="left">bb</td>
+              <td align="left">设定 BoundingBox 的值</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="example">
+          <a id="id2532548"></a>
+          <p class="title">
+            <strong>例 9.1. 插图选项顺序先后可能造成差别</strong>
+          </p>
+          <div class="example-contents">
+            <div class="informaltable">
+              <table border="0">
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td align="left">
+		<pre class="programlisting">
+		\includegraphics[angle=90,totalheight=2cm]{tex.eps}
+		\includegraphics[totalheight=2cm,angle=90]{tex.eps}
+		</pre>
+	      </td>
+                    <td align="left">
+		<div class="mediaobject" align="center"><img src="images/4.png" align="middle" /></div>
+	      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="note" title="注意" style="margin-left: 0.5in; margin-right: 0.5in;">
+              <table border="0" summary="Note">
+                <tr>
+                  <td rowspan="2" align="center" valign="top" width="25">
+                    <img alt="[注意]" src="images/note.png" />
+                  </td>
+                  <th align="left">注意</th>
+                </tr>
+                <tr>
+                  <td align="left" valign="top">
+                    <p>第一条命令是 <span class="bold"><strong>先旋转，后缩放。</strong></span></p>
+                    <p>第二条命令是 <span class="bold"><strong>先缩放，后旋转。</strong></span></p>
+                    <p>所以，它们得到的结果是不一样的。</p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br class="example-break" />
+      </div>
+      <div class="section" title="9.3. 图形标题">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2532631"></a>9.3. 图形标题</h2>
+            </div>
+          </div>
+        </div>
+        <p>可以通过 \caption 命令设定图形的标题，它的位置决定标题是位于图形的上方还是下方：</p>
+        <div class="example">
+          <a id="id2532642"></a>
+          <p class="title">
+            <strong>例 9.2. 使用 \caption 命令设定图形标题</strong>
+          </p>
+          <div class="example-contents">
+            <div class="informaltable">
+              <table border="0">
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td align="left">
+		<pre class="programlisting">
+		\begin{figure}
+		\centering
+		\caption{Caption}  %标题在上方
+		\includegraphics[scale=.5]{tex.eps}
+		\end{figure}
+		</pre>
+	      </td>
+                    <td align="left">
+		<div class="mediaobject"><img src="images/5.png" /></div>
+	      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="informaltable">
+              <table border="0">
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td align="left">
+		<pre class="programlisting">
+		\begin{figure}
+		\centering
+		\includegraphics[scale=.5]{tex.eps}
+		\caption{Caption}  %标题在下方
+		\end{figure}
+		</pre>
+	      </td>
+                    <td align="left">
+		<div class="mediaobject"><img src="images/7.png" /></div>
+	      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br class="example-break" />
+      </div>
+      <div class="section" title="9.4. 调整间距">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2532738"></a>9.4. 调整间距</h2>
+            </div>
+          </div>
+        </div>
+        <p>标题的上下间距 \abovecaptionskip 和 \belowcaptionskip 缺省分别为 10pt 和 0pt,可以使用 \setlength 和 \addtolength 来修改它们。 </p>
+        <div class="example">
+          <a id="id2532750"></a>
+          <p class="title">
+            <strong>例 9.3. 调整标题与图形间距</strong>
+          </p>
+          <div class="example-contents">
+            <div class="informaltable">
+              <table border="0">
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td align="left">
+		<pre class="programlisting">
+		%标题在上
+		\begin{figure}
+		\setlength{\abovecaptionskip}{5pt}
+		\setlength{\belowcaptionskip}{10pt}
+		\centering
+		\caption{Caption}
+		\includegraphics[scale=.5]{tex.eps}
+		\end{figure}
+		</pre>
+	      </td>
+                    <td align="left">
+		<div class="mediaobject"><img src="images/6.png" /></div>
+	      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="informaltable">
+              <table border="0">
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td align="left">
+		<pre class="programlisting">
+		%标题在下
+		\begin{figure}
+		\setlength{\abovecaptionskip}{0pt}
+		\setlength{\belowcaptionskip}{10pt}
+		\centering
+		\includegraphics[scale=.5]{tex.eps}
+		\caption{Caption}
+		\end{figure}
+		</pre>
+	      </td>
+                    <td align="left">
+		<div class="mediaobject"><img src="images/8.png" /></div>
+	      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br class="example-break" />
+        <div class="tip" title="提示" style="margin-left: 0.5in; margin-right: 0.5in;">
+          <table border="0" summary="Tip">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[提示]" src="images/tip.png" />
+              </td>
+              <th align="left">提示</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>可以将 \setlength 放在导言区 <sup>[<a id="id2532851" href="#ftn.id2532851" class="footnote">4</a>]</sup>，这样可以对整个文档起作用。</p>
+                <p>也可以这样定义，使得标题在下方时使用 \bottomcaption，在上方时使用 \topcaption：</p>
+                <pre class="programlisting">
+    \newcommand{\topcaption}{%
+    \setlength{\abovecaptionskip}{0pt}%
+    \setlength{\belowcaptionskip}{10pt}%
+    \caption}
+
+    \newcommand{\bottomcaption}{%
+    \setlength{\abovecaptionskip}{10pt}%
+    \setlength{\belowcaptionskip}{0pt}%
+    \caption}#+end_src
+    </pre>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="section" title="9.5. 修改 Figure 字样">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2532868"></a>9.5. 修改 Figure 字样</h2>
+            </div>
+          </div>
+        </div>
+        <p>可以使用 \renewcommand 命令将 Figure 字样修改为 “图”或者其他字样：</p>
+        <div class="informaltable">
+          <table border="0">
+            <colgroup>
+              <col />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td align="left">
+	      <pre class="programlisting">
+	      \begin{figure}
+	      \centering
+	      \includegraphics[scale=.5]{tex.eps}
+	      \renewcommand{\figurename}{图 }
+	      \caption{Caption}
+	      \end{figure}
+	      </pre>
+	    </td>
+                <td align="left">
+	      <div class="mediaobject"><img src="images/9.png" /></div>
+	    </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr width="100" align="left" />
+        <div class="footnote">
+          <p><sup>[<a id="ftn.id2532851" href="#id2532851" class="para">4</a>] </sup>导言区即为 \begin{document} 前的部分，通常用于设定文档相关选项。</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="math.htm">上一页</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="theorem.htm">下一页</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">第 8 章 数学公式 </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="latex.htm">起始页</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 第 10 章 数学定理</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

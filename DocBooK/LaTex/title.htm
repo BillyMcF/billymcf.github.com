@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>第 5 章 标题</title>
+    <link rel="stylesheet" type="text/css" href="css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <link rel="home" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="up" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="prev" href="font.html" title="第 4 章 字体" />
+    <link rel="next" href="content.html" title="第 6 章 目录" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">第 5 章 标题</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="font.htm">上一页</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="content.htm">下一页</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter" title="第 5 章 标题">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="title"></a>第 5 章 标题</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>目录</strong>
+        </p>
+        <dl>
+          <dt>
+            <span class="section">
+              <a href="title.htm#id2530449">5.1. 题名命令</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="title.htm#id2530534">5.2. 多作者</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="title.htm#id2530630">5.3. 章节标题</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="title.htm#id2530635">5.3.1. 标题命令</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="title.htm#id2530676">5.3.2. 层次深度</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="title.htm#id2530691">5.3.3. 标题参数</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="title.htm#id2530723">5.3.4. 带星号标题</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+      <div class="section" title="5.1. 题名命令">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2530449"></a>5.1. 题名命令</h2>
+            </div>
+          </div>
+        </div>
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="id2529719">
+          <caption>表 5.1. 标题命令</caption>
+          <colgroup><col align="left" /><col align="left" />
+      </colgroup>
+          <tbody>
+            <tr>
+              <td align="left">\title{题目}</td>
+              <td align="left">题目名称</td>
+            </tr>
+            <tr>
+              <td align="left">\author{作者}</td>
+              <td align="left">作者</td>
+            </tr>
+            <tr>
+              <td align="left">\ and</td>
+              <td align="left">并列多位作者</td>
+            </tr>
+            <tr>
+              <td align="left">\thanks{脚注}</td>
+              <td align="left">致谢，可在\title或\author命令中使用</td>
+            </tr>
+            <tr>
+              <td align="left">\date{日期}</td>
+              <td align="left">日期</td>
+            </tr>
+            <tr>
+              <td align="left">\today</td>
+              <td align="left">当天日期，由系统内部\month、\day和\year生成</td>
+            </tr>
+            <tr>
+              <td align="left">\maketitle</td>
+              <td align="left">生成题名</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="example">
+          <a id="id2530524"></a>
+          <p class="title">
+            <strong>例 5.1. 使用题名命令生成题名信息</strong>
+          </p>
+          <div class="example-contents">
+            <pre class="programlisting">
+      \title{\LaTeX~笔记}
+      \author{Bimeichun}
+      \date{2011 年 12 月 1 日} %\date{\today}则是今天的日期 \date{ }则没有时间
+      \begin{document}
+      \maketitle % 在这里插入
+      \end{document}
+      </pre>
+          </div>
+        </div>
+        <br class="example-break" />
+      </div>
+      <div class="section" title="5.2. 多作者">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2530534"></a>5.2. 多作者</h2>
+            </div>
+          </div>
+        </div>
+        <p>下面是一个多作者的题名页示范</p>
+        <div class="example">
+          <a id="id2530549"></a>
+          <p class="title">
+            <strong>例 5.2. 多作者题名页</strong>
+          </p>
+          <div class="example-contents">
+            <p>这里示范有三名作者的题名页设置</p>
+            <div class="informaltable">
+              <table border="0">
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td rowspan="2" align="left" valign="middle">
+		<pre class="programlisting">
+		\begin{titlepage}
+		\vspace*{20mm}
+		\begin{center}
+		{\heiti\Huge 外部中断\ AD\ 总线频率\ 串口}\\[15mm]
+		{\heiti\large 周星宇}\\[2mm]
+		{\small blog.csdn.net/mike190267481}\\[2mm]
+		{\small 190267481@qq.com}\\[8mm]
+
+		{\heiti\large 伊丽君}\\[2mm]
+		{\small www.renren.com/profile.do?id=249563066}\\[2mm]
+		{\small eleven.0818@gmail.com}\\[8mm]
+
+		{\heiti\large 闭美春}\\[2mm]
+		{\small www.bimeichun.com}\\[2mm]
+		{\small bimeichun@163.com}\\[10mm]
+		{2011 年 12 月 3 日}
+		\end{center}
+		\end{titlepage}
+		</pre>
+	      </td>
+                    <td align="left" valign="middle">
+		<div class="mediaobject" align="center"><img src="images/title1.png" align="middle" /></div>
+	      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br class="example-break" />
+      </div>
+      <div class="section" title="5.3. 章节标题">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2530630"></a>5.3. 章节标题</h2>
+            </div>
+          </div>
+        </div>
+        <div class="section" title="5.3.1. 标题命令">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="id2530635"></a>5.3.1. 标题命令</h3>
+              </div>
+            </div>
+          </div>
+          <p>在 LaTeX 的三个标准文档类 book report 和 article 中，有七种 (article中没有\chapter) 标题命令可以使用，可以生成七个层次的标题。 </p>
+          <pre class="programlisting">
+      \part{部}
+      \chapter{章}  % article 无此标题命令
+      \section{节}
+      \subsection{小节}
+      \subsubsection{小小节}
+      \paragraph{段}
+      \subparagraph{小段}
+      </pre>
+          <div class="note" title="注意" style="margin-left: 0.5in; margin-right: 0.5in;">
+            <table border="0" summary="Note">
+              <tr>
+                <td rowspan="2" align="center" valign="top" width="25">
+                  <img alt="[注意]" src="images/note.png" />
+                </td>
+                <th align="left">注意</th>
+              </tr>
+              <tr>
+                <td align="left" valign="top">book 文档类中的 \chapter 默认新一章从右页即 <span class="bold"><strong>奇数</strong></span> 页开始，这样有可能使左页空白，可以在文档类选型中加入<span class="bold"><strong>openany</strong></span> 选型。</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="section" title="5.3.2. 层次深度">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="id2530676"></a>5.3.2. 层次深度</h3>
+              </div>
+            </div>
+          </div>
+          <p>可以使用 \setcounter{tocdepth}{} 命令设置层次标题的深度: </p>
+          <pre class="programlisting">
+      \setcounter{tocdepth}{3}
+      </pre>
+        </div>
+        <div class="section" title="5.3.3. 标题参数">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="id2530691"></a>5.3.3. 标题参数</h3>
+              </div>
+            </div>
+          </div>
+          <p>有时候会遇到比较长的标题，我们不希望将这个标题内容排版进目录里，可以给标题命令添加可选的参数： </p>
+          <pre class="programlisting">
+      \section[目录标题]{正文标题}
+      </pre>
+          <p>这样，目录里面显示的是 <span class="bold"><strong>目录标题</strong></span>的内容，而在正文中显示的是 <span class="bold"><strong>正文标题</strong></span>的内容。 </p>
+        </div>
+        <div class="section" title="5.3.4. 带星号标题">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="id2530723"></a>5.3.4. 带星号标题</h3>
+              </div>
+            </div>
+          </div>
+          <p>我们可以给标题带上星号：</p>
+          <pre class="programlisting">
+      \section*{标题}
+      </pre>
+          <p>这些带星号的标题将没有标题标志，不被排版进目录也页眉中。</p>
+          <p>如果希望某个带星号的标题排版进目录中，可以 <span class="bold"><strong>紧跟</strong></span> 命令后一行使用命令：</p>
+          <pre class="programlisting">
+      \addcontentsline{toc}{section}{标题内容}
+      </pre>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="font.htm">上一页</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="content.htm">下一页</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">第 4 章 字体 </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="latex.htm">起始页</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 第 6 章 目录</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

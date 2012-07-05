@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>LaTeX 入门</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-3-22"/>
+<meta name="author" content="Bi meichun"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style><link rel="stylesheet"
+    href="css/latex.css"
+    type="text/css"/>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="latex.htm"> UP </a>
+ |
+ <a accesskey="H" href="../index.htm"> HOME </a>
+</div>
+
+<h1 class="title">LaTeX 入门</h1>
+<div id="postamble">
+<p class="author"> Author: Bi meichun
+&nbsp;&nbsp;Date: 2011-3-22</p>
+</div>
+
+
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 简介 </a></li>
+<li><a href="#sec-2">2 安装 </a>
+<ul>
+<li><a href="#sec-2.1">2.1 Hello LaTeX </a></li>
+<li><a href="#sec-2.2">2.2 文档类 </a></li>
+<li><a href="#sec-2.3">2.3 标题 摘要 章节 </a></li>
+<li><a href="#sec-2.4">2.4 目录 </a>
+<ul>
+<li><a href="#sec-2.4.1">2.4.1 将Contents变成“目录” </a></li>
+</ul>
+</li>
+<li><a href="#sec-2.5">2.5 书签 </a></li>
+<li><a href="#sec-2.6">2.6 文字排版 </a>
+<ul>
+<li><a href="#sec-2.6.1">2.6.1 字符输入 </a></li>
+<li><a href="#sec-2.6.2">2.6.2 字样 字号 </a></li>
+</ul>
+</li>
+<li><a href="#sec-2.7">2.7 命令环境 </a>
+<ul>
+<li><a href="#sec-2.7.1">2.7.1 列表 </a></li>
+<li><a href="#sec-2.7.2">2.7.2 对齐 </a></li>
+<li><a href="#sec-2.7.3">2.7.3 原文照排 </a></li>
+<li><a href="#sec-2.7.4">2.7.4 摘录 </a></li>
+<li><a href="#sec-2.7.5">2.7.5 交叉引用 </a></li>
+<li><a href="#sec-2.7.6">2.7.6 脚注 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 简介 </h2>
+<div class="outline-text-2" id="text-1">
+
+<p>LaTeX是一种基于TeX的排版系统，由美国电脑学家莱斯利 兰伯特（Leslie Lamport）在20世纪80年代初期开发，利用这种格式，即使使用者没有排版和程序设计的知识也可以充分发挥由TEX所提供的强大功能，能在几天，甚至几小时内生成很多具有书籍质量的印刷品。对于生成复杂表格和数学公式，这一点表现得尤为突出。因此它非常适用于生成高印刷质量的科技和数学类文档。这个系统同样适用于生成从简单的信件到完整书籍的所有其他种类的文档。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 安装 </h2>
+<div class="outline-text-2" id="text-2">
+
+<p>建议安装 texlive，里面包含有 LaTeX, xeTeX等，很方便。
+</p><ul>
+<li>
+ArchLinux 下，直接 # pacman -S texlibe-bin texlive-cn texlive-latexextra latex-science
+</li>
+<li>
+安装CJK, # pacman -S texlive-langcjk
+</li>
+<li>
+安装中文字体，我现在使用 xelatex 命令编译 tex 文件，可以直接使用系统中的字体，你可以使用 mkfontdir 和 mkfontscale 安装网上下载的字体，也可以安装 arch aur 里面的字体
+
+</li>
+</ul>
+
+</div>
+
+<div id="outline-container-2.1" class="outline-3">
+<h3 id="sec-2.1"><span class="section-number-3">2.1</span> Hello LaTeX </h3>
+<div class="outline-text-3" id="text-2.1">
+
+<p>下面我们编写一个简单的 tex 文件来测试一下：
+</p>
+
+
+
+<pre class="src src-latex"><span style="color: #00ffff;">\documentclass</span>{<span style="color: #87cefa;">article</span>}
+<span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">document</span>}
+Hello,<span style="color: #00ffff;">\LaTeX</span>
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">document</span>}
+</pre>
+
+
+
+
+<p>
+将这个文件保存为 test.tex,然后使用 latex 命令进行编译
+</p><ul>
+<li>
+$ latex test.tex
+</li>
+</ul>
+
+<p>如果没有错误，会生成 test.dvi 文件，可以使用 xdvi 或者其他软件打开查看。当然可以使用下面的命令生成 pdf:
+</p><ul>
+<li>
+$ dvipdf test.dvi 
+</li>
+</ul>
+
+<p>或者你也可以使用 pdflatex test.tex 命令直接生成 pdf 文件。
+</p>
+<ul>
+<li>
+下面我们测试一下中文支持是否正常
+
+</li>
+</ul>
+
+
+<pre class="src src-latex"><span style="color: #00ffff;">\documentclass</span>{<span style="color: #87cefa;">article</span>}
+<span style="color: #00ffff;">\usepackage</span>{<span style="color: #87cefa;">CJKutf8</span>}
+<span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">document</span>}
+<span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">CJK*</span>}{UTF8}{gbsn}
+&#20320;&#22909;&#65292;<span style="color: #00ffff;">\LaTeX</span>
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">CJK*</span>}
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">document</span>}
+</pre>
+
+
+
+<p>
+同样地，我们运行pdflatex命令编译并查看生成的文件是否能正常显示中文，如果没有问题，应该是这样的:
+</p>
+<div style="text-align: center">
+<p><img src="images/hello_latex.png"  alt="./images/hello_latex.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-2.2" class="outline-3">
+<h3 id="sec-2.2"><span class="section-number-3">2.2</span> 文档类 </h3>
+<div class="outline-text-3" id="text-2.2">
+
+<p>下面，我们来看一下上面的 hello<sub>latex</sub>.tex 文件：
+</p><ul>
+<li>
+\documentclass[12pt,a4paper]{article}
+article 定义的是文档类，下面是 LaTeX 的文档类型：
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<thead>
+<tr><th scope="col">类型</th><th scope="col">说明</th></tr>
+</thead>
+<tbody>
+<tr><td>article</td><td>期刊文章</td></tr>
+<tr><td>proc</td><td>会议论文集，基于多篇 article</td></tr>
+<tr><td>minimal</td><td>最少设置的一种，只有基本字体和纸张的大小设置。通常用于调试</td></tr>
+<tr><td>report</td><td>报告，有章 chapter,节 section 等</td></tr>
+<tr><td>book</td><td>书，有章 chapter,节 section 等</td></tr>
+<tr><td>slides</td><td>幻灯片，使用较大的无衬线字体</td></tr>
+<tr><td>memoir</td><td>一种非常灵活，可以基于此快速创建所需要的类型</td></tr>
+<tr><td>letter</td><td>信件</td></tr>
+</tbody>
+</table>
+
+
+</li>
+</ul>
+
+<p>上面我们使用的是 article 
+</p>
+<ul>
+<li>
+[12pt,a4paper] 是文档类选项。常用的文档类选项如下：
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<tbody>
+<tr><td>选项</td><td>说明</td></tr>
+<tr><td>10pt, 11pt, 12pt</td><td>设定文档使用的字号。默认是 10pt。</td></tr>
+<tr><td>a4paper, letterpaper,&hellip;</td><td>定义纸张大小,缺省是letter。此外，还有 a5paper, b5paper, executivepaper, legalpaper</td></tr>
+<tr><td>fleqn</td><td>独行公式向左对齐</td></tr>
+<tr><td>leqno</td><td>公式编号列于左边</td></tr>
+<tr><td>titlepage, notitlepage</td><td>指示文档标题之后的内容是否新开一页。article 类型无此选项</td></tr>
+<tr><td>onecolumn, twocolumn</td><td>单栏，双栏</td></tr>
+<tr><td>twoside, oneside</td><td>双边，单边。article 和 report 默认使用 oneside，book 默认为 twoside</td></tr>
+<tr><td>landscape</td><td>页面横放</td></tr>
+<tr><td>openright, openany</td><td>与单双边设定和 \chapter 命令有关。report 默认 openany，book 默认 openright</td></tr>
+<tr><td>draft</td><td>以一个小黑块表明断行错误处，用于调试</td></tr>
+</tbody>
+</table>
+
+
+</li>
+</ul>
+
+<p>上面我们定义的是article类型，正文字体是12pt，纸张大小为a4per，也就是我们平时说的A4纸。
+</p></div>
+
+</div>
+
+<div id="outline-container-2.3" class="outline-3">
+<h3 id="sec-2.3"><span class="section-number-3">2.3</span> 标题 摘要 章节 </h3>
+<div class="outline-text-3" id="text-2.3">
+
+<p>通常我们写文档，开头都会写上 标题、作者、摘要等信息。
+</p>
+<p>
+LaTex中，我们可以这样定义标题、作者、日期：
+</p>
+
+
+
+<pre class="src src-latex"><span style="color: #00ffff;">\title</span>{<span style="color: #98fb98;">&#26631;&#39064;</span>}
+<span style="color: #00ffff;">\author</span>{<span style="color: #98fb98;">&#20316;&#32773;</span>}
+<span style="color: #00ffff;">\date</span>{<span style="color: #98fb98;">&#26102;&#38388;</span>}      <span style="color: #ff7f24;">%</span><span style="color: #ff7f24;">\date</span><span style="color: #ff7f24;">{</span><span style="color: #ff7f24;">\today</span><span style="color: #ff7f24;">}&#21017;&#26159;&#20170;&#22825;&#30340;&#26085;&#26399; </span><span style="color: #ff7f24;">\date</span><span style="color: #ff7f24;">{ }&#21017;&#27809;&#26377;&#26102;&#38388;
+</span></pre>
+
+
+
+
+<p>
+之后，我们用 \maketitle 将这些内容插入我们的文档中。 \maketitle 应该在 \begin{document}之后：
+</p>
+
+
+
+
+<pre class="src src-latex">...
+<span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">document</span>}
+
+<span style="color: #d3d3d3;">\maketitle</span>   <span style="color: #ff7f24;">% &#22312;&#36825;&#37324;&#25554;&#20837;
+</span>
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">document</span>}
+</pre>
+
+
+
+
+<ul>
+<li>
+摘要的用法
+
+
+</li>
+</ul>
+
+
+<pre class="src src-latex"><span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">abstract</span>}
+...
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">abstract</span>}
+</pre>
+
+
+
+
+<ul>
+<li>
+层次结构用法
+
+
+</li>
+</ul>
+
+
+<pre class="src src-latex"><span style="color: #00ffff;">\chapter</span>{<span style="color: #ffff00; font-size: 146%; font-weight: bold;">...</span>}   <span style="color: #ff7f24;">%article &#20013;&#27809;&#26377; chapter
+</span><span style="color: #00ffff;">\section</span>{<span style="color: #ffff00; font-size: 133%; font-weight: bold;">...</span>}
+<span style="color: #00ffff;">\subsection</span>{<span style="color: #ffff00; font-size: 121%; font-weight: bold;">...</span>}
+<span style="color: #00ffff;">\subsubsection</span>{<span style="color: #ffff00; font-size: 110%; font-weight: bold;">...</span>}#+end_src
+</pre>
+
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2.4" class="outline-3">
+<h3 id="sec-2.4"><span class="section-number-3">2.4</span> 目录 </h3>
+<div class="outline-text-3" id="text-2.4">
+
+<p>我们可以用 \tableofcontents 命令来生成文档的目录，LaTeX 会自动设定目录的章节层次，可以使用 \setcounter 命令来指定目录层次深度。
+</p>
+<p>
+\tableofcontents
+</p>
+<p>
+\setcounter{tocdepth}{2}
+</p>
+<p>
+如果不想让某个章节标题出现在我们的目录中，可以使用带 * 的命令来声明。
+</p>
+
+
+
+<pre class="src src-latex"><span style="color: #00ffff;">\chapter</span><span style="color: #00ffff;">*</span>{<span style="color: #ffff00; font-size: 146%; font-weight: bold;">...</span>}
+<span style="color: #00ffff;">\section</span><span style="color: #00ffff;">*</span>{<span style="color: #ffff00; font-size: 133%; font-weight: bold;">...</span>}
+<span style="color: #00ffff;">\subsection</span><span style="color: #00ffff;">*</span>{<span style="color: #ffff00; font-size: 121%; font-weight: bold;">...</span>}
+</pre>
+
+
+
+
+
+</div>
+
+<div id="outline-container-2.4.1" class="outline-4">
+<h4 id="sec-2.4.1"><span class="section-number-4">2.4.1</span> 将Contents变成“目录” </h4>
+<div class="outline-text-4" id="text-2.4.1">
+
+<p>有时，我们生成的目录内容是中文的，但却是 Contents 字样表示目录。当我们想将"Contents"变成“目录”时，可以使用下面的命令。注意这条命令的位置，应该在 \tableofcontents 前面。
+</p>
+
+
+
+<pre class="src src-latex"><span style="color: #00ffff;">\renewcommand</span>{<span style="color: #87cefa;">\contentsname</span>}{<span style="color: #87cefa;">&#30446;&#24405;</span>}
+<span style="color: #d3d3d3;">\tableofcontent</span>
+</pre>
+
+
+
+<p>
+当然，你也可以将“目录“换成别的。
+</p><ul>
+<li>
+另外值得说明的是，有时候 LaTeX 会无法生成我们需要的中文目录，比如，什么内容都没有。那么，我们可以在 \end{CJK*}前面加上一行： \newpage 。
+
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2.5" class="outline-3">
+<h3 id="sec-2.5"><span class="section-number-3">2.5</span> 书签 </h3>
+<div class="outline-text-3" id="text-2.5">
+
+<p>书签就是通常我们看pdf文档时，左侧边栏的那个“索引”。书签令我们阅读文档提供了很大的方便，通过书签我们可以方便地定位自己的阅读对象。
+</p>
+<p>
+LaTeX中生成书签的宏包是 hyperref 。中文书签乱码一直是网上搜索的的热门问题，其实解决中文书签乱码一个很简单的方法就是在 hyperref 宏包的选项里添加 unicode=true 选项。下面给处一个简单的例子：
+</p>
+
+
+
+<pre class="src src-latex"><span style="color: #00ffff;">\documentclass</span>[<span style="color: #eedd82;">CJKutf8</span>]{<span style="color: #87cefa;">article</span>}
+<span style="color: #00ffff;">\usepackage</span>{<span style="color: #87cefa;">CJKutf8</span>}
+<span style="color: #00ffff;">\usepackage</span>[<span style="color: #eedd82;">unicode=true,colorlinks=no,pdfborder=no</span>]{<span style="color: #87cefa;">hyperref</span>} <span style="color: #ff7f24;">%&#36825;&#37324;&#32473;&#20986;&#30340;colorlinks=no&#21644;pdfborder=no&#26159;&#20026;&#20102;&#35753;&#29983;&#25104;&#30340;&#30446;&#24405;&#27809;&#26377;&#8220;&#32418;&#33394;&#8221;&#30340;&#36793;&#26694;&#65292;&#20854;&#23454;&#36825;&#37324;&#19981;&#24517;&#20351;&#29992;&#65292;&#22240;&#20026;&#27809;&#26377;&#29983;&#25104;&#30446;&#24405;&#12290;
+</span>
+<span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">document</span>}
+<span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">CJK</span>}{UTF8}{gbsn}
+<span style="color: #00ffff;">\section</span>{<span style="color: #ffff00; font-size: 133%; font-weight: bold;">&#20013;&#25991; English</span>}
+Hello, &#20320;&#22909;&#65281;
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">CJK</span>}
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">document</span>}
+</pre>
+
+
+
+
+<p>
+记得使用两次 pdflatex 编译 tex 文件。
+</p>
+<ul>
+<li id="sec-2.5.1">本页例子 <br/>
+下面给出本页使用的例子
+
+
+
+<pre class="src src-latex"><span style="color: #ff7f24;">% </span><span style="color: #ff7f24;">hello_latex.tex
+</span><span style="color: #00ffff;">\documentclass</span>[<span style="color: #eedd82;">12pt,a4paper</span>]{<span style="color: #87cefa;">article</span>} <span style="color: #ff7f24;">%&#23450;&#20041;&#25991;&#26723;&#31867;&#22411;
+</span>
+<span style="color: #00ffff;">\usepackage</span>{<span style="color: #87cefa;">CJKutf8</span>}  <span style="color: #ff7f24;">%&#20351;&#29992;&#23439;&#21253;
+</span><span style="color: #00ffff;">\usepackage</span>[<span style="color: #eedd82;">unicode=true,colorlinks=no,pdfborder=no</span>]{<span style="color: #87cefa;">hyperref</span>}  <span style="color: #ff7f24;">%&#36825;&#37324;&#32473;&#20986;&#30340;colorlinks=no&#21644;pdfborder=no&#26159;&#20026;&#20102;&#35753;&#29983;&#25104;&#30340;&#30446;&#24405;&#27809;&#26377;&#8220;&#32418;&#33394;&#8221;&#30340;&#36793;&#26694;
+</span>
+<span style="color: #00ffff;">\title</span>{<span style="color: #00ffff;">\LaTeX</span><span style="color: #98fb98;"> &#20837;&#38376;</span>}   <span style="color: #ff7f24;">%&#26631;&#39064;
+</span><span style="color: #00ffff;">\author</span>{<span style="color: #98fb98;">&#38381;&#32654;&#26149;</span>}       <span style="color: #ff7f24;">%&#20316;&#32773;
+</span><span style="color: #00ffff;">\date</span>{<span style="color: #98fb98;">2011&#24180;3&#26376;</span>}      <span style="color: #ff7f24;">%&#26085;&#26399;
+</span><span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">document</span>}      <span style="color: #ff7f24;">%&#25991;&#26723;&#24320;&#22987;
+</span><span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">CJK*</span>}{UTF8}{gbsn}      <span style="color: #ff7f24;">%&#23450;&#20041;CJK&#20013;&#25991;&#29615;&#22659;
+</span><span style="color: #d3d3d3;">\maketitle</span>                <span style="color: #ff7f24;">%&#36755;&#20986;&#26631;&#39064;&#12289;&#20316;&#32773;&#21450;&#26085;&#26399;
+</span><span style="color: #00ffff;">\renewcommand</span>{<span style="color: #87cefa;">\contentsname</span>}{<span style="color: #87cefa;">&#30446;&#24405;</span>}   <span style="color: #ff7f24;">%&#23558;Contents&#25442;&#25104; &#8221;&#30446;&#24405;&#8220;
+</span><span style="color: #d3d3d3;">\tableofcontents</span>   <span style="color: #ff7f24;">%&#29983;&#25104;&#30446;&#24405;
+</span>
+<span style="color: #00ffff;">\section</span>{<span style="color: #ffff00; font-size: 133%; font-weight: bold;">Hello LaTeX</span>}   <span style="color: #ff7f24;">%&#31456;&#33410;
+</span>
+Hello, <span style="color: #00ffff;">\LaTeX</span> !
+
+<span style="color: #00ffff;">\section</span>{<span style="color: #ffff00; font-size: 133%; font-weight: bold;">&#25991;&#26723;&#32467;&#26500;</span>}         <span style="color: #ff7f24;">%&#31456;&#33410;
+</span>&#36825;&#19968;&#33410;&#20013;&#23558;&#20171;&#32461; <span style="color: #00ffff;">\LaTeX</span> &#30340;&#25991;&#26723;&#32467;&#26500;&#12290;
+<span style="color: #00ffff;">\subsection</span>{<span style="color: #ffff00; font-size: 121%; font-weight: bold;">&#25991;&#26723;&#31867;</span>}        <span style="color: #ff7f24;">%&#20108;&#32423;&#31456;&#33410;
+</span>&#36825;&#37324;&#26159;&#25991;&#26723;&#31867;&#20171;&#32461;&#12290;
+<span style="color: #00ffff;">\subsection</span>{<span style="color: #ffff00; font-size: 121%; font-weight: bold;">&#26631;&#39064;&#12289;&#25688;&#35201;&#12289;&#31456;&#33410;</span>}
+&#36825;&#37324;&#26159;&#26631;&#39064;&#31561;&#30340;&#20171;&#32461;&#12290;
+<span style="color: #00ffff;">\subsection</span>{<span style="color: #ffff00; font-size: 121%; font-weight: bold;">&#30446;&#24405;</span>}
+&#30446;&#24405;&#20171;&#32461;
+<span style="color: #00ffff;">\subsubsection</span>{<span style="color: #ffff00; font-size: 110%; font-weight: bold;">&#23558;Contents&#21464;&#25104;&#8221;&#30446;&#24405;&#8220;</span>}  <span style="color: #ff7f24;">%&#19977;&#32423;&#31456;&#33410;
+</span>&#25216;&#24039;&#12290;
+<span style="color: #ff0000; font-weight: bold;">\newpage</span>  <span style="color: #ff7f24;">%&#24320;&#22987;&#26032;&#19968;&#39029;&#65292;&#27491;&#22312;&#30340;&#30446;&#30340;&#26159;&#20351;&#20013;&#25991;&#30446;&#24405;&#29983;&#25104;
+</span><span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">CJK*</span>}  <span style="color: #ff7f24;">%&#38381;&#21512;&#20013;&#25991;&#29615;&#22659;
+</span><span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">document</span>}  <span style="color: #ff7f24;">%&#32467;&#26463;&#25991;&#26723;
+</span></pre>
+
+
+
+
+
+<div style="text-align: center">
+<p><img src="images/latex_start.png"  alt="./images/latex_start.png" />
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-2.6" class="outline-3">
+<h3 id="sec-2.6"><span class="section-number-3">2.6</span> 文字排版 </h3>
+<div class="outline-text-3" id="text-2.6">
+
+
+</div>
+
+<div id="outline-container-2.6.1" class="outline-4">
+<h4 id="sec-2.6.1"><span class="section-number-4">2.6.1</span> 字符输入 </h4>
+<div class="outline-text-4" id="text-2.6.1">
+
+<p>LaTeX中有些字符被用作特殊的控制符(比如 # $ % ^ &amp; ~ _ { } \ 等)，所以他们不能直接输入。大多数情况下，我们想要输入这些特殊字符时，需要在他们前面加上 \ 。而 \ 本身要用 \textbackslash 命令输入，因为 \\ 被用作执行换行的指令了。
+</p></div>
+
+</div>
+
+<div id="outline-container-2.6.2" class="outline-4">
+<h4 id="sec-2.6.2"><span class="section-number-4">2.6.2</span> 字样 字号 </h4>
+<div class="outline-text-4" id="text-2.6.2">
+
+<ul>
+<li>
+LaTeX 会自动调整正文、标题、章节、脚注等的字样和字号。当然，我们也可以使用命令来设置字样。比如：
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" /><col align="left" /><col align="left" />
+</colgroup>
+<thead>
+<tr><th scope="col">命令</th><th scope="col">字样</th><th scope="col">命令</th><th scope="col">字样</th></tr>
+</thead>
+<tbody>
+<tr><td>\textrm{&hellip;}</td><td>roman</td><td>\textbf{&hellip;}</td><td>bold face</td></tr>
+<tr><td>\textsf{&hellip;}</td><td>sans serif</td><td>\textit{&hellip;}</td><td>italic</td></tr>
+<tr><td>\texttt{&hellip;}</td><td>typewriter</td><td>\textsl{&hellip;}</td><td>slanted</td></tr>
+</tbody>
+</table>
+
+
+</li>
+<li>
+我们同样可以设置的字号，比如：
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<thead>
+<tr><th scope="col">命令</th><th scope="col">字号</th></tr>
+</thead>
+<tbody>
+<tr><td>\tiny</td><td>5pt 6pt 6pt</td></tr>
+<tr><td>\scriptsize</td><td>7pt 8pt 8pt</td></tr>
+<tr><td>\footnotesize</td><td>8pt 9pt 10pt</td></tr>
+<tr><td>\small</td><td>9pt 10pt 11pt</td></tr>
+<tr><td>\normalsize</td><td>10pt 11pt 12pt</td></tr>
+<tr><td>\large</td><td>12pt 12pt 14pt</td></tr>
+<tr><td>\Large</td><td>14pt 14pt 17pt</td></tr>
+<tr><td>\LARGE</td><td>17pt 17pt 20pt</td></tr>
+<tr><td>\huge</td><td>20pt 20pt 25pt</td></tr>
+<tr><td>\Huge</td><td>25pt 25pt 25pt</td></tr>
+</tbody>
+</table>
+
+
+<p>
+LaTeX 有一个特殊的命令： \emph , 它在不同环境装饰下有不同的效果。当周围文字是正体时它是斜体，当周围字体是斜体时它是正体。
+</p>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2.7" class="outline-3">
+<h3 id="sec-2.7"><span class="section-number-3">2.7</span> 命令环境 </h3>
+<div class="outline-text-3" id="text-2.7">
+
+
+</div>
+
+<div id="outline-container-2.7.1" class="outline-4">
+<h4 id="sec-2.7.1"><span class="section-number-4">2.7.1</span> 列表 </h4>
+<div class="outline-text-4" id="text-2.7.1">
+
+<p>latex 中有三种列表环境：description、enumerate、itemize，用法如下：
+</p>
+
+<div style="text-align: center">
+<p><img src="images/latex2.png"  alt="./images/latex2.png" />
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2.7.2" class="outline-4">
+<h4 id="sec-2.7.2"><span class="section-number-4">2.7.2</span> 对齐 </h4>
+<div class="outline-text-4" id="text-2.7.2">
+
+<p>latex 中段落缺省为两端对齐(fully justified),可以通过以下命令实现左对齐、右对齐和居中对齐：
+</p>
+
+
+
+<pre class="src src-latex"><span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">flushleft</span>}  <span style="color: #ff7f24;">%&#23621;&#24038;
+</span>&#23621;&#24038;&#23545;&#40784;<span style="color: #ff0000; font-weight: bold;">\\</span>
+&#23621;&#24038;
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">flushleft</span>}
+
+<span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">flushright</span>}   <span style="color: #ff7f24;">%&#23621;&#21491;
+</span>&#23621;&#21491;&#23545;&#40784;<span style="color: #ff0000; font-weight: bold;">\\</span>
+&#23621;&#21491;
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">flushright</span>}
+
+<span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">center</span>}      <span style="color: #ff7f24;">%&#23621;&#20013;
+</span>&#23621;&#20013;&#23545;&#40784;<span style="color: #ff0000; font-weight: bold;">\\</span>
+&#23621;&#20013;
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">center</span>}
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2.7.3" class="outline-4">
+<h4 id="sec-2.7.3"><span class="section-number-4">2.7.3</span> 原文照排 </h4>
+<div class="outline-text-4" id="text-2.7.3">
+
+
+<div style="text-align: center">
+<p><img src="images/latex3.png"  alt="./images/latex3.png" />
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2.7.4" class="outline-4">
+<h4 id="sec-2.7.4"><span class="section-number-4">2.7.4</span> 摘录 </h4>
+<div class="outline-text-4" id="text-2.7.4">
+
+<p>LaTeX 有三种摘录环境：quote、quotation、verse。其中，quote两端都缩进，quotation在quote的基础上增加首行缩进，verse比quote多第二行起的缩进。
+</p></div>
+
+</div>
+
+<div id="outline-container-2.7.5" class="outline-4">
+<h4 id="sec-2.7.5"><span class="section-number-4">2.7.5</span> 交叉引用 </h4>
+<div class="outline-text-4" id="text-2.7.5">
+
+<p>我们经常需要引文文中section、figure、table等对象的编号，这就叫做交叉引用(cross referencing)。 可以用\label{marker}命令来定义一个标记，标记名任意，但是必须在全文中保持唯一。之后用\ref{marker}来引用标记处章节或图标编号，用\pageref{marker}来引用标记处的页码。
+</p></div>
+
+</div>
+
+<div id="outline-container-2.7.6" class="outline-4">
+<h4 id="sec-2.7.6"><span class="section-number-4">2.7.6</span> 脚注 </h4>
+<div class="outline-text-4" id="text-2.7.6">
+
+<p>脚注可以用\footnote命令来实现：
+</p>
+
+
+<pre class="src src-latex">&#25105;&#21518;&#38754;&#30340;&#25968;&#23383;&#34920;&#31034;&#25105;&#30340;&#33050;&#27880;&#21495;&#12290;<span style="color: #00ffff;">\footnote</span>{<span style="color: #7fffd4;">&#25105;&#23601;&#26159;&#33050;&#27880;&#12290;</span>}
+</pre>
+
+
+
+
+<p>
+<img src="images/latex4.png"  alt="./images/latex4.png" />
+</p>
+
+
+
+
+<div id="footer">
+  <p>you're the
+    <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>th visitor
+    <script language="javascript" type="text/javascript" src="http://js.users.51.la/4499176.js">
+    </script> 
+  </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</dvi>
+</body>
+</html>

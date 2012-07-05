@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>第 3 章 表格</title>
+    <link rel="stylesheet" type="text/css" href="../../css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <link rel="home" href="orgmode.html" title="Org-mode 计划与编写文档" />
+    <link rel="up" href="orgmode.html" title="Org-mode 计划与编写文档" />
+    <link rel="prev" href="begin.html" title="第 2 章 入门" />
+    <link rel="next" href="exphtml.html" title="第 4 章 生成 HTML" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">第 3 章 表格</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="begin.htm">上一页</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="exphtml.htm">下一页</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter" title="第 3 章 表格"><div class="titlepage"><div><div><h2 class="title"><a id="table"></a>第 3 章 表格</h2></div></div></div><div class="toc"><p><strong>目录</strong></p><dl><dt><span class="section"><a href="table.htm#id2998292">3.1. 表格 </a></span></dt><dt><span class="section"><a href="table.htm#id2998304">3.2. 建立表格 </a></span></dt><dt><span class="section"><a href="table.htm#id2997489">3.3. 表格操作的一些常用快捷键</a></span></dt><dt><span class="section"><a href="table.htm#id2998590">3.4. 复制表格 </a></span></dt></dl></div>
+  
+<div class="section" title="3.1. 表格"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="id2998292"></a>3.1. 表格 </h2></div></div></div>
+
+<p>   org-mode 里制作表格非常的方便和有趣，还可以根据你设定的公式自动计算诸如total等，还可以自动编号。
+</p>
+</div>
+
+<div class="section" title="3.2. 建立表格"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="id2998304"></a>3.2. 建立表格 </h2></div></div></div>
+
+<p>    建立表格非常简单，表格的列以 | 隔开，按 TAB 跳到下一单元格， S-TAB 跳到上一单元格。新行 |- 然后 C-TAB 插入水平线，建立下面：
+</p>
+<pre class="programlisting">| 操作                  | 说明             |
+|-----------------------+------------------|
+| M-S-&lt;right&gt;           | 插入一列         |
+| M-S-&lt;left&gt;            | 删除一列         |
+| M-&lt;right&gt;/&lt;left&gt;      | 左右两列调换位置 |
+| 行首插入 - 然后 C-TAB | 插入水平线       |
+</pre>
+
+
+
+
+
+<div class="tip" title="说明" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Tip: 说明"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[提示]" src="images/tip.png" /></td><th align="left">说明</th></tr><tr><td align="left" valign="top">
+
+<p>这里只是显示的不同，在 org-mode 里面编辑表格是会自动对齐的，其中的字体需要设置一下，比如我设置的是 <code class="code">(set-default-font "WenQuanYi Zen Hei Mono-15")</code> ，诸如 13 15 18 等字体大小都可以。如下图</p>
+
+<p>
+  </p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0"><tr><td align="center" valign="middle"><img src="images/1.png" align="middle" /></td></tr></table></div><p>
+</p>
+
+</td></tr></table></div>
+<div class="table"><a id="id2998359"></a><p class="title"><strong>表 3.1. 生成效果</strong></p><div class="table-contents">
+
+<table summary="生成效果" border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left">操作</th><th align="left">说明</th></tr></thead><tbody><tr><td align="left">M-S-&lt;right&gt;</td><td align="left">插入一列</td></tr><tr><td align="left">M-S-&lt;left&gt;</td><td align="left">删除一列</td></tr><tr><td align="left">M-&lt;right&gt;/&lt;left&gt;</td><td align="left">左右两列调换位置</td></tr><tr><td align="left">行首插入 - 然后 C-TAB</td><td align="left">插入水平线</td></tr></tbody></table>
+</div></div><br class="table-break" />
+</div>
+
+<div class="section" title="3.3. 表格操作的一些常用快捷键"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="id2997489"></a>3.3. 表格操作的一些常用快捷键</h2></div></div></div>
+
+<div class="table"><a id="id2998440"></a><p class="title"><strong>表 3.2. 表格操作快捷键</strong></p><div class="table-contents">
+
+<table summary="表格操作快捷键" border="1"><colgroup><col align="left" /><col align="left" /></colgroup><tbody><tr><td align="left">&lt;TAB&gt;</td><td align="left">跳到下一项</td></tr><tr><td align="left">S-&lt;TAB&gt;</td><td align="left">跳到上一项</td></tr><tr><td align="left">&lt;RET&gt;</td><td align="left">跳到同列下一行</td></tr><tr><td align="left">S-&lt;RET&gt;</td><td align="left">如果是数字将向下自动编号，如果是其他，将复制</td></tr><tr><td align="left">行首插入 - 然后 C-TAB</td><td align="left">插入水平线</td></tr><tr><td align="left">C-c -</td><td align="left">插入水平线</td></tr><tr><td align="left">C-c RET</td><td align="left">插入水平线并跳到其后</td></tr><tr><td align="left">M-&lt;left&gt;</td><td align="left">与左列调换</td></tr><tr><td align="left">M-&lt;right&gt;</td><td align="left">与右列调换</td></tr><tr><td align="left">M-S-&lt;left&gt;</td><td align="left">删除一列</td></tr><tr><td align="left">M-S-&lt;right&gt;</td><td align="left">增加一列</td></tr><tr><td align="left">M-S-&lt;up&gt;/&lt;down&gt;</td><td align="left">删除/增加一行</td></tr></tbody></table>
+</div></div><br class="table-break" />
+
+
+<p>
+当然还有很多的快捷键，可以参考 org-mode 主页。
+</p>
+</div>
+
+<div class="section" title="3.4. 复制表格"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="id2998590"></a>3.4. 复制表格 </h2></div></div></div>
+
+<p>    下面来示范一下如何复制一张表格，插入到我们的 org 文件里面。
+</p>
+
+<p>
+比如，现在有下面这张表格：
+</p>
+<div class="table"><a id="id2998604"></a><p class="title"><strong>表 3.3. 示范表格</strong></p><div class="table-contents">
+
+<table summary="示范表格" border="1"><colgroup><col align="left" /><col align="left" /></colgroup><tbody><tr><td align="left">C-x C-f</td><td align="left">打开文件</td></tr><tr><td align="left">C-x C-v</td><td align="left">打开一个文件，取代当前缓冲区</td></tr><tr><td align="left">C-x C-s</td><td align="left">保存文件</td></tr><tr><td align="left">C-x C-w</td><td align="left">存为新文件</td></tr><tr><td align="left">C-x i</td><td align="left">插入文件</td></tr><tr><td align="left">C-x C-q</td><td align="left">切换为只读或者读写模式</td></tr><tr><td align="left">C-x C-c</td><td align="left">退出Emacs</td></tr></tbody></table>
+</div></div><br class="table-break" />
+
+
+
+
+<div class="example"><a id="id2998697"></a><p class="title"><strong>例 3.1. 从网页上复制表格到 org-mode</strong></p><div class="example-contents">
+
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+<p>从网页上面复制，粘贴<sup>[<a id="fn-1" href="#ftn.fn-1" class="footnote">5</a>]</sup>到 Emacs 里面;
+</p>
+</li><li class="listitem">
+<p>选中粘贴后的内容;
+</p>
+</li><li class="listitem">
+<p>然后 C-c | 。
+</p>
+</li></ol></div>
+</div></div><br class="example-break" />
+</div>
+<div class="footnotes"><br /><hr width="100" align="left" /><div class="footnote"><p><sup>[<a id="ftn.fn-1" href="#fn-1" class="para">5</a>] </sup>C-y 或者选工具栏 Edit-&gt;Paste 。</p></div></div></div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="begin.htm">上一页</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="exphtml.htm">下一页</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">第 2 章 入门 </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="orgmode.htm">起始页</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 第 4 章 生成 HTML</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

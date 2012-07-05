@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>第 3 章 文档类</title>
+    <link rel="stylesheet" type="text/css" href="css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <link rel="home" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="up" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="prev" href="ctex.html" title="第 2 章 ctex 宏包" />
+    <link rel="next" href="font.html" title="第 4 章 字体" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">第 3 章 文档类</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="ctex.htm">上一页</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="font.htm">下一页</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter" title="第 3 章 文档类">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="documentclass"></a>第 3 章 文档类</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>目录</strong>
+        </p>
+        <dl>
+          <dt>
+            <span class="section">
+              <a href="documentclass.htm#id2526324">3.1. 定义文档类型</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="documentclass.htm#id2526342">3.2. 文档类型</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="documentclass.htm#id2527054">3.3. 文档选项</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <div class="section" title="3.1. 定义文档类型">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2526324"></a>3.1. 定义文档类型</h2>
+            </div>
+          </div>
+        </div>
+        <p>通常一个 tex 文件的第一条命令定义的是文档类型，就像定义一个模板一样。</p>
+        <pre class="programlisting">
+    \documentclass[参数1,参数2,...]{文档类型}
+    </pre>
+      </div>
+      <div class="section" title="3.2. 文档类型">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2526342"></a>3.2. 文档类型</h2>
+            </div>
+          </div>
+        </div>
+        <p>LaTeX 提供了诸如以下的文档类型，其中的 article、 book 和 report 是比较常用的三种标准文档类型。</p>
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="id2526354">
+          <caption>表 3.1. LaTeX 文档类</caption>
+          <colgroup><col align="left" /><col align="left" />
+      </colgroup>
+          <thead>
+            <tr>
+              <th align="left">类型名</th>
+              <th align="left">说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left">article</td>
+              <td align="left">期刊文章</td>
+            </tr>
+            <tr>
+              <td align="left">book</td>
+              <td align="left">书，有章 chapter,节 section 等</td>
+            </tr>
+            <tr>
+              <td align="left">report</td>
+              <td align="left">报告，有章 chapter,节 section 等</td>
+            </tr>
+            <tr>
+              <td align="left">beamer</td>
+              <td align="left">论文陈述幻灯片</td>
+            </tr>
+            <tr>
+              <td align="left">proc</td>
+              <td align="left">会议论文集，基于多篇 article</td>
+            </tr>
+            <tr>
+              <td align="left">minimal</td>
+              <td align="left">最少设置的一种，只有基本字体和纸张的大小设置。通常用于调试</td>
+            </tr>
+            <tr>
+              <td align="left">slides</td>
+              <td align="left">幻灯片，使用较大的无衬线字体</td>
+            </tr>
+            <tr>
+              <td align="left">memoir</td>
+              <td align="left">一种非常灵活，可以基于此快速创建所需要的类型</td>
+            </tr>
+            <tr>
+              <td align="left">letter</td>
+              <td align="left">信件</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section" title="3.3. 文档选项">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2527054"></a>3.3. 文档选项</h2>
+            </div>
+          </div>
+        </div>
+        <p>文档选项可选，如果没有设置将使用默认参数。</p>
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="id2527064">
+          <caption>表 3.2. 常用的文档类选型及三种常用文档类中的默认设置</caption>
+          <colgroup><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" />
+      </colgroup>
+          <thead>
+            <tr>
+              <th align="left">选型</th>
+              <th align="left">article</th>
+              <th align="left">book</th>
+              <th align="left">report</th>
+              <th align="left">说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left">10pt</td>
+              <td align="left">默认</td>
+              <td align="left">默认</td>
+              <td align="left">默认</td>
+              <td align="left">常规字体尺寸</td>
+            </tr>
+            <tr>
+              <td align="left">11pt,12pt</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">常规字体尺寸</td>
+            </tr>
+            <tr>
+              <td align="left">a4paper</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">纸张大小，210x297mm</td>
+            </tr>
+            <tr>
+              <td align="left">a5paper</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">纸张大小，148x210mm</td>
+            </tr>
+            <tr>
+              <td align="left">b5paper</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">纸张大小，176x250mm</td>
+            </tr>
+            <tr>
+              <td align="left">letterpaper</td>
+              <td align="left">默认</td>
+              <td align="left">默认</td>
+              <td align="left">默认</td>
+              <td align="left">纸张大小，216x279mm</td>
+            </tr>
+            <tr>
+              <td align="left">legalpaper</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">纸张大小，216x356mm</td>
+            </tr>
+            <tr>
+              <td align="left">executivepaper</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">纸张大小，184x267mm</td>
+            </tr>
+            <tr>
+              <td align="left">titlepage</td>
+              <td align="left"></td>
+              <td align="left">默认</td>
+              <td align="left">默认</td>
+              <td align="left">题名和摘要独占一页</td>
+            </tr>
+            <tr>
+              <td align="left">notitlepage</td>
+              <td align="left">默认</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">题名和摘要不单独占一页</td>
+            </tr>
+            <tr>
+              <td align="left">landscape</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">横向排版，默认为纵向</td>
+            </tr>
+            <tr>
+              <td align="left">oneside</td>
+              <td align="left">默认</td>
+              <td align="left"></td>
+              <td align="left">默认</td>
+              <td align="left">单页排版，页眉页脚相同</td>
+            </tr>
+            <tr>
+              <td align="left">twoside</td>
+              <td align="left"></td>
+              <td align="left">默认</td>
+              <td align="left"></td>
+              <td align="left">双页排版，页眉页脚可不同</td>
+            </tr>
+            <tr>
+              <td align="left">openright</td>
+              <td align="left">---</td>
+              <td align="left">默认</td>
+              <td align="left"></td>
+              <td align="left">新一章从右页开始</td>
+            </tr>
+            <tr>
+              <td align="left">openany</td>
+              <td align="left">---</td>
+              <td align="left"></td>
+              <td align="left">默认</td>
+              <td align="left">新一章从左右页均可开始</td>
+            </tr>
+            <tr>
+              <td align="left">leqno</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">公式序号位于公式左侧，默认在右侧</td>
+            </tr>
+            <tr>
+              <td align="left">fleqn</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">公式缩进左对齐，默认为居中对齐</td>
+            </tr>
+            <tr>
+              <td align="left">openbib</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">每条参考文献条目从第二行起缩进，默认不缩进</td>
+            </tr>
+            <tr>
+              <td align="left">onecolumn</td>
+              <td align="left">默认</td>
+              <td align="left">默认</td>
+              <td align="left">默认</td>
+              <td align="left">单栏排版</td>
+            </tr>
+            <tr>
+              <td align="left">twocolumn</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">双栏排版</td>
+            </tr>
+            <tr>
+              <td align="left">draft</td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left"></td>
+              <td align="left">不插入图片，只留出与图片相同的空白</td>
+            </tr>
+            <tr>
+              <td align="left">final</td>
+              <td align="left">默认</td>
+              <td align="left">默认</td>
+              <td align="left">默认</td>
+              <td align="left">最终稿，插入所有图片</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="ctex.htm">上一页</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="font.htm">下一页</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">第 2 章 ctex 宏包 </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="latex.htm">起始页</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 第 4 章 字体</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

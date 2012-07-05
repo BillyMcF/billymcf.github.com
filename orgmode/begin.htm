@@ -1,0 +1,927 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>org-mode 入门 </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-11-15"/>
+<meta name="author" content="Billy"/>
+<meta name="description" content=""/>
+<meta name="keywords" content="linux emacs org-mode begin"/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="orgmode.htm"> UP </a>
+ |
+ <a accesskey="H" href="../index.htm"> HOME </a>
+</div>
+
+<h1 class="title">org-mode 入门 </h1>
+<div id="postamble">
+<p class="author"> Author: Billy
+&nbsp;&nbsp;Date: 2011-11-15</p>
+</div>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">简介 </a></li>
+<li><a href="#sec-2">安装 </a></li>
+<li><a href="#sec-3">使用 </a>
+<ul>
+<li><a href="#sec-3.1">初体验 </a></li>
+<li><a href="#sec-3.2">标题 </a></li>
+<li><a href="#sec-3.3">段落 </a></li>
+<li><a href="#sec-3.4">列表 </a>
+<ul>
+<li><a href="#sec-3.4.1">列表/标题快捷键 </a></li>
+</ul>
+</li>
+<li><a href="#sec-3.5">标签 </a></li>
+<li><a href="#sec-3.6">代码 </a></li>
+<li><a href="#sec-3.7">表格 </a>
+<ul>
+<li><a href="#sec-3.7.1">建立表格 </a></li>
+<li><a href="#sec-3.7.2">示范 </a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-4">格式输出 </a>
+<ul>
+<li><a href="#sec-4.1">HTML </a>
+<ul>
+<li><a href="#sec-4.1.1">几种字体格式 </a></li>
+<li><a href="#sec-4.1.2">脚注 </a></li>
+</ul>
+</li>
+<li><a href="#sec-4.2">PDF </a>
+<ul>
+<li><a href="#sec-4.2.1">公式预览 </a></li>
+</ul>
+</li>
+<li><a href="#sec-4.3">PPT </a>
+<ul>
+<li><a href="#sec-4.3.1">快速制作 </a></li>
+</ul>
+</li>
+<li><a href="#sec-4.4">DocBook </a></li>
+</ul>
+</li>
+<li><a href="#sec-5">发布工程 </a>
+<ul>
+<li><a href="#sec-5.1">建立工程 </a></li>
+<li><a href="#sec-5.2">组织文件结构 </a></li>
+<li><a href="#sec-5.3">多个工程 </a></li>
+</ul>
+</li>
+<li><a href="#sec-6">Org-mode 与其他配合 </a>
+<ul>
+<li><a href="#sec-6.1">YASnippet </a></li>
+<li><a href="#sec-6.2">auto-complete </a></li>
+</ul>
+</li>
+<li><a href="#sec-7">小技巧 </a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">简介 </h2>
+<div class="outline-text-2" id="text-1">
+
+<p><a href="http://orgmode.org">org-mode</a> 主页上标题是 Org-Mode: Your Life in Plain Text 。
+</p>
+<p>
+org-mode 是 Emacs 的一种模式(mode)，通过它我们可以很方便而且很高效的管理我们的笔记、ToDo列表，这对与我们要完成一个大工程很有帮助，因为我们可以通过计划表有序地进行。
+</p>
+<p>
+我们还可以通过 org-mode 将我们写的笔记输出生成 html、pdf、DocBook 等格式的文件，所有的这些文件都来自同一个 .org 文件，而且我们不需要去编写这些文件相关的代码就可以完成。你正在看的这篇笔记就是通过 org-mode 编写和发布的，它自动生成了索引，而且我让它将索引编号，相信会对你的阅读提供方便。看，我一句代码都没有写就是这个效果，点击 <a href="http://www.bimeichun.com/orgmode/images/1.png">这里</a> 查看，这是不是很棒！
+</p>
+<p>
+我从一开始使用 org-mode 就深深地被它吸引住了，这里我将我所知道的关于 org-mode 的用法记录下来，希望它能帮助你。当然我会不断地更新这里的内容，因为我发现 org-mode 实在有太多的东西可以去学习了。同时我也希望你将 org-mode 或者 emacs 一些可以提高我们工作效率的用法分享出来，因为我发现国内相关的介绍还是有点儿少。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">安装 </h2>
+<div class="outline-text-2" id="text-2">
+
+<p>23版以后的 Emacs 已经开始默认包含有 org-mode 了，你只需要在你的配置文件 ~/.emacs 中加载它就行了。
+</p>
+
+
+
+<pre class="example">(require 'org-install)
+</pre>
+
+
+
+
+<p>
+或者你可以在 emacs 通过 M-x org-mode 加载 org-mode 。
+</p>
+<p>
+现在重新打开你的 Emacs 新建一个以 .org 格式结尾的文件，在你的状态栏上应该会有诸如这样的 Org 字样显示 <img src="images/2.png"  alt="./images/2.png" /> ,(其中的 yas 是 yasnippet 不全插件，我们暂时不用理它)这说明你的 Emacs 已经进入 org-mode 模式了。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">使用 </h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3.1" class="outline-3">
+<h3 id="sec-3.1">初体验 </h3>
+<div class="outline-text-3" id="text-3.1">
+
+<p>你可以在你的 Emacs 复制粘贴这个文件里的东西 <a href="http://www.bimeichun.com/orgmode/files/hello.txt">点我</a> 然后, M-x org-export-as-html(C-c C-e h)，然后在同目录下会生成一个 .html 文件，使用你的浏览器打开这个文件。怎么样，很简单吧！
+</p></div>
+
+</div>
+
+<div id="outline-container-3.2" class="outline-3">
+<h3 id="sec-3.2">标题 </h3>
+<div class="outline-text-3" id="text-3.2">
+
+<p>文档的标题可以这样设置 #+TITLE: 标题,更多的设置你可以使用快捷键输入 C-c C-e t 。
+</p>
+<p>
+正如上面的示范文件一样，org-mode 里面的标题一首的一个 * 好，然后空格，输入的内容就是标题的东西了。一个星号是一级标题，两个是二级，一共十级。
+</p></div>
+
+</div>
+
+<div id="outline-container-3.3" class="outline-3">
+<h3 id="sec-3.3">段落 </h3>
+<div class="outline-text-3" id="text-3.3">
+
+<p>要重新开始新的段落，需要空一行。<br/>
+而需要换行可以使用 <code>\\</code> 
+</p>
+
+
+<pre class="example">段落
+
+新的段落\\这里将是新的一行
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3.4" class="outline-3">
+<h3 id="sec-3.4">列表 </h3>
+<div class="outline-text-3" id="text-3.4">
+
+<ul>
+<li>
+无序列表以 '-'、 '+' 或者 '*' 开头
+</li>
+<li>
+有序列表以 '1.' 或者 1) 开头
+</li>
+<li>
+描述列表用 '::' 
+</li>
+<li>
+同级列表缩进相同
+</li>
+<li>
+空两行后列表结束
+</li>
+<li>
+在同级里可以是用 M-RET (RET 表示 回车) 插入同级项
+
+
+</li>
+</ul>
+
+<p>示例：
+</p>
+
+
+<pre class="example">** Lord of the Rings
+   My favorite scenes are (in this order)
+   1. The attack of the Rohirrim
+   2. Eowyn's fight with the witch king
+      + this was already my favorite scene in the book
+      + I really like Miranda Otto.
+   3. Peter Jackson being shot by Legolas
+      - on DVD only
+      He makes a really funny face when it happens.
+   But in the end, no individual scenes matter but the film as a whole.
+   Important actors in this film are:
+   - Elijah Wood :: He plays Frodo
+   - Sean Austin :: He plays Sam, Frodo's friend.  I still remember
+     him very well from his role as Mikey Walsh in The Goonies.
+</pre>
+
+
+
+
+
+</div>
+
+<div id="outline-container-3.4.1" class="outline-4">
+<h4 id="sec-3.4.1">列表/标题快捷键 </h4>
+<div class="outline-text-4" id="text-3.4.1">
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption>列表/标题操作的一些快捷键</caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<tbody>
+<tr><td>&lt;TAB&gt;</td><td>折叠或者展开列表,如是在一空的项使用，则会变化各项的级别</td></tr>
+<tr><td>M-&lt;TAB&gt;</td><td>在当前级别里输入一个相同的项，如果在一项中间使用，该项将被分成两项</td></tr>
+<tr><td>M-S-&lt;RET&gt;</td><td>输入一项带 复选框 的项</td></tr>
+<tr><td>M-&lt;left&gt;</td><td>将该项提升一级</td></tr>
+<tr><td>M-&lt;right&gt;</td><td>将该项降低一级</td></tr>
+<tr><td>M-S-&lt;left&gt;</td><td>将该项提升一级，作用于下级所有项</td></tr>
+<tr><td>M-S-&lt;right&gt;</td><td>将该项降低一级，作用于下级所有项</td></tr>
+<tr><td>M-S-&lt;up&gt;/&lt;down&gt;</td><td>将该项与上/下一项交换位置</td></tr>
+</tbody>
+</table>
+
+
+
+<p>
+当光标处于列表项上时，使用以下快捷键，该级项及其所有下级项将被操作：
+</p><table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<tbody>
+<tr><td>C-c C-c</td><td>如果有复选框，触发</td></tr>
+<tr><td>C-c -</td><td>循环变换列表格式 ‘-’, ‘+’, ‘*’, ‘1.’, ‘1)’</td></tr>
+<tr><td>C-c *</td><td>将该列表项成标题，该标题成为所在标题的副标题</td></tr>
+<tr><td>C-c C-*</td><td>将整个列表变成子树</td></tr>
+<tr><td>S-&lt;left&gt;/&lt;right&gt;</td><td>将该项及其子项降低或提升一级</td></tr>
+<tr><td>C-c ^</td><td>对列表进行排序</td></tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3.5" class="outline-3">
+<h3 id="sec-3.5">标签 </h3>
+<div class="outline-text-3" id="text-3.5">
+
+<p>org-mode 里面的标签有以下几种：
+</p>
+
+
+<pre class="example">s    #+begin_src ... #+end_src 
+e    #+begin_example ... #+end_example
+q    #+begin_quote ... #+end_quote 
+v    #+begin_verse ... #+end_verse 
+c    #+begin_center ... #+end_center 
+l    #+begin_latex ... #+end_latex 
+L    #+latex: 
+h    #+begin_html ... #+end_html 
+H    #+html: 
+a    #+begin_ascii ... #+end_ascii 
+A    #+ascii: 
+i    #+index: line 
+I    #+include: line 
+</pre>
+
+
+
+
+<p>
+是的，输入一个 &lt;e 然后按 TAB 键就可以补全了，把 e 换成上面的每个字母都是一样的效果。很方便吧。
+</p></div>
+
+</div>
+
+<div id="outline-container-3.6" class="outline-3">
+<h3 id="sec-3.6">代码 </h3>
+<div class="outline-text-3" id="text-3.6">
+
+<p>org-mode 里面有代码的高亮显示，支持诸如 c, lisp, elisp, html等语言，更多支持的语言请看这个表： <a href="languages.htm">Languages</a>
+</p>
+<p>
+排版源码的标签及格式如下
+</p>
+
+
+
+<pre class="example">
+#+begin_src 语言
+ ...
+#+end_src 
+
+</pre>
+
+
+
+
+<p>
+比如这样：
+</p>
+
+
+
+<pre class="example">
+#+begin_src c -n
+int main(void)
+{
+  printf("Hello, World!\n");
+
+  return 0;
+}
+#+end_src 
+
+</pre>
+
+
+
+
+<p>
+出来的效果是这样的：
+</p>
+
+
+
+<pre class="src src-c"><span class="linenr">1:  </span><span style="color: #98fb98;">int</span> <span style="color: #87cefa;">main</span>(<span style="color: #98fb98;">void</span>)
+<span class="linenr">2:  </span>{
+<span class="linenr">3:  </span>  printf(<span style="color: #ffa07a;">"Hello, World!\n"</span>);
+<span class="linenr">4:  </span>
+<span class="linenr">5:  </span>  <span style="color: #00ffff;">return</span> 0;
+<span class="linenr">6:  </span>}
+</pre>
+
+
+
+<p>
+其中的 -n 是让源码显示行号。
+</p>
+<p>
+如果是这样：
+</p>
+
+
+
+<pre class="example">#+begin_src c -t -h 7 -w 40
+int main(void)
+{
+  printf("Hello, World!\n");
+
+  return 0;
+}
+#+end_src 
+</pre>
+
+
+
+<p>
+则会这样显示：
+</p>
+
+
+<p><textarea cols="40" rows="7" overflow-x:scroll >
+int main(void)
+{
+  printf("Hello, World!\n");
+
+  return 0;
+}
+</textarea>
+</p>
+
+
+
+
+<p>
+其中的 -t 是清除格式 -h 7 设置高度为 7 行，-w 40 设置宽度为 40 列。
+</p></div>
+
+</div>
+
+<div id="outline-container-3.7" class="outline-3">
+<h3 id="sec-3.7">表格 </h3>
+<div class="outline-text-3" id="text-3.7">
+
+<p>org-mode 里制作表格非常的方便和有趣，还可以自动计算total等，还可以自动编号。
+</p>
+</div>
+
+<div id="outline-container-3.7.1" class="outline-4">
+<h4 id="sec-3.7.1">建立表格 </h4>
+<div class="outline-text-4" id="text-3.7.1">
+
+<p>建立表格非常简单，表格的列以 | 隔开，按 TAB 跳到下一单元格， S-TAB 跳到上一单元格。新行 |- 然后 C-TAB 插入水平线，建立下面：
+</p>
+
+
+
+
+<pre class="example">| 操作             | 说明                     |
+|------------------+--------------------------|
+| M-S-&lt;right&gt;      | 插入一列                 |
+| M-S-&lt;left&gt;       | 删除一列                 |
+| M-&lt;right&gt;/&lt;left&gt; | 左右两列调换位置         |
+| 行首插入         | - 然后 C-TAB  插入水平线 |
+</pre>
+
+
+
+
+<p>
+效果是这样的：
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<thead>
+<tr><th scope="col">操作</th><th scope="col">说明</th></tr>
+</thead>
+<tbody>
+<tr><td>M-S-&lt;right&gt;</td><td>插入一列</td></tr>
+<tr><td>M-S-&lt;left&gt;</td><td>删除一列</td></tr>
+<tr><td>M-&lt;right&gt;/&lt;left&gt;</td><td>左右两列调换位置</td></tr>
+<tr><td>行首插入</td><td>- 然后 C-TAB  插入水平线</td></tr>
+</tbody>
+</table>
+
+
+<p>
+这里是表格更多的快捷键
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3.7.2" class="outline-4">
+<h4 id="sec-3.7.2">示范 </h4>
+<div class="outline-text-4" id="text-3.7.2">
+
+<ul>
+<li id="sec-3.7.2.1">复制表格 <br/>
+下面来示范一下如何复制一张表格，插入到我们的 org 文件里面。
+
+<p>
+比如，现在有下面这张表格：
+</p>
+
+<table  border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="center">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<tbody>
+<tr><td>C-x C-f</td><td>打开文件</td></tr>
+<tr><td>C-x C-v</td><td>打开一个文件，取代当前缓冲区</td></tr>
+<tr><td>C-x C-s</td><td>保存文件</td></tr>
+<tr><td>C-x C-w</td><td>存为新文件</td></tr>
+<tr><td>C-x i</td><td>插入文件</td></tr>
+<tr><td>C-x C-q</td><td>切换为只读或者读写模式</td></tr>
+<tr><td>C-x C-c</td><td>退出Emacs</td></tr>
+</tbody>
+</table>
+
+
+
+<p>
+首先，我们从网页上面复制，粘贴到我们的 Emacs 里面，选中粘贴后的内容，然后 C-c | ，好的，效果出来了吧。
+</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">格式输出 </h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4.1" class="outline-3">
+<h3 id="sec-4.1">HTML </h3>
+<div class="outline-text-3" id="text-4.1">
+
+<p>输出为 HTML 文件的快捷键是 C-c C-e h
+</p>
+<p>
+使用 C-c C-e t 可以插入选项，其中可能有些选项我们需要经常用到：
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<tbody>
+<tr><td>H:</td><td>标题层数</td></tr>
+<tr><td>num:</td><td>章节(标题)是否自动编号</td></tr>
+<tr><td>toc:</td><td>是否生成索引</td></tr>
+<tr><td>creator:</td><td>是否生成 "creat by emacs&hellip;"</td></tr>
+<tr><td>LINK_UP:</td><td>UP: 链接</td></tr>
+<tr><td>LINK_HOME:</td><td>HOME: 链接</td></tr>
+</tbody>
+</table>
+
+
+<p>
+更多的说明可以查看： <a href="http://orgmode.org/manual/Export-options.html">orgmode.org</a>
+</p>
+<ul>
+<li>
+有时我们需要包含 html 文件，可以使用 include
+
+
+</li>
+</ul>
+
+
+<pre class="example">#+include "~/wlatex/org-footer.html" html
+</pre>
+
+
+
+
+<p>
+记得在 后面加上 html
+</p>
+<ul>
+<li>
+如果需要为某个表格或者图标添加 class 可以这样设置
+
+</li>
+</ul>
+
+
+<pre class="example">#ATTR_HTML: class="center"
+</pre>
+
+
+
+<p>
+这样，生成的表格(或者其他)样式里面将有 center ， 你可以通过 css 文件控制。
+</p>
+<ul>
+<li>
+你也可以在你的 org 文件头部加入：
+
+
+</li>
+</ul>
+
+
+<pre class="example">#+STYLE: &lt;style&gt;table.center {margin-left:auto; margin- right:auto;}&lt;/style&gt;
+</pre>
+
+
+
+
+<ul>
+<li>
+当然，你可以包含某个 css 文件
+
+
+</li>
+</ul>
+
+
+<pre class="example">#+STYLE: &lt;link rel="stylesheet" href="./css/style.css" type="text/css" /&gt;
+</pre>
+
+
+
+
+
+
+</div>
+
+<div id="outline-container-4.1.1" class="outline-4">
+<h4 id="sec-4.1.1">几种字体格式 </h4>
+<div class="outline-text-4" id="text-4.1.1">
+
+
+
+
+<pre class="example">/italy/ *bold* _underline_ =code= ~verbatim~ +strike-through+ 
+</pre>
+
+
+
+
+<p>
+<b>效果</b> ： <i>italy</i>  <b>bold</b> <span style="text-decoration:underline;">underline</span> <code>code</code> <code>verbatim</code> <del>strike-through</del>
+</p>
+<p>
+<b>水平线</b> 以5个以上连续的 - 组成
+</p></div>
+
+</div>
+
+<div id="outline-container-4.1.2" class="outline-4">
+<h4 id="sec-4.1.2">脚注 </h4>
+<div class="outline-text-4" id="text-4.1.2">
+
+<p>C-c C-x f 插入脚注。<br/>
+C-c C-c 跳到脚注处。
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-4.2" class="outline-3">
+<h3 id="sec-4.2">PDF </h3>
+<div class="outline-text-3" id="text-4.2">
+
+<p>发布成 pdf 的快捷键为 C-c C-e p ，在对应的目录下会生成 tex 及 pdf 文件。
+</p>
+<p>
+可以自己定义 latex 样式，比如我这样定义：
+</p>
+
+
+<pre class="example">(add-to-list 'org-export-latex-classes
+             '("bmc"
+               "\\documentclass[12pt,a4paper,titlepage]{article}
+\\usepackage{amssymb}
+\\usepackage{amsmath}
+\\usepackage{xeCJK}
+\\usepackage{times}
+\\usepackage{titlesec}
+\\usepackage{titletoc}
+\\usepackage{tocloft}
+\\usepackage{fontspec}
+\\usepackage{geometry}
+\\usepackage{fancyhdr}
+\\usepackage{indentfirst}
+\\usepackage{listings}
+\\usepackage{longtable}
+\\usepackage[all]{draftcopy}
+\\usepackage{xcolor}
+\\usepackage{graphicx}
+\\usepackage{fancyhdr}
+\\usepackage[unicode=true,colorlinks=no,pdfborder=no,xetex,CJKbookmarks=true]{hyperref}
+
+\\usepackage{fontspec,xunicode,xltxtra}
+\\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm} % 页面边距
+\\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+
+\\setlength{\\parindent}{24pt}
+
+\\lstset{
+  % 行号
+  numbers=left,
+  numberstyle=\\tiny,
+  % 背景框
+  frame=shadowbox,
+  rulesepcolor=\\color{red!20!green!20!blue!20},
+  % 背景色
+   backgroundcolor=\\color[RGB]{245,245,244},
+  % 样式
+  keywordstyle=\\bf\\color{blue},
+  identifierstyle=\\bf,
+  numberstyle=\\color[RGB]{0,192,192},
+  commentstyle=\\color{blue!80},
+  stringstyle=\\rmfamily\\slshape\\color[RGB]{128,0,0},
+  % 显示空格
+  showstringspaces=true,
+  % escapeinside=``,
+  extendedchars=false,
+  basicstyle=\\scriptsize,
+  % 边距
+  xleftmargin=2em,xrightmargin=2em,aboveskip=1em,
+  % 换行
+  breaklines
+}
+
+% 一级章节设置
+\\titleformat{\\section}{\\centering\\large\\bfseries\\setCJKmainfont{SimHei}}{第\\,\\thesection\\,部分}{12pt}{}
+% 二级
+\\titleformat{\\subsection}{\\small\\setCJKmainfont{SimHei}}{\\thesubsection}{10pt}{}
+% 三级
+\\titleformat{\\subsubsection}{\\small\\setCJKmainfont{SimHei}}{\\thesubsubsection}{9pt}{}
+%%% 字体设置
+\\setmainfont{Times New Roman}
+\\setCJKmainfont{SimSun}
+%%\\setCJKmonofont{DejaVu Sans YuanTi Mono}
+
+\\renewcommand{\\contentsname}{目\\quad 录}   %将Contents换成 ”目录“
+"
+("\\section{%s}" . "\\section*{%s}")
+("\\subsection{%s}" . "\\subsection*{%s}")
+("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+("\\paragraph{%s}" . "\\paragraph*{%s}")
+("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+</pre>
+
+
+
+
+<p>
+在你的 org 文件中，就可以在头部添加 #+LaTeX_CLASS: bmc 来引用这个样式。
+</p>
+<p>
+我使用的是 xelatex 编译生成 pdf 文件，可以在 Emacs 中这样配置：
+</p>
+
+
+<pre class="example">;;;;;;使用 xelatex 编译生成 PDF 文件
+(setq org-latex-to-pdf-process
+'("xelatex -interaction nonstopmode %b"
+"xelatex -interaction nonstopmode %b"))
+</pre>
+
+
+
+
+</div>
+
+<div id="outline-container-4.2.1" class="outline-4">
+<h4 id="sec-4.2.1">公式预览 </h4>
+<div class="outline-text-4" id="text-4.2.1">
+
+<p>C-c C-x C-l 预览公式<br/>
+C-c C-c 取消预览
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-4.3" class="outline-3">
+<h3 id="sec-4.3">PPT </h3>
+<div class="outline-text-3" id="text-4.3">
+
+
+</div>
+
+<div id="outline-container-4.3.1" class="outline-4">
+<h4 id="sec-4.3.1">快速制作 </h4>
+<div class="outline-text-4" id="text-4.3.1">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4.4" class="outline-3">
+<h3 id="sec-4.4">DocBook </h3>
+<div class="outline-text-3" id="text-4.4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">发布工程 </h2>
+<div class="outline-text-2" id="text-5">
+
+
+</div>
+
+<div id="outline-container-5.1" class="outline-3">
+<h3 id="sec-5.1">建立工程 </h3>
+<div class="outline-text-3" id="text-5.1">
+
+</div>
+
+</div>
+
+<div id="outline-container-5.2" class="outline-3">
+<h3 id="sec-5.2">组织文件结构 </h3>
+<div class="outline-text-3" id="text-5.2">
+
+</div>
+
+</div>
+
+<div id="outline-container-5.3" class="outline-3">
+<h3 id="sec-5.3">多个工程 </h3>
+<div class="outline-text-3" id="text-5.3">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Org-mode 与其他配合 </h2>
+<div class="outline-text-2" id="text-6">
+
+
+</div>
+
+<div id="outline-container-6.1" class="outline-3">
+<h3 id="sec-6.1">YASnippet </h3>
+<div class="outline-text-3" id="text-6.1">
+
+</div>
+
+</div>
+
+<div id="outline-container-6.2" class="outline-3">
+<h3 id="sec-6.2">auto-complete </h3>
+<div class="outline-text-3" id="text-6.2">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">小技巧 </h2>
+<div class="outline-text-2" id="text-7">
+
+
+
+
+  <div id="copyright">
+  <p>Copyright &copy; 2011, bimeichun.com</p>
+  <p>bimeichun@163.com</p>
+  </div>
+
+
+  <div style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+  <script type="text/javascript" src="http://js.users.51.la/4499176.js">
+  </script>
+  </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>

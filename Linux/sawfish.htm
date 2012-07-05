@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>sawfish 配置与使用</title>	
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="sawfish.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="/js/sh/scripts/shCore.js"></script>
+    <script type="text/javascript" src="/js/sh/scripts/shBrushBash.js"></script>
+    <script type="text/javascript" src="/js/sh/scripts/shBrushLisp.js"></script>
+    <link type="text/css" rel="stylesheet" href="../js/sh/styles/shCoreDefault.css"/>
+    <script type="text/javascript" src="/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="sawfish.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+  </head>
+  <body>
+    <div class="menu radius moz webkit">
+      <ul id="menu">
+	<li><a href="../index.htm">Home</a></li>
+	<li><a href="linux.htm">Linux</a></li>
+	<li><a href="emacs.htm">Emacs</a></li>
+	<li><a href="../orgmode/orgmode.htm">OrgMode</a></li>
+	<li><a href="../latex/latex.htm">LaTeX</a></li>
+	<li><a href="sawfish.htm">Sawfish</a></li>
+	<li><a href="gentoo.htm">Gentoo</a></li>
+	<li><a href="../about.htm">About</a></li>
+      </ul>
+    </div>
+    <div class="main radius">
+      <h1>Sawfish 配置与使用</h1>
+      <p class="author">Bimeichun 2011-3-11</p>
+      <div id="table-of-contents" class="contents">
+	<p>Contents</p>
+	<dl>
+	  <dt><a class="contents" href="#sec1">替换 Metacity</a></dt>
+	  <dt><a class="contents" href="#sec2">自动更换壁纸</a></dt>
+	  <dt><a class="contents" href="#sec3">jump-or-exec</a></dt>
+	  <dd><dl>
+	      <dt><a class="contents" href="#sec4">sawfish 中</a></dt>
+	      <dt><a class="contents" href="#sec5">其他管理器中</a></dt>
+	  </dl></dd>
+	  <dt><a class="contents" href="#sec6">快捷键设置</a></dt>
+	  <dt><a class="contents" href="#sec7">Workspace</a></dt>
+	  <dt><a class="contents" href="#sec8">启动程序</a></dt>
+	</dl>
+      </div>
+      <span class="first">S</span>awfish 有很强的定制性和扩展性，而且它很轻巧。你并不需要知道 lisp 语言，可以照着别人的配置更改，慢慢理解。 
+      Sawfish 提供了两个工具对sawfish进行配置。
+      <li>sawfish-client</li>
+      你可以使用它来对 Sawfish 进行实时控制。在终端里启动。但更好的办法是使用sawfish.el在Emacs的 sawfish-mode 里面编辑，并用 C-x C-e 来执行编辑的 lisp 语句。(quit)不是退出sawfish-client而是退出 Sawfish !
+      <li>sawfish-ui</li>
+      在终端里启动。这是一个图形化配置对话框，可以配置主题、颜色、快捷键、工作区等等，配置会写进 ~/.sawfish/custom ，你可以打开查看里面的内容。
+      <h2><a name="sec1" id="sec1"></a>
+	Sawfish 替换 Metacity</h2>
+      <p class="quoted">桌面环境一大好处就是默认配置得很好了，不必再折腾去配置。但是当已经习惯一个窗口管理器时再去使用别的窗口管理器就会觉得不习惯。一直习惯于sawfish的 jump-or-exec 操作和自定义的一些快捷键，于是便用 sawfish 替换 gnome 下的 metacity 。</p>
+
+      <p>方法很简单：</p>
+
+      <ul>
+	<li>第一种方法是编辑或者创建/etc/env.d/50gtk2,添加如下内容：</li>
+      </ul>
+
+      <pre class="brush: bash">
+	export WINDOW_MANAGER=&quot;/usr/bin/sawfish&quot;
+      </pre>
+
+      <ul>
+	<li>第二种方法是在 ~/.profile 添加如下内容：</li>
+      </ul>
+
+      <pre class="brush: bash">
+	export WINDOW_MANAGER=&quot;/usr/bin/sawfish&quot;
+      </pre>
+      我正在使用的是第二种方法,使用的是 debian linux 。
+
+      <p>以上方法参考自 <a href="http://linuxboy.javaeye.com/blog/576221">替换gnome默认的窗口管理器metacity</a></p>
+
+
+      <h2><a name="sec2" id="sec2"></a>
+	Sawfish 自动更换壁纸</h2>
+
+      <p class="quoted">没有使用gnome而只使用 <em>sawfish</em> 窗口管理器时，自己写了一个脚本利用 <em>cron</em> 守护进程和 <em>habak</em> 实现自动更换壁纸。</p>
+
+      <p>当然，前提是你已经安装了cron（这里我使用的是vixie-cron），并且你当前用户具有crontab的权限。</p>
+
+      <p>$ crontab -e</p>
+
+      <pre class="brush: bash">
+	*/1 * * * * /home/bmc/myshell/autohabak.sh &gt;&gt;  /home/bmc/mycron/autohabak.log
+      </pre>
+      下面是 autohabak.sh 的内容：
+
+      <pre class="brush: bash">
+	#!/bin/sh
+	i=`expr $RANDOM % 6`
+	i=`expr ${i} + 1`
+	habak -hi /home/bmc/wallpaper/$i.jpg
+      </pre>
+      其中有7张壁纸，当有n张壁纸的时候，将6改位 n-1 就可以了。壁纸都是n.jpg的文件名格式的。
+
+
+      <h2><a name="sec3" id="sec3"></a>
+	jump-or-exec</h2>
+
+      <p class="first">jump-or-exec 就是 “跳转-或者-运行” 的意思，也就是说，当程序正在运行时，跳转到该程序，当程序没有运行时，则运行该程序。这样，对于只需要运行一个实例的程序，我们可以方便地进行操作。</p>
+
+      <h3><a name="sec4" id="sec4"></a>
+	sawfish 中使用</h3>
+
+      <p class="first">可以到 <a href="http://sawfish.wikia.com/wiki/Jump-or-exec">这里</a> 下载jump-or-exec到你的load-path中。你的~/.sawfishrc中应该有类似的路径设置：</p>
+
+      <pre class="brush: lisp">
+	((setq load-path (cons &quot;~/.sawfish/lisp&quot; load-path)))
+      </pre>
+      然后在 ~/.sawfishrc 中添加:
+      <pre class="brush: lisp">
+	(require 'jump-or-exec)
+      </pre>
+      然后就是设置你需要用到jump-or-exec打开的程序了。我是将这些设置单独在 ~/.sawfish/lisp/myjumporexec.jl 中设置的：
+
+      <pre class="brush: lisp">
+	(bind-keys global-keymap
+	   "Super-c" `(jump-or-exec "Chromium" "chromium")
+	   "Super-e" `(jump-or-exec "emacs@" "emacs")
+	   "Super-f" `(jump-or-exec "Firefox" "firefox")
+	   "Super-p" `(jump-or-exec "SMPlayer" "smplayer")
+	   "Super-s" `(jump-or-exec "StarDict" "stardict")
+	)
+      </pre>
+      然后我只需要在 ~/.sawfishrc 中设置加载这个文件就行了 ： (require 'myjumporexec)
+
+
+      <h3><a name="sec5" id="sec5"></a>
+	其他窗口管理器中使用</h3>
+
+      <p class="first">当没有使用sawfish时可以通过编写脚本来实现。下面是我网上找到的一个脚本，已经不知道当时在哪找到的，十分感谢。放在这里希望需要的人能用到。</p>
+
+      <pre class="brush: bash">
+	#!/bin/bash
+	case $1 in
+	emacs)
+        REXP=&quot;Emacs -x&quot;
+        CMD=&quot;emacs&quot;
+        ;;
+	browser)
+        REXP=&quot;SMPlayer -x&quot;
+        CMD=&quot;smplayer&quot;
+        ;;
+	firefox)
+        REXP=&quot;Namoroka&quot;
+        CMD=&quot;firefox&quot;
+        ;;
+	stardict)
+        REXP=&quot;StarDict&quot;
+        CMD=&quot;stardict&quot;
+        ;;
+	qterm)
+        REXP=&quot;qterm.Qterm -x&quot;
+        CMD=&quot;qterm&quot;
+        ;;
+	chromium)
+	REXP=&quot;Chromium&quot;
+	CMD=&quot;chromium&quot;
+	;;
+	*)
+        exit
+        ;;
+	esac
+
+	wmctrl -a $REXP &amp;&amp; exit
+	exec $CMD &amp;
+      </pre>
+      其中要安装 <em>wmctrl</em> 。我将这个脚本命名为 jumporexec ，赋予执行权限后，就可以进行调用了。比如我在.sawfishrc中通过绑定快捷键 Super+c (Win+c)键调用这个脚本打开chromium如下：
+
+      <pre class="brush: lisp">
+	(bind-keys window-keymap &quot;Super-c&quot; '(system &quot;~/jumporexec chromium &amp;&quot;))
+      </pre>
+
+
+
+      <h2><a name="sec6" id="sec6"></a>
+	Sawfish 快捷键设置</h2>
+
+      <blockquote>
+	<p class="quoted">sawfish 的快捷键设置并不难，也不必懂得lish语言。快捷键的表示方法是将其绑定到某个命令上，关键是懂得该命令的用法就行了。比如，我绑定窗口最大化的快捷键如下：</p>
+      </blockquote>
+
+      <pre class="brush: lisp">
+	(bind-keys window-keymap &quot;Super-w&quot;
+	'(move-resize-window-to (current-event-window) 0 24 1434 822))
+      </pre>
+      要使用快捷键，我们有必要修改一下键盘映射。我用的是xmodmap来修改。
+
+      <p>我的~/.Xmodmap 文件内容如下：</p>
+
+      <pre class="brush: bash">
+	keycode 133 = Super_L
+	clear mod4
+	add mod4 = Super_L
+      </pre>
+      可以在终端下用 xev 来查看键盘的 keycode 。
+      运行xev后，按下你要查看的那个键就会显示出相应的信息。
+
+      <p>比如我按下 win 键：</p>
+
+      <pre class="brush: shell">
+	KeyRelease event, serial 34, synthetic NO, window 0x3800001,
+	root 0x12e, subw 0x0, time 18855567, (34,277), root:(379,501),
+	state 0x40, keycode 133 (keysym 0xffeb, Super_L), same_screen YES,
+	XLookupString gives 0 bytes:
+	XFilterEvent returns: False
+      </pre>
+      可以看到 133 就是这个 win 键的keycode。
+
+      <p>编写好 ~/.Xmodmap 后，需要在 sawfish 启动的时候使之生效。</p>
+
+      <p>我的 ~/.xinitrc 如下:</p>
+
+      <pre class="brush: bash">
+	#!/bin/sh
+	export LANG=&quot;zh_CN.UTF-8&quot;
+	#export LC_CTYPE=&quot;zh_CN.utf8&quot;
+	export XIM=fcitx
+	export XMODIFIERS=@im=fcitx
+	export QT_IM_MODULE=xim
+	export GTK_IM_MODULE=xim
+	export XIM_PROGRAM=xim
+	fcitx &amp;
+	#export XDG_MENU_PREFIX=gnome-
+	#gnome-settings-daemon &amp;
+	#gnome-panel &amp;
+	#xscreensaver &amp;
+	xmodmap ~/.Xmodmap
+	exec sawfish
+      </pre>
+
+      <p>下面给出我用的一下快捷键</p>
+
+      <pre class="brush: lisp">
+	;;; 按住 Super和q键，关闭当前窗口
+	(bind-keys window-keymap &quot;Super-q&quot; '(delete-window (current-event-window)))
+	;;; 移动窗口到(0,0)处
+	(bind-keys window-keymap &quot;Super-l&quot;
+	'(move-window-to (current-event-window) 0 0))
+
+	;(bind-keys window-keymap &quot;Super-y&quot; '(system &quot;~/jumporexec emacs &amp;&quot;))
+	;(bind-keys window-keymap &quot;Super-s&quot; '(system &quot;~/jumporexec stardict &amp;&quot;))
+	;(bind-keys window-keymap &quot;Super-f&quot; '(system &quot;~/jumporexec firefox &amp;&quot;))
+	;(bind-keys window-keymap &quot;Super-c&quot; '(system &quot;~/jumporexec chromium &amp;&quot;))
+	(bind-keys window-keymap &quot;Super-t&quot; '(system &quot;gnome-terminal &amp;&quot;))
+	;(bind-keys window-keymap &quot;Super-a&quot; '(system &quot;~/jumporexec acroread &amp;&quot;))
+	(bind-keys window-keymap &quot;Super-y&quot; '(system &quot;emacs &amp;&quot;))
+	;;;;取消窗口操作
+	(bind-keys window-keymap &quot;Super-u&quot; 'undo)
+	;;;;运行命令
+	(bind-keys window-keymap &quot;Super-r&quot; 'run-shell-command)
+	(bind-keys window-keymap &quot;Super-p&quot; '(system &quot;smplayer &amp;&quot;))
+	;;;; 返回当前窗口名字
+	(bind-keys window-keymap &quot;super-b&quot;
+	'(display-message (window-name (current-event-window))))
+	;;;; 最大化
+	(bind-keys window-keymap &quot;Super-w&quot;
+	'(move-resize-window-to (current-event-window) 0 24 1434 822))
+	(bind-keys window-keymap &quot;Super-n&quot;
+	'(move-resize-window-to (current-event-window) 250 100 900 640))
+
+	;;;拖动窗口
+	(require 'sawfish.wm.commands.move-resize)
+	(defun wy-move-window ()
+	(interactive)
+	(move-window-interactively (current-event-window)))
+
+	(bind-keys window-keymap &quot;W-Button1-Click1&quot; 'wy-move-window)
+
+	;; 最小化和取消最小化
+	(defun wy-iconify-window (win)
+	(interactive &quot;%w&quot;)
+	(iconify-window win)
+	(setq last-iconified-window win))
+
+	(defun wy-uniconify-window ()
+	(interactive)
+	(uniconify-window last-iconified-window)
+	(display-window last-iconified-window))
+
+	(bind-keys window-keymap &quot;Super-z&quot; 'wy-iconify-window)
+	(bind-keys window-keymap &quot;Super-x&quot; 'wy-uniconify-window)
+      </pre>
+
+      <p>其中的 undo 是取消上次的窗口操作，请参看这里:<a href="http://sawfish.wikia.com/wiki/Undo">http://sawfish.wikia.com/wiki/Undo</a></p>
+
+      <p>更多资料请参看这里:<a href="http://sawfish.wikia.com/wiki/Main_Page">http://sawfish.wikia.com/wiki/Main_Page</a></p>
+
+      <h2><a name="sec7" id="sec7"></a>Workspace 工作区</h2>
+      <li>设置工作区</li>
+      <pre class="brush: lisp">
+	(setq workspace-names '("Browser" "Chat" "Media" "Mail" "Study"))
+      </pre>
+      当然，你可以设置更多。
+      <li>绑定快捷键快速转换到工作区</li>
+      <pre class="brush: lisp">
+	;;快捷键 M 表示 Alt
+	(bind-keys global-keymap "M-1" '(activate-workspace 1))
+	(bind-keys global-keymap "M-2" '(activate-workspace 2))
+	(bind-keys global-keymap "M-3" '(activate-workspace 3))
+	(bind-keys global-keymap "M-4" '(activate-workspace 4))
+	(bind-keys global-keymap "M-5" '(activate-workspace 5))
+      </pre>
+      <li>绑定快捷键将窗口移动到工作区</li>
+      <pre class="brush: lisp">
+	;;将窗口移到指定工作区
+	(bind-keys global-keymap "Super-1" '(send-to-workspace 1))
+	(bind-keys global-keymap "Super-2" '(send-to-workspace 2))
+	(bind-keys global-keymap "Super-3" '(send-to-workspace 3))
+	(bind-keys global-keymap "Super-4" '(send-to-workspace 4))
+	(bind-keys global-keymap "Super-5" '(send-to-workspace 5))
+      </pre>
+      <h2><a name="sec8" id="sec8"></a>启动程序</h2>
+      <p>我通过 startx 来启动 X，当在~/.xinitrc中设置启动一些程序时，Sawfish退出时并不知道它们的存在，所以这些程序会异常退出。我们可以让这些程序通过sawfish来启动，退出时让sawfish关闭它们。可以使用Sawfish的 start-process 。</p>
+      <pre class="brush: lisp">
+	;; autorun
+	(define kid-startup-programs
+	'(("gnome-panel")
+	("fcitx")
+	("idesk")
+	;;  ("habak" "-hi" "/home/bmc/wallpaper/3.jpg")
+	))
+	(mapc (lambda (program)
+	(apply start-process (make-process standard-output) program))
+	kid-startup-programs)
+	(add-hook 'before-exit-hook
+	(lambda ()
+	(mapc stop-process (active-processes))))
+      </pre>
+    </div>
+    <div id="navfoot">
+      bimeichun.com &copy; 2011 bimeichun@163.com
+    </div>
+    <div style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script language="javascript" type="text/javascript" src="http://js.users.51.la/4499176.js">
+      </script>
+    </div>
+  </body>
+</html>

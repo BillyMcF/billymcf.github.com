@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>LaTeX 学习笔记</title>
+    <link rel="stylesheet" type="text/css" href="css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <meta name="description" content="LaTeX是一种基于TeX的排版系统，由美国电脑学家莱斯利 兰伯特（Leslie Lamport）在20世纪80年代初期开发，利用这种格式，即使使用者没有排版和程序设计的知识也可以充分发挥由TEX所提供的强大功能，能在几天，甚至几小时内生成很多具有书籍质量的印刷品。对于生成复杂表格和数学公式，这一点表现得尤为突出。因此它非常适用于生成高印刷质量的科技和数学类文档。这个系统同样适用于生成从简单的信件到完整书籍的所有其他种类的文档。 这篇文档是我根据自己学习和使用 LaTeX 的笔记整理而得，希望能为需要的人提供参考。在我写报告的时候，发现网上搜到的资料并不是很多，有时甚至搜不到。所以我想有必要将笔记放在网上给别人参考。 如果发现有错误的地方，欢迎邮件告诉我。" />
+    <link rel="home" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="next" href="Basis.html" title="第 1 章 安装与开始" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">LaTeX 学习笔记</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="Basis.htm">下一页</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="book" title="LaTeX 学习笔记">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="id2267562"></a>LaTeX 学习笔记</h1>
+          </div>
+          <div>
+            <div class="author">
+              <h3 class="author"><span class="firstname">Meichun</span> <span class="surname">Bi</span></h3>
+              <code class="email">&lt;<a class="email" href="mailto:bimeichun@163.com">bimeichun@163.com</a>&gt;</code>
+            </div>
+          </div>
+          <div>
+            <p class="pubdate">2011年12月1日</p>
+          </div>
+          <div>
+            <div class="abstract" title="摘要">
+              <p class="title">
+                <strong>摘要</strong>
+              </p>
+              <p>LaTeX是一种基于TeX的排版系统，由美国电脑学家莱斯利 兰伯特（Leslie Lamport）在20世纪80年代初期开发，利用这种格式，即使使用者没有排版和程序设计的知识也可以充分发挥由TEX所提供的强大功能，能在几天，甚至几小时内生成很多具有书籍质量的印刷品。对于生成复杂表格和数学公式，这一点表现得尤为突出。因此它非常适用于生成高印刷质量的科技和数学类文档。这个系统同样适用于生成从简单的信件到完整书籍的所有其他种类的文档。
+      </p>
+              <p>这篇文档是我根据自己学习和使用 LaTeX 的笔记整理而得，希望能为需要的人提供参考。在我写报告的时候，发现网上搜到的资料并不是很多，有时甚至搜不到。所以我想有必要将笔记放在网上给别人参考。</p>
+              <p>如果发现有错误的地方，欢迎邮件告诉我。</p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="toc">
+        <p>
+          <strong>目录</strong>
+        </p>
+        <dl>
+          <dt>
+            <span class="chapter">
+              <a href="Basis.htm">1. 安装与开始</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="Basis.htm#id2526455">1.1. 安装</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="Basis.htm#id2526480">1.2. Hello LaTeX</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="Basis.htm#id2526534">1.3. 你好 LaTeX</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ctex.htm">2. ctex 宏包</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ctex.htm#id2525931">2.1. Linux下ctex宏包字体</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="documentclass.htm">3. 文档类</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="documentclass.htm#id2526324">3.1. 定义文档类型</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="documentclass.htm#id2526342">3.2. 文档类型</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="documentclass.htm#id2527054">3.3. 文档选项</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="font.htm">4. 字体</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="font.htm#id2528474">4.1. 字体样式</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="font.htm#id2528689">4.2. 字体尺寸</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="font.htm#id2528983">4.3. ctex 宏包字体</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="font.htm#id2524891">4.4. 其他</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="section">
+                      <a href="font.htm#id2524897">4.4.1. 英文与中文间隔</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="section">
+                  <a href="font.htm#id2529490">4.5. 本页例程文件</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="title.htm">5. 标题</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="title.htm#id2530449">5.1. 题名命令</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="title.htm#id2530534">5.2. 多作者</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="title.htm#id2530630">5.3. 章节标题</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="section">
+                      <a href="title.htm#id2530635">5.3.1. 标题命令</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="section">
+                      <a href="title.htm#id2530676">5.3.2. 层次深度</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="section">
+                      <a href="title.htm#id2530691">5.3.3. 标题参数</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="section">
+                      <a href="title.htm#id2530723">5.3.4. 带星号标题</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="content.htm">6. 目录</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="content.htm#id2530332">6.1. 生成目录</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="content.htm#id2530161">6.2. 将 Contents 变成 “目录”</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="bookmark.htm">7. 书签</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="bookmark.htm#id2530193">7.1. hyperref 宏包</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="bookmark.htm#id2530204">7.2. 中文书签乱码</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="math.htm">8. 数学公式</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="math.htm#id2531499">8.1. 数学环境</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="math.htm#id2531545">8.2. 字符</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="math.htm#id2531562">8.3. 希腊字母</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="math.htm#id2531579">8.4. 上标和下标</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="math.htm#id2531627">8.5. 分数、开方</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="math.htm#id2531665">8.6. 数学函数</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="math.htm#id2531816">8.7. 插入文本</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="math.htm#id2531848">8.8. 省略号</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="graphics.htm">9. LaTeX 插图</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="graphics.htm#id2531450">9.1. 准备</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="graphics.htm#id2531286">9.2. graphicx 宏包</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="graphics.htm#id2532631">9.3. 图形标题</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="graphics.htm#id2532738">9.4. 调整间距</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="graphics.htm#id2532868">9.5. 修改 Figure 字样</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="theorem.htm">10. 数学定理</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="theorem.htm#id2532960">10.1. 定理环境</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="theorem.htm#id2533694">10.2. 定理序号</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="theorem.htm#id2533730">10.3. 去除编号</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="theorem.htm#id2533761">10.4. 使用相同编号</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="theorem.htm#id2533800">10.5. 定理说明</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="theorem.htm#id2533856">10.6. 定理样式</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="Basis.htm">下一页</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right" valign="top"> 第 1 章 安装与开始</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

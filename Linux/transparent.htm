@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Linux 下窗口透明</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-11-28 Mon"/>
+<meta name="author" content="Billy"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="linux.htm"> UP </a>
+ |
+ <a accesskey="H" href="../index.htm"> HOME </a>
+</div>
+
+<h1 class="title">Linux 下窗口透明</h1>
+<div id="postamble">
+<p class="author"> Author: Billy
+&nbsp;&nbsp;Date: 2011-11-28 Mon</p>
+</div>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">环境 </a></li>
+<li><a href="#sec-2">说明 </a></li>
+<li><a href="#sec-3">安装及使用 </a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">环境 </h2>
+<div class="outline-text-2" id="text-1">
+
+<ul>
+<li>
+Linux 版本： arch linux i686
+</li>
+<li>
+桌面环境： 否
+</li>
+<li>
+窗口管理器： sawfish 1.8.91
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">说明 </h2>
+<div class="outline-text-2" id="text-2">
+
+<p>尽管有些人认为窗口的透明华而不实，但是我认为窗口的透明给自己带来了很大的便利，比如编写文档或者程序的时候，我可以将 emacs 最大化在参考文档上面，然后进行编写，这样实在非常的有用。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">安装及使用 </h2>
+<div class="outline-text-2" id="text-3">
+
+<p>我根据 <a href="http://sawfish.wikia.com/wiki/How_to_enable_transparency">sawfish.wiki</a> 上的设置，在 /etc/X11/xorg.conf.d/10-evdev.conf 里添加了(也许这并不需要添加):
+</p>
+
+
+<pre class="src src--t">Section <span style="color: #ffa07a;">"Extensions"</span>
+        Option          <span style="color: #ffa07a;">"Composite"</span>     <span style="color: #ffa07a;">"Enable"</span>
+EndSection
+</pre>
+
+
+
+
+<p>
+需要安装 xcompmgr、 cairo 、cairo-compmgr 和 transset-df:
+</p>
+
+
+<pre class="src src-bash">$ sudo pacman -S xcompmgr cairo cairo-compmgr transset-df
+</pre>
+
+
+
+<p>
+然后启动 xcompmgr ,使用 transset-df n 进行设置窗口透明，其中 n 为 0-1 之间
+</p>
+<p>
+我使用的两个透明的窗口是 urxvt 和  emacs
+</p><ul>
+<li>
+urxvt 
+在 .Xdefaults 里面添加 (或者 .Xresources 可以使用 xrdb .Xresources 使配置立即生效）
+
+</li>
+</ul>
+
+
+<pre class="src src--t">!! &#36879;&#26126;&#24230;&#35774;&#32622;
+URxvt.depth:32
+URxvt.background:[75]#000000
+</pre>
+
+
+
+<p>
+其中的 75 是透明度 #000000 是背景色。
+</p>
+<ul>
+<li>
+emacs
+
+</li>
+</ul>
+
+
+<pre class="src src--t">;;; transparent
+;;(set-frame-parameter (selected-frame) 'alpha '(&lt;active&gt; [&lt;inactive&gt;]))
+(set-frame-parameter (selected-frame) 'alpha '(85 50))
+(add-to-list 'default-frame-alist '(alpha 85 50))
+
+(eval-when-compile (require 'cl))
+(defun toggle-transparency ()
+  (interactive)
+  (if (/=
+       (cadr (frame-parameter nil 'alpha))
+       100)
+      (set-frame-parameter nil 'alpha '(100 100))
+    (set-frame-parameter nil 'alpha '(75 50))))
+(global-set-key (kbd <span style="color: #ffa07a;">"C-c t"</span>) 'toggle-transparency)
+</pre>
+
+
+
+
+<p>
+这样 emacs 启动即默认开启了透明，如果想关闭透明，C-c t 即可。
+</p>
+
+
+<div id="copyright">
+<p>Copyright &copy; 2011, bimeichun.com</p>
+<p>bimeichun@163.com</p>
+</div>
+
+
+<div style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+<script type="text/javascript" src="http://js.users.51.la/4499176.js">
+</script>
+</div>
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

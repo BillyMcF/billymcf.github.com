@@ -1,0 +1,233 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet"  type="text/css" href="css/core.css"/>		<title>Auctex 使用笔记</title>
+    <script type="text/javascript">
+      
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22006679-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+    </script>
+    <div class="menu">
+      <b><p><a href="../index.htm">Home</a> <a href="../about.htm">About</a></p></b>
+    </div>
+  </head>
+  <body>	
+    <h1>Auctex 使用笔记</h1>
+
+<div class="contents">
+<dl>
+<dt>
+<a href="#sec1">安装</a>
+</dt>
+<dt>
+<a href="#sec2"><em>.emacs</em> 中的设置:</a>
+</dt>
+<dt>
+<a href="#sec3">快捷键</a>
+</dt>
+<dd>
+<dl>
+<dt>
+<a href="#sec4">快速插入</a>
+</dt>
+<dt>
+<a href="#sec5">快速更换字体</a>
+</dt>
+</dl>
+</dd>
+<dt>
+<a href="#sec6">使用 preview 预览公式</a>
+</dt>
+</dl>
+</div>
+
+    <div class="main">
+<h2><a name="sec1" id="sec1"></a>
+安装</h2>
+
+<pre class="example">
+$ cvs -z3 -d:pserver:anonymous@cvs.savannah.gnu.org:/sources/auctex co auctex
+$ cd auctex
+$ ./autogen.sh
+$ ./configure
+   --prefix=/home/bmc/.emacs.d/    # 最高层目录
+   --with-lispdir=/home/bmc/.emacs.d/site-lisp  # 安装目录的上一层目录
+   --with-packagelispdir=/home/bmc/.emacs.d/site-lisp/auctex  # 安装到那里
+$ make
+$ sudo make install
+</pre>
+
+<ul>
+<li>安装 <strong>CJK</strong> 以使用中文;</li>
+<li>安装 <strong>scrot, sam2p</strong> 方便截图并转为 <strong>eps</strong> 格式，写一个脚本 <em>seps</em> 截图后自动生成 <em>eps</em> 格式文件：</li>
+</ul>
+
+<pre class="example">
+#!/bin/bash
+if [ $# -ne 0 ]; then
+name=$1
+else
+name=tmp
+fi
+scrot -s $name.jpg
+sam2p $name.jpg $name.eps
+rm $name.jpg
+</pre>
+<blockquote>
+<p class="quoted">赋予执行权限 <strong>chmod +x seps</strong> , 然后移动到 <em>/usr/bin/</em> 下，这样可以在其他地方使用，直接 <strong>seps 文件名</strong> 就可以了。</p>
+</blockquote>
+
+
+<h2><em><a name="sec2" id="sec2"></a>.emacs</em> 中的设置:</h2>
+
+<pre class="example">
+;;################### LaTeX ######################
+(load &quot;auctex.el&quot; nil t t)
+(load &quot;latex.el&quot; nil t t)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+(load &quot;preview.el&quot; nil t t)
+(add-hook 'LaTeX-mode-hook (lambda()
+        (define-key LaTeX-mode-map &quot;\C-m&quot; 'reindent-then-newline-and-indent)
+))
+(add-hook 'latex-mode-hook 'turn-on-reftex)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-auctex t)
+(global-set-key [f6] 'LaTeX-environment)
+
+;使用pdflatex编译文件
+(add-hook 'LaTeX-mode-hook (lambda()
+	     (add-to-list 'TeX-command-list '(&quot;pdflatex&quot; &quot;%`pdflatex%(mode)%' %t&quot; TeX-run-TeX nil t))
+         (setq TeX-command-default &quot;pdflatex&quot;)
+         (setq TeX-save-query  nil )
+         (setq TeX-show-compilation t)))
+</pre>
+
+
+<h2><a name="sec3" id="sec3"></a>
+快捷键</h2>
+
+<h3><a name="sec4" id="sec4"></a>
+快速插入</h3>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>C-c C-e</td>
+      <td>插入LaTeX环境</td>
+    </tr>
+    <tr>
+      <td>C-c C-s</td>
+      <td>插入章节</td>
+    </tr>
+    <tr>
+      <td>C-c C-j</td>
+      <td>插入列表</td>
+    </tr>
+    <tr>
+      <td>C-c ]</td>
+      <td>闭合LaTeX环境</td>
+    </tr>
+    <tr>
+      <td>C-c C-m</td>
+      <td>插入 TeX 宏包</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3><a name="sec5" id="sec5"></a>
+快速更换字体</h3>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>C-c C-f C-b</td>
+      <td>插入粗体文本</td>
+    </tr>
+    <tr>
+      <td>C-c C-f C-i</td>
+      <td>插入斜体文本</td>
+    </tr>
+    <tr>
+      <td>C-c C-f C-e</td>
+      <td>插入强调文本</td>
+    </tr>
+    <tr>
+      <td>C-c C-f C-s</td>
+      <td>插入微斜体文本</td>
+    </tr>
+    <tr>
+      <td>C-c C-f C-r</td>
+      <td>插入罗马体文本</td>
+    </tr>
+    <tr>
+      <td>C-c C-f C-f</td>
+      <td>插入无衬线体文本</td>
+    </tr>
+    <tr>
+      <td>C-c C-f C-t</td>
+      <td>插入打印机体字体</td>
+    </tr>
+    <tr>
+      <td>C-c C-f C-c</td>
+      <td>插入小型大写文本</td>
+    </tr>
+    <tr>
+      <td>C-c C-f C-d</td>
+      <td>删除字体信息</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<p>C-c C-c 然后输入 pdflatex 编译文件，view 查看文件。可以使用Tab补全。</p>
+
+
+
+<h2><a name="sec6" id="sec6"></a>
+使用 preview 预览公式</h2>
+
+<p class="first">请参看 <a href="preview.htm">这里</a> 。</p>
+
+
+ </div>
+    <div class="navfoot">
+      <hr>
+      <table width="100%" border="0" summary="Footer navigation">
+	<tr>
+	  <td align="left" width="30%" class="n">
+	    <font color="#78D987">
+	      <i> Updated: 2011-03-22</i>
+	  </font></td>
+	  <td align="center" width="40%" class="n">
+	    <font color="#78D987">
+	      <i><a href="../index.htm" target="_parent">Home</a></i>
+	    </font>
+	  </td>
+	  <td align="right" width="30%" class="n"><font color="#78D987"><i> 您是第</i></font>
+	    <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=2">
+	    </script>
+	    <font color="#78D987"><i>位访问者</i></font> 
+	    <script language="javascript" type="text/javascript" src="http://js.users.51.la/4499176.js">
+	    </script> 
+	    <noscript>
+	      <a href="http://www.51.la/?4499176" target="_blank">
+		<img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/4499176.asp" style="border:none" />
+	      </a>
+	    </noscript>
+	  </td>
+	</tr>
+      </table>
+    </div>
+  </body>
+</html>

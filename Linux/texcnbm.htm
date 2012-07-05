@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>LaTeX 中文书签乱码</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-12-02 Fri"/>
+<meta name="author" content="Billy"/>
+<meta name="description" content=""/>
+<meta name="keywords" content="Linux LaTeX BookMark zh_CN"/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="../index.htm"> UP </a>
+ |
+ <a accesskey="H" href="../index.htm"> HOME </a>
+</div>
+
+<h1 class="title">LaTeX 中文书签乱码</h1>
+
+<p>LaTeX 中生成中文书签的宏包是 hyperref。中文书签乱码一直是网上搜索的的热门问题，其实解决中文书签乱码一个很简单的方法就是在 hyperref 宏包的选项里添加 unicode=true 选项。不知道是不是环境的不同，网上很多人用各种各样的复杂方法，而我这里却只是添加一个选项。下面给处一个简单的例子：
+</p>
+
+
+
+<pre class="example">\documentclass[CJKutf8]{article}
+\usepackage{CJKutf8}
+\usepackage[unicode=true,colorlinks=no,pdfborder=no]{hyperref} %这里给出的colorlinks=no和pdfborder=no是为了让生成的目录没有“红色”的边框，其实这里不必使用，因为没有生成目录。
+
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\section{中文 English}
+Hello, 你好！
+\end{CJK}
+\end{document}
+</pre>
+
+
+
+
+<p>
+需要编译两次 tex 文件。(我一般都用 pdflatex)
+</p>
+<p>
+PS. 现在我更喜欢安装 texlive 而使用 ctex 宏包代替 CJK 宏包。更多的关于 LaTeX 的笔记请参看 <a href="../latex/latex.htm">http://www.bimeichun.com/latex/latex.html</a> 。
+</p>
+
+
+<div id="copyright">
+<p>Copyright &copy; 2011, bimeichun.com</p>
+<p>bimeichun@163.com</p>
+</div>
+
+
+<div style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+<script type="text/javascript" src="http://js.users.51.la/4499176.js">
+</script>
+</div>
+
+</div>
+</body>
+</html>

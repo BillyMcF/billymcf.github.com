@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>第 7 章 书签</title>
+    <link rel="stylesheet" type="text/css" href="css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <link rel="home" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="up" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="prev" href="content.html" title="第 6 章 目录" />
+    <link rel="next" href="math.html" title="第 8 章 数学公式" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">第 7 章 书签</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="content.htm">上一页</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="math.htm">下一页</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter" title="第 7 章 书签">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="bookmark"></a>第 7 章 书签</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>目录</strong>
+        </p>
+        <dl>
+          <dt>
+            <span class="section">
+              <a href="bookmark.htm#id2530193">7.1. hyperref 宏包</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="bookmark.htm#id2530204">7.2. 中文书签乱码</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <p>书签就是通常我们看pdf文档时，左侧边栏的那个“索引”。书签给我们阅读文档提供了很大的方便，通过书签我们可以方便地定位自己的阅读对象。</p>
+      <div class="section" title="7.1. hyperref 宏包">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2530193"></a>7.1. hyperref 宏包</h2>
+            </div>
+          </div>
+        </div>
+        <p>LaTeX中生成书签的宏包是 hyperref 。</p>
+      </div>
+      <div class="section" title="7.2. 中文书签乱码">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2530204"></a>7.2. 中文书签乱码</h2>
+            </div>
+          </div>
+        </div>
+        <p>中文书签乱码一直是网上搜索的的热门问题，其实解决中文书签乱码一个很简单的方法就是在 hyperref 宏包的选项里添加 unicode=true 选项。</p>
+        <div class="example">
+          <a id="id2530216"></a>
+          <p class="title">
+            <strong>例 7.1. 中文书签乱码解决</strong>
+          </p>
+          <div class="example-contents">
+            <pre class="programlisting">
+      \documentclass[CJKutf8]{article}
+      \usepackage{CJKutf8}
+      \usepackage[unicode=true,colorlinks=no,pdfborder=no]{hyperref} 
+      %这里给出的colorlinks=no和pdfborder=no是为了让生成的目录没有“红色”的边框，其实这里不必使用，因为没有生成目录。
+      \begin{document}
+      \begin{CJK}{UTF8}{gbsn}
+      \section{中文 English}
+      Hello, 你好！
+      \end{CJK}
+      \end{document}
+      </pre>
+            <p>需要使用 pdflate 或者诸如 xelatex 等命令编译两次 tex 文件。</p>
+          </div>
+        </div>
+        <br class="example-break" />
+        <div class="tip" title="提示" style="margin-left: 0.5in; margin-right: 0.5in;">
+          <table border="0" summary="Tip">
+            <tr>
+              <td rowspan="2" align="center" valign="top" width="25">
+                <img alt="[提示]" src="images/tip.png" />
+              </td>
+              <th align="left">提示</th>
+            </tr>
+            <tr>
+              <td align="left" valign="top">
+                <p>当然，现在使用 ctex 宏包可以很好地解决中文的一些问题。</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="content.htm">上一页</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="math.htm">下一页</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">第 6 章 目录 </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="latex.htm">起始页</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 第 8 章 数学公式</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

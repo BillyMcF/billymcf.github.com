@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>LaTeX 插图 1</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-11-13 11:32:55 CST"/>
+<meta name="author" content="Bi meichun"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style><link rel="stylesheet"
+    href="css/latex.css"
+    type="text/css"/>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="latex.htm"> UP </a>
+ |
+ <a accesskey="H" href="../index.htm"> HOME </a>
+</div>
+
+<h1 class="title">LaTeX 插图 1</h1>
+<div id="postamble">
+<p class="author"> Author: Bi meichun
+&nbsp;&nbsp;Date: 2011-11-13 11:32:55 CST</p>
+</div>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 准备 </a></li>
+<li><a href="#sec-2">2 开始 </a>
+<ul>
+<li><a href="#sec-2.1">2.1 graphicx 宏包 </a></li>
+<li><a href="#sec-2.2">2.2 图形标题 </a></li>
+<li><a href="#sec-2.3">2.3 修改 Figure 字样 </a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 准备 </h2>
+<div class="outline-text-2" id="text-1">
+
+<p>TeX 对 .eps 格式的图片支持最好，所以，你需要将你的图片转换为 eps 格式。下面是我正在使用的方法：
+</p><ul>
+<li>
+使用 convert 命令
+
+
+</li>
+</ul>
+
+
+<p><textarea cols="40" rows="2" overflow-x:scroll >
+$ convert 1.jpg 1.eps
+</textarea>
+</p>
+
+
+
+
+<ul>
+<li>
+使用 sam2p
+我以前通过脚本使用 scrot 截图并转换为 eps 图片，下面是脚本的内容。你可以把它放在 /usr/bin 下，然后赋予执行权限 chmod +x seps ，这样可以在其他地方使用。
+
+
+</li>
+</ul>
+
+
+<div style="text-align: center">
+
+
+
+<p><textarea cols="40" rows="10" overflow-x:scroll >
+#!/bin/bash
+if [ $# -ne 0 ]; then
+name=$1
+else
+name=tmp
+fi
+scrot -s $name.jpg
+sam2p $name.jpg $name.eps
+rm $name.jpg
+</textarea>
+</p>
+
+
+
+
+</div>
+
+<p>
+这样，你就可以通过 seps 文件名 使用它了。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 开始 </h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2.1" class="outline-3">
+<h3 id="sec-2.1"><span class="section-number-3">2.1</span> graphicx 宏包 </h3>
+<div class="outline-text-3" id="text-2.1">
+
+<p>通过以下命令插入图片:
+</p>
+<ul>
+<li>
+\includegraphics[选项]{eps图片}
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<thead>
+<tr><th scope="col">选项</th><th scope="col">说明</th></tr>
+</thead>
+<tbody>
+<tr><td>height</td><td>图形的高度（可为任何 TeX 度量单位)</td></tr>
+<tr><td>totalheight</td><td>图形的全部高度（可为任何 TeX 度量单位）</td></tr>
+<tr><td>width</td><td>图形的宽度 （可为任何 TeX 度量单位）</td></tr>
+<tr><td>scale</td><td>图形缩放因子，比如 scale=0.5，即为原大小的一半</td></tr>
+<tr><td>angle</td><td>旋转角度，以度为单位，顺时针为正</td></tr>
+<tr><td>origin</td><td>指定图形绕某个点旋转</td></tr>
+<tr><td>bb</td><td>设定 BoundingBox 的值</td></tr>
+</tbody>
+</table>
+
+
+</li>
+<li id="sec-2.1.1">一个例子： <br/>
+
+
+
+
+<p><textarea cols="80" rows="3" overflow-x:scroll >
+\includegraphics[angle=90,totalheight=2cm]{tex.eps}
+\includegraphics[totalheight=2cm,angle=90]{tex.eps}
+</textarea>
+</p>
+
+
+
+
+
+<div style="text-align: center">
+<p><img src="images/4.png"  alt="./images/4.png" />
+</p>
+</div>
+
+<p>
+第一条命令先旋转，后缩放;第二条命令则是先缩放，后旋转。所以，它们得到的结果不一样。
+</p>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-2.2" class="outline-3">
+<h3 id="sec-2.2"><span class="section-number-3">2.2</span> 图形标题 </h3>
+<div class="outline-text-3" id="text-2.2">
+
+
+
+
+
+<pre class="src src-latex"><span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">figure</span>}
+<span style="color: #00ffff;">\centering</span>
+<span style="color: #00ffff;">\caption</span>{<span style="color: #98fb98;">Caption</span>}  <span style="color: #ff7f24;">%&#26631;&#39064;&#22312;&#19978;&#26041;
+</span><span style="color: #d3d3d3;">\includegraphics</span>[scale=.5]{tex.eps}
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">figure</span>}
+
+
+<span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">figure</span>}
+<span style="color: #00ffff;">\centering</span>
+<span style="color: #d3d3d3;">\includegraphics</span>[scale=.5]{tex.eps}
+<span style="color: #00ffff;">\caption</span>{<span style="color: #98fb98;">Caption</span>}  <span style="color: #ff7f24;">%&#26631;&#39064;&#22312;&#19979;&#26041;
+</span><span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">figure</span>}
+</pre>
+
+
+
+
+
+<div style="text-align: center">
+<p><img src="images/5.png"  alt="./images/5.png" />  <img src="images/7.png"  alt="./images/7.png" />
+</p>
+</div>
+
+<ul>
+<li id="sec-2.2.1">调整间距 <br/>
+标题的上下间距 \abovecaptionskip 和 \belowcaptionskip 缺省分别为 10pt 和 0pt,可以使用 \setlength 和 \addtolength 来修改它们。
+
+
+
+
+<pre class="src src-latex"><span style="color: #ff7f24;">%</span><span style="color: #ff7f24;">&#26631;&#39064;&#22312;&#19978;
+</span><span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">figure</span>}
+<span style="color: #00ffff;">\setlength</span>{<span style="color: #eedd82;">\abovecaptionskip</span>}{<span style="color: #eedd82;">5pt</span>}
+<span style="color: #00ffff;">\setlength</span>{<span style="color: #eedd82;">\belowcaptionskip</span>}{<span style="color: #eedd82;">10pt</span>}
+<span style="color: #00ffff;">\centering</span>
+<span style="color: #00ffff;">\caption</span>{<span style="color: #98fb98;">Caption</span>}
+<span style="color: #d3d3d3;">\includegraphics</span>[scale=.5]{tex.eps}
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">figure</span>}
+
+<span style="color: #ff7f24;">%</span><span style="color: #ff7f24;">&#26631;&#39064;&#22312;&#19979;
+</span><span style="color: #00ffff;">\begin</span>{<span style="color: #87cefa;">figure</span>}
+<span style="color: #00ffff;">\setlength</span>{<span style="color: #eedd82;">\abovecaptionskip</span>}{<span style="color: #eedd82;">0pt</span>}
+<span style="color: #00ffff;">\setlength</span>{<span style="color: #eedd82;">\belowcaptionskip</span>}{<span style="color: #eedd82;">10pt</span>}
+<span style="color: #00ffff;">\centering</span>
+<span style="color: #d3d3d3;">\includegraphics</span>[scale=.5]{tex.eps}
+<span style="color: #00ffff;">\caption</span>{<span style="color: #98fb98;">Caption</span>}
+<span style="color: #00ffff;">\end</span>{<span style="color: #87cefa;">figure</span>}
+</pre>
+
+
+
+
+
+<div style="text-align: center">
+<p><img src="images/6.png"  alt="./images/6.png" /> <img src="images/8.png"  alt="./images/8.png" />
+</p>
+</div>
+
+<p>
+可以将 \setlength 放在导言区，这样可以对整个文档起作用。 也可以这样定义：
+</p>
+
+
+
+
+<pre class="src src-latex"><span style="color: #00ffff;">\newcommand</span>{<span style="color: #87cefa;">\topcaption</span>}{<span style="color: #ff7f24;">%
+</span><span style="color: #00ffff;">\setlength</span><span style="color: #87cefa;">{</span><span style="color: #eedd82;">\abovecaptionskip</span><span style="color: #87cefa;">}{</span><span style="color: #eedd82;">0pt</span><span style="color: #87cefa;">}</span><span style="color: #ff7f24;">%
+</span><span style="color: #00ffff;">\setlength</span><span style="color: #87cefa;">{</span><span style="color: #eedd82;">\belowcaptionskip</span><span style="color: #87cefa;">}{</span><span style="color: #eedd82;">10pt</span><span style="color: #87cefa;">}</span><span style="color: #ff7f24;">%
+</span><span style="color: #87cefa; font-weight: bold;">\</span><span style="color: #87cefa;">caption</span>}
+
+<span style="color: #00ffff;">\newcommand</span>{<span style="color: #87cefa;">\bottomcaption</span>}{<span style="color: #ff7f24;">%
+</span><span style="color: #00ffff;">\setlength</span><span style="color: #87cefa;">{</span><span style="color: #eedd82;">\abovecaptionskip</span><span style="color: #87cefa;">}{</span><span style="color: #eedd82;">10pt</span><span style="color: #87cefa;">}</span><span style="color: #ff7f24;">%
+</span><span style="color: #00ffff;">\setlength</span><span style="color: #87cefa;">{</span><span style="color: #eedd82;">\belowcaptionskip</span><span style="color: #87cefa;">}{</span><span style="color: #eedd82;">0pt</span><span style="color: #87cefa;">}</span><span style="color: #ff7f24;">%
+</span><span style="color: #87cefa; font-weight: bold;">\</span><span style="color: #87cefa;">caption</span>}#+end_src
+</pre>
+
+
+
+<p>
+这样，标题在上方时可以使用 \topcaption{}，下方时可以使用 \bottomcaption。
+</p></li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-2.3" class="outline-3">
+<h3 id="sec-2.3"><span class="section-number-3">2.3</span> 修改 Figure 字样 </h3>
+<div class="outline-text-3" id="text-2.3">
+
+<p>可以使用下面的定义将 “Figure” 修改为“图”或者其他字样
+</p>
+
+
+
+<p><textarea cols="50" rows="7" overflow-x:scroll >
+\begin{figure}
+\centering
+\includegraphics[scale=.5]{tex.eps}
+\renewcommand{\figurename}{图 }
+\caption{Caption}
+\end{figure}
+</textarea>
+</p>
+
+
+
+
+<p>
+<img src="images/9.png"  alt="./images/9.png" />
+</p>
+
+
+<div id="footer">
+  <p>you're the
+    <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>th visitor
+    <script language="javascript" type="text/javascript" src="http://js.users.51.la/4499176.js">
+    </script> 
+  </p>
+</div>
+</div>
+</div>
+</div>
+
+</dvi>
+</body>
+</html>

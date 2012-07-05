@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>第 4 章 字体</title>
+    <link rel="stylesheet" type="text/css" href="css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <link rel="home" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="up" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="prev" href="documentclass.html" title="第 3 章 文档类" />
+    <link rel="next" href="title.html" title="第 5 章 标题" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">第 4 章 字体</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="documentclass.htm">上一页</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="title.htm">下一页</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter" title="第 4 章 字体">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="font"></a>第 4 章 字体</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>目录</strong>
+        </p>
+        <dl>
+          <dt>
+            <span class="section">
+              <a href="font.htm#id2528474">4.1. 字体样式</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="font.htm#id2528689">4.2. 字体尺寸</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="font.htm#id2528983">4.3. ctex 宏包字体</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="font.htm#id2524891">4.4. 其他</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="font.htm#id2524897">4.4.1. 英文与中文间隔</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="section">
+              <a href="font.htm#id2529490">4.5. 本页例程文件</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <div class="section" title="4.1. 字体样式">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2528474"></a>4.1. 字体样式</h2>
+            </div>
+          </div>
+        </div>
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="id2527740">
+          <caption>表 4.1. 字体属性命令对应表</caption>
+          <colgroup><col align="left" /><col align="left" /><col align="left" />
+      </colgroup>
+          <thead>
+            <tr>
+              <th align="left">命令</th>
+              <th align="left">简写</th>
+              <th align="left">说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left">\textrm{}</td>
+              <td align="left">\rm</td>
+              <td align="left">罗马体字族</td>
+            </tr>
+            <tr>
+              <td align="left">\textsf{}</td>
+              <td align="left">\sf</td>
+              <td align="left">等线体字族</td>
+            </tr>
+            <tr>
+              <td align="left">\texttt{}</td>
+              <td align="left">\tt</td>
+              <td align="left">打字机字族</td>
+            </tr>
+            <tr>
+              <td align="left">\textbf{}</td>
+              <td align="left">\bf</td>
+              <td align="left">粗宽序列</td>
+            </tr>
+            <tr>
+              <td align="left">\textmd{}</td>
+              <td align="left"></td>
+              <td align="left">常规序列</td>
+            </tr>
+            <tr>
+              <td align="left">\textit{}</td>
+              <td align="left">\it</td>
+              <td align="left">斜体形状</td>
+            </tr>
+            <tr>
+              <td align="left">\textsc{}</td>
+              <td align="left">\sc</td>
+              <td align="left">小型大写形状</td>
+            </tr>
+            <tr>
+              <td align="left">\textsl{}</td>
+              <td align="left">\sl</td>
+              <td align="left">倾斜形状</td>
+            </tr>
+            <tr>
+              <td align="left">\textup{}</td>
+              <td align="left"></td>
+              <td align="left">直立形状</td>
+            </tr>
+            <tr>
+              <td align="left">\textnormal{}</td>
+              <td align="left"></td>
+              <td align="left">常规字体</td>
+            </tr>
+            <tr>
+              <td align="left">\emph{}</td>
+              <td align="left">\em</td>
+              <td align="left">强调文字</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mediaobject" align="center">
+          <img src="images/font1.png" align="middle" />
+        </div>
+      </div>
+      <div class="section" title="4.2. 字体尺寸">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2528689"></a>4.2. 字体尺寸</h2>
+            </div>
+          </div>
+        </div>
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="id2528694">
+          <caption>表 4.2. 字体命令尺寸对应表</caption>
+          <colgroup><col align="left" /><col align="right" /><col align="right" /><col align="right" />
+      </colgroup>
+          <thead>
+            <tr>
+              <th align="left">命令</th>
+              <th align="right">10pt(默认值)</th>
+              <th align="right">11pt</th>
+              <th align="right">12pt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left">\tiny</td>
+              <td align="right">5</td>
+              <td align="right">6</td>
+              <td align="right">6</td>
+            </tr>
+            <tr>
+              <td align="left">\scriptsize</td>
+              <td align="right">7</td>
+              <td align="right">8</td>
+              <td align="right">8</td>
+            </tr>
+            <tr>
+              <td align="left">\footnotesize</td>
+              <td align="right">8</td>
+              <td align="right">9</td>
+              <td align="right">10</td>
+            </tr>
+            <tr>
+              <td align="left">\small</td>
+              <td align="right">9</td>
+              <td align="right">10</td>
+              <td align="right">11</td>
+            </tr>
+            <tr>
+              <td align="left">\normalsize</td>
+              <td align="right">10</td>
+              <td align="right">11</td>
+              <td align="right">12</td>
+            </tr>
+            <tr>
+              <td align="left">\large</td>
+              <td align="right">12</td>
+              <td align="right">12</td>
+              <td align="right">14</td>
+            </tr>
+            <tr>
+              <td align="left">\Large</td>
+              <td align="right">14</td>
+              <td align="right">14</td>
+              <td align="right">17</td>
+            </tr>
+            <tr>
+              <td align="left">\LARGE</td>
+              <td align="right">17</td>
+              <td align="right">17</td>
+              <td align="right">20</td>
+            </tr>
+            <tr>
+              <td align="left">\huge</td>
+              <td align="right">20</td>
+              <td align="right">20</td>
+              <td align="right">25</td>
+            </tr>
+            <tr>
+              <td align="left">\Huge</td>
+              <td align="right">25</td>
+              <td align="right">25</td>
+              <td align="right">25</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mediaobject" align="center">
+          <img src="images/font2.png" align="middle" />
+        </div>
+      </div>
+      <div class="section" title="4.3. ctex 宏包字体">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2528983"></a>4.3. ctex 宏包字体</h2>
+            </div>
+          </div>
+        </div>
+        <p>提供的六种字体可以这样引用</p>
+        <pre class="programlisting">
+    \songti \heiti \kaishu \fangsong \lishu \youyuan
+    </pre>
+        <p>分别表示 宋体 黑体 楷书 仿宋 隶书 幼圆</p>
+        <p>ctex 宏包中可以这样设定字体大小：</p>
+        <pre class="programlisting">
+    \zihao{代码}
+    </pre>
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" id="id2529011">
+          <caption>表 4.3. 对应表</caption>
+          <colgroup><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" />
+      </colgroup>
+          <tbody>
+            <tr>
+              <td align="left">字号</td>
+              <td align="left">初号</td>
+              <td align="left">小初</td>
+              <td align="left">一号</td>
+              <td align="left">小一</td>
+              <td align="left">二号</td>
+              <td align="left">小二</td>
+              <td align="left">三号</td>
+              <td align="left">小三</td>
+              <td align="left">四号</td>
+              <td align="left">小四</td>
+              <td align="left">五号</td>
+              <td align="left">小五</td>
+              <td align="left">六号</td>
+              <td align="left">小六</td>
+              <td align="left">七号</td>
+              <td align="left">八号</td>
+            </tr>
+            <tr>
+              <td align="left">代码</td>
+              <td align="left">0</td>
+              <td align="left">-0</td>
+              <td align="left">1</td>
+              <td align="left">-1</td>
+              <td align="left">2</td>
+              <td align="left">-2</td>
+              <td align="left">3</td>
+              <td align="left">-3</td>
+              <td align="left">4</td>
+              <td align="left">-4</td>
+              <td align="left">5</td>
+              <td align="left">-5</td>
+              <td align="left">6</td>
+              <td align="left">-6</td>
+              <td align="left">7</td>
+              <td align="left">8</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section" title="4.4. 其他">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2524891"></a>4.4. 其他</h2>
+            </div>
+          </div>
+        </div>
+        <div class="section" title="4.4.1. 英文与中文间隔">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="id2524897"></a>4.4.1. 英文与中文间隔</h3>
+              </div>
+            </div>
+          </div>
+          <p>英文与中文之间的间隔可以使用 ~ 符号使间隔存在：</p>
+          <pre class="programlisting">
+      \LaTeX~学习笔记
+      </pre>
+        </div>
+      </div>
+      <div class="section" title="4.5. 本页例程文件">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2529490"></a>4.5. 本页例程文件</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+      <a class="ulink" href="http://www.bimeichun.com/DocBook/LaTex/files/font.tex" target="_top">本页例程</a>
+    </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="documentclass.htm">上一页</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="title.htm">下一页</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">第 3 章 文档类 </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="latex.htm">起始页</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 第 5 章 标题</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

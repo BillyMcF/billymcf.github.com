@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>第 2 章 ctex 宏包</title>
+    <link rel="stylesheet" type="text/css" href="css/docbook.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1" />
+    <link rel="home" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="up" href="latex.html" title="LaTeX 学习笔记" />
+    <link rel="prev" href="Basis.html" title="第 1 章 安装与开始" />
+    <link rel="next" href="documentclass.html" title="第 3 章 文档类" />
+<!--Copyright (c) 2011, www.bimeichun.com-->
+    <base xmlns="" target="_self" />
+  </head>
+  <body>
+    <div xmlns="" class="menu">
+      <a href="../../index.htm">Home</a>
+      <a href="../../Docbook.htm">Docbook</a>
+    </div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">第 2 章 ctex 宏包</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="Basis.htm">上一页</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="documentclass.htm">下一页</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter" title="第 2 章 ctex 宏包">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h2 class="title"><a id="ctex"></a>第 2 章 ctex 宏包</h2>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>目录</strong>
+        </p>
+        <dl>
+          <dt>
+            <span class="section">
+              <a href="ctex.htm#id2525931">2.1. Linux下ctex宏包字体</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <div class="abstract" title="摘要"><div class="titlepage"></div>CTEX 是中文 TeX (chinese TeX)的缩写。其宗旨是为广大中文TeX用户提供帮助。在使用 LaTeX 写中文文档的时候，ctex 宏包提供了十分便利的设置。</div>
+      <div class="section" title="2.1. Linux下ctex宏包字体">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="id2525931"></a>2.1. Linux下ctex宏包字体</h2>
+            </div>
+          </div>
+        </div>
+        <p>安装 texlive 和 中文字体 <sup>[<a id="id2525940" href="#ftn.id2525940" class="footnote">3</a>]</sup>后，可以使用 xelatex 命令编译 tex 文件，但是会提示找不到 SIMKAI.TTF。使用 fc-list :lang=zh 可以看到，楷体和仿宋体后面都多出了 _GB2312。</p>
+        <p>这时候，需要修改 /usr/share/texmf-dist/tex/latex/ctex/fontset/ctex-xecjk-winfonts.def 文件。</p>
+        <p>改为如下：</p>
+        <pre class="programlisting">
+    % ctex-xecjk-winfonts.def: Windows 的 xeCJK 字体设置，默认为六种中易字体
+    % vim:ft=tex
+
+    \setCJKmainfont[BoldFont={SimHei},ItalicFont={KaiTi_GB2312}]
+    {SimSun}
+    \setCJKsansfont{SimHei}
+    \setCJKmonofont{FangSong_GB2312}
+
+    \setCJKfamilyfont{zhsong}{SimSun}
+    \setCJKfamilyfont{zhhei}{SimHei}
+    \setCJKfamilyfont{zhkai}{KaiTi_GB2312}
+    \setCJKfamilyfont{zhfs}{FangSong_GB2312}
+    \setCJKfamilyfont{zhli}{LiSu}
+    \setCJKfamilyfont{zhyou}{YouYuan}
+
+    \newcommand*{\songti}{\CJKfamily{zhsong}} % 宋体
+    \newcommand*{\heiti}{\CJKfamily{zhhei}}   % 黑体
+    \newcommand*{\kaishu}{\CJKfamily{zhkai}}  % 楷书
+    \newcommand*{\fangsong}{\CJKfamily{zhfs}} % 仿宋
+    \newcommand*{\lishu}{\CJKfamily{zhli}}    % 隶书
+    \newcommand*{\youyuan}{\CJKfamily{zhyou}} % 幼圆
+
+    \endinput
+    </pre>
+        <p>或者你可以在你自己的 tex 文件中进行设置。</p>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr width="100" align="left" />
+        <div class="footnote">
+          <p><sup>[<a id="ftn.id2525940" href="#id2525940" class="para">3</a>] </sup>比如ArchLinux下安装ttf-ms-fonts,包含有宋体、仿宋，黑体，隶书等六种常用字体。当然，你可以拷贝或者上网下载这六种字体，然后使用 mkfontdir 和 mkfontscale 进行安装。</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="Basis.htm">上一页</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="documentclass.htm">下一页</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top">第 1 章 安装与开始 </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="latex.htm">起始页</a>
+          </td>
+          <td width="40%" align="right" valign="top"> 第 3 章 文档类</td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" id="copyright">
+      <p>Copyright &copy; 2011, bimeichun.com</p>
+      <p>bimeichun@163.com</p>
+      <p>
+        <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>
+      </p>
+    </div>
+    <div xmlns="" style="VISIBILITY: hidden; WIDTH: 0px; HEIGHT: 0px">
+      <script type="text/javascript" src="http://js.users.51.la/4499176.js"></script>
+    </div>
+  </body>
+</html>

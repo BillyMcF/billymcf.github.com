@@ -1,0 +1,97 @@
+body {
+    font-family: serif;
+    margin: 70px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.title {
+    font-size: 30px;
+    color: #777;
+    text-align: left;
+    margin: 0em;
+}
+
+.author {
+    color: #777;
+    font-size: 10pt;
+    margin: 0em 0em 2em 2em;
+}
+
+pre {
+    display: block;
+}
+
+.example {
+    font-family: monospace;
+    font-size: 13px;
+    border: none;
+    background: none;
+    color: #333;
+    padding-left: 30px;
+    white-space: pre;
+}
+
+h2 {
+    border-left: 5px #ccc solid;
+    border-bottom: 1px #ccc solid;
+    padding: 0px 0px 0px 10px;
+}
+
+#copyright {
+    font-family: serif;
+    font-style: italic;
+    text-align: right;
+    clear: both;
+    font-size: 14px;
+}
+
+a { text-decoration: none; color: blue; }
+a:visited { text-decoration: none; }  
+a:hover { text-decoration: underline; }
+
+.menu a { text-decoration: none; color: #556677; font-size: 20px;}
+
+table {
+    font-family: monospace;
+    font-size: 14px;
+}
+caption {
+    font-family: SimHei, WenQuanYi Zen Hei mono;
+}
+
+#table-of-contents {
+    font-size: 14px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    background: #eee;
+    text-align: right;
+    max-height: 90%;
+    overflow: auto; 
+    -webkit-box-shadow: 0 0 5px #555;
+    -moz-box-shadow: 0 0 5px #555;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    padding: 0em 1em 0em 0em;
+}
+#table-of-contents h2 {
+    font-size: 10pt;
+    max-width: 150px;
+    border: none;
+    color: green;
+}
+#table-of-contents ul {
+    padding: 0em 0.5em 0.5em 2em;
+}
+
+#table-of-contents #text-table-of-contents {
+    display: none;
+    text-align: left; 
+}
+
+#table-of-contents:hover #text-table-of-contents {
+    display: block;
+    padding: 5px;
+    margin-top: -5px; 
+}

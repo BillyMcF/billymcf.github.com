@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet"  type="text/css" href="css/core.css"/>		<title>Auctex preview</title>
+    <script type="text/javascript">
+      
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22006679-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+    </script>
+    <div class="menu">
+      <b><p><a href="../index.htm">Home</a> <a href="../about.htm">About</a></p></b>
+    </div>
+  </head>
+  <body>	
+    <h1>Auctex preview</h1>
+    <div class="main">
+<blockquote>
+<p class="quoted">preview 让我们可以预览tex文件里的公式和标题等，来张截图一看。
+这里是源码：</p>
+</blockquote>
+
+<pre class="example">
+\documentclass{article}
+
+%\usepackage{amsmath}
+
+\begin{document}
+\section{Hello}
+\subsection{Math}
+\[\sum_{i=1}^n i \prod_{i=1}^n \lim_{x\to0}x^2 \int_a^b x^2 dx\]
+\section{World}
+\subsection{Nice}
+$$\sum_{p\rm\;prime}f(p) = \int_{t&gt;1}f(t)d\pi(t).$$
+\end{document}
+</pre>
+下面是截图：
+<center>
+<p><img src="lateximages/latex_preview.png" alt=""></p>
+</center>
+
+<p>安装和使用 preview 其实很简单。它已经包含在新版的 auctex 中了。</p>
+
+<p>安装和使用 auctex 请参看 <a href="auctex.htm">这里</a> 。</p>
+
+<p>C-c C-p C-b 就可以预览文件了。</p>
+ </div>
+    <div class="navfoot">
+      <hr>
+      <table width="100%" border="0" summary="Footer navigation">
+	<tr>
+	  <td align="left" width="30%" class="n">
+	    <font color="#78D987">
+	      <i> Updated: 2011-03-22</i>
+	  </font></td>
+	  <td align="center" width="40%" class="n">
+	    <font color="#78D987">
+	      <i><a href="../index.htm" target="_parent">Home</a></i>
+	    </font>
+	  </td>
+	  <td align="right" width="30%" class="n"><font color="#78D987"><i> 您是第</i></font>
+	    <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=2">
+	    </script>
+	    <font color="#78D987"><i>位访问者</i></font> 
+	    <script language="javascript" type="text/javascript" src="http://js.users.51.la/4499176.js">
+	    </script> 
+	    <noscript>
+	      <a href="http://www.51.la/?4499176" target="_blank">
+		<img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/4499176.asp" style="border:none" />
+	      </a>
+	    </noscript>
+	  </td>
+	</tr>
+      </table>
+    </div>
+  </body>
+</html>

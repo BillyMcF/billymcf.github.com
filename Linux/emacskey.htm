@@ -1,0 +1,431 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet"  type="text/css" href="css/core.css"/>		<title>Emacs 快捷键</title>
+    <script type="text/javascript">
+      
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22006679-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+    </script>
+    <div class="menu">
+      <b><p><a href="../index.htm">Home</a> <a href="../about.htm">About</a></p></b>
+    </div>
+  </head>
+  <body>	
+    <h1>Emacs 快捷键</h1>
+    <div class="main">
+<h2>文件操作</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>C-x C-f</td>
+      <td>打开文件</td>
+    </tr>
+    <tr>
+      <td>C-x C-v</td>
+      <td>打开一个文件，取代当前缓冲区</td>
+    </tr>
+    <tr>
+      <td>C-x C-s</td>
+      <td>保存文件</td>
+    </tr>
+    <tr>
+      <td>C-x C-w</td>
+      <td>存为新文件</td>
+    </tr>
+    <tr>
+      <td>C-x i</td>
+      <td>插入文件</td>
+    </tr>
+    <tr>
+      <td>C-x C-q</td>
+      <td>切换为只读或者读写模式</td>
+    </tr>
+    <tr>
+      <td>C-x C-c</td>
+      <td>退出Emacs</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>编辑操作</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>C-f</td>
+      <td>前进一个字符</td>
+    </tr>
+    <tr>
+      <td>C-b</td>
+      <td>后退一个字符</td>
+    </tr>
+    <tr>
+      <td>M-f</td>
+      <td>前进一个字</td>
+    </tr>
+    <tr>
+      <td>M-b</td>
+      <td>后退一个字</td>
+    </tr>
+    <tr>
+      <td>C-a</td>
+      <td>移到行首</td>
+    </tr>
+    <tr>
+      <td>C-e</td>
+      <td>移到行尾</td>
+    </tr>
+    <tr>
+      <td>M-a</td>
+      <td>移到句首</td>
+    </tr>
+    <tr>
+      <td>M-e</td>
+      <td>移到句尾</td>
+    </tr>
+    <tr>
+      <td>C-p</td>
+      <td>后退一行</td>
+    </tr>
+    <tr>
+      <td>C-n</td>
+      <td>前进一行</td>
+    </tr>
+    <tr>
+      <td>M-x goto-line</td>
+      <td>跳到指定行</td>
+    </tr>
+    <tr>
+      <td>C-v</td>
+      <td>向下翻页</td>
+    </tr>
+    <tr>
+      <td>M-v</td>
+      <td>向上翻页</td>
+    </tr>
+    <tr>
+      <td>M-&lt;</td>
+      <td>缓冲区头部</td>
+    </tr>
+    <tr>
+      <td>M-&gt;</td>
+      <td>缓冲区尾部</td>
+    </tr>
+    <tr>
+      <td>C-M-f</td>
+      <td>向前匹配括号</td>
+    </tr>
+    <tr>
+      <td>C-M-b</td>
+      <td>向后匹配括号</td>
+    </tr>
+    <tr>
+      <td>C-l</td>
+      <td>当前行居中</td>
+    </tr>
+    <tr>
+      <td>M-n / C-u n</td>
+      <td>重复操作随后的命令n次</td>
+    </tr>
+    <tr>
+      <td>C-u</td>
+      <td>重复操作随后的命令4次</td>
+    </tr>
+    <tr>
+      <td>C-u C-u</td>
+      <td>重复操作随后的命令8次</td>
+    </tr>
+    <tr>
+      <td>C-x Esc Esc</td>
+      <td>执行历史命令记录，M-p选择上条命令，M-n选择下条命令</td>
+    </tr>
+    <tr>
+      <td>C-d</td>
+      <td>删除一个字符</td>
+    </tr>
+    <tr>
+      <td>M-d</td>
+      <td>删除一个字</td>
+    </tr>
+    <tr>
+      <td>C-k</td>
+      <td>删除一行</td>
+    </tr>
+    <tr>
+      <td>M-k</td>
+      <td>删除一句</td>
+    </tr>
+    <tr>
+      <td>C-w</td>
+      <td>删除标记区域</td>
+    </tr>
+    <tr>
+      <td>C-y</td>
+      <td>粘贴删除的内容</td>
+    </tr>
+    <tr>
+      <td>C-y M-y</td>
+      <td>选择粘贴被删除的内容</td>
+    </tr>
+    <tr>
+      <td>C-@</td>
+      <td>标记开始区域</td>
+    </tr>
+    <tr>
+      <td>C-x h</td>
+      <td>标记所有文字</td>
+    </tr>
+    <tr>
+      <td>C-x C-x</td>
+      <td>交换光标位置和区域标记区开头</td>
+    </tr>
+    <tr>
+      <td>M-w</td>
+      <td>复制标记区域</td>
+    </tr>
+    <tr>
+      <td>C-_ / C-x u</td>
+      <td>撤消操作</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>执行SHELL命令</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>M-x shell</td>
+      <td>打开shell命令</td>
+    </tr>
+    <tr>
+      <td>M-!</td>
+      <td>执行shell命令（shell-command）</td>
+    </tr>
+    <tr>
+      <td>M-1 M-!</td>
+      <td>执行Shell命令，命令输出插入光标位置，不打开新输入窗口</td>
+    </tr>
+    <tr>
+      <td>M-|</td>
+      <td>针对某一特定区域执行命令(shell-command-on-region),比如 C-x h M-juuencode</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>窗口操作</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>C-x 0</td>
+      <td>关闭本窗口</td>
+    </tr>
+    <tr>
+      <td>C-x 1</td>
+      <td>只留下一个窗口</td>
+    </tr>
+    <tr>
+      <td>C-x 2</td>
+      <td>垂直均分窗口</td>
+    </tr>
+    <tr>
+      <td>C-x 3</td>
+      <td>水平均分窗口</td>
+    </tr>
+    <tr>
+      <td>C-x o</td>
+      <td>切换到别的窗口</td>
+    </tr>
+    <tr>
+      <td>C-x s</td>
+      <td>保存所有窗口的缓冲</td>
+    </tr>
+    <tr>
+      <td>C-x b</td>
+      <td>选择当前窗口的缓冲区</td>
+    </tr>
+    <tr>
+      <td>C-x ^</td>
+      <td>纵向扩大窗口</td>
+    </tr>
+    <tr>
+      <td>C-x }</td>
+      <td>横向扩大窗口</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>缓冲区列表操作</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>C-x C-b</td>
+      <td>打开缓冲区列表</td>
+    </tr>
+    <tr>
+      <td>d or k</td>
+      <td>标记为删除</td>
+    </tr>
+    <tr>
+      <td>~</td>
+      <td>标记为未修改状态</td>
+    </tr>
+    <tr>
+      <td>%</td>
+      <td>标记为只读</td>
+    </tr>
+    <tr>
+      <td>s</td>
+      <td>保存缓冲</td>
+    </tr>
+    <tr>
+      <td>u</td>
+      <td>取消标记</td>
+    </tr>
+    <tr>
+      <td>x</td>
+      <td>执行标记的操作</td>
+    </tr>
+    <tr>
+      <td>f</td>
+      <td>在当前窗口打开该缓冲区</td>
+    </tr>
+    <tr>
+      <td>o</td>
+      <td>在其他窗口打开该缓冲区</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>目录操作</h2>
+
+<table class="muse-table" border="2" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>C-x d</td>
+      <td>打开目录模式</td>
+    </tr>
+    <tr>
+      <td>s</td>
+      <td>按日期/文件名排序显示</td>
+    </tr>
+    <tr>
+      <td>v</td>
+      <td>阅读光标所在的文件</td>
+    </tr>
+    <tr>
+      <td>q</td>
+      <td>退出阅读的文件</td>
+    </tr>
+    <tr>
+      <td>d</td>
+      <td>标记为删除</td>
+    </tr>
+    <tr>
+      <td>x</td>
+      <td>执行标记</td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>马上删除当前文件</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>拷贝当前文件</td>
+    </tr>
+    <tr>
+      <td>R</td>
+      <td>重命名当前文件</td>
+    </tr>
+    <tr>
+      <td>+</td>
+      <td>新建文件</td>
+    </tr>
+    <tr>
+      <td>Z</td>
+      <td>压缩文件</td>
+    </tr>
+    <tr>
+      <td>！</td>
+      <td>对光标所在的文件执行SHELL命令</td>
+    </tr>
+    <tr>
+      <td>g</td>
+      <td>刷新显示</td>
+    </tr>
+    <tr>
+      <td>i</td>
+      <td>在当前缓冲区的末尾插入子目录的内容</td>
+    </tr>
+    <tr>
+      <td>[n]m</td>
+      <td>标记光标所在的文件，如果指定n,则从光标所在的文件后n个文件被标记</td>
+    </tr>
+    <tr>
+      <td>[n]u</td>
+      <td>取消当前光标标记的文件，n的含义同上</td>
+    </tr>
+    <tr>
+      <td>t</td>
+      <td>反向标记文件</td>
+    </tr>
+    <tr>
+      <td>%-m</td>
+      <td>正则标记</td>
+    </tr>
+    <tr>
+      <td>q</td>
+      <td>退出目录模式</td>
+    </tr>
+  </tbody>
+</table>
+
+
+ </div>
+    <div class="navfoot">
+      <hr>
+      <table width="100%" border="0" summary="Footer navigation">
+	<tr>
+	  <td align="left" width="30%" class="n">
+	    <font color="#78D987">
+	      <i> Updated: 2011-03-22</i>
+	  </font></td>
+	  <td align="center" width="40%" class="n">
+	    <font color="#78D987">
+	      <i><a href="../index.htm" target="_parent">Home</a></i>
+	    </font>
+	  </td>
+	  <td align="right" width="30%" class="n"><font color="#78D987"><i> 您是第</i></font>
+	    <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=2">
+	    </script>
+	    <font color="#78D987"><i>位访问者</i></font> 
+	    <script language="javascript" type="text/javascript" src="http://js.users.51.la/4499176.js">
+	    </script> 
+	    <noscript>
+	      <a href="http://www.51.la/?4499176" target="_blank">
+		<img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/4499176.asp" style="border:none" />
+	      </a>
+	    </noscript>
+	  </td>
+	</tr>
+      </table>
+    </div>
+  </body>
+</html>

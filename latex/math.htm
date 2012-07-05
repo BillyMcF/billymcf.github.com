@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>LaTeX 数学公式 1</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-11-12 23:27:04 CST"/>
+<meta name="author" content="Bi meichun"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style><link rel="stylesheet"
+    href="css/latex.css"
+    type="text/css"/>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="latex.htm"> UP </a>
+ |
+ <a accesskey="H" href="../index.htm"> HOME </a>
+</div>
+
+<h1 class="title">LaTeX 数学公式 1</h1>
+<div id="postamble">
+<p class="author"> Author: Bi meichun
+&nbsp;&nbsp;Date: 2011-11-12 23:27:04 CST</p>
+</div>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 开始 </a>
+<ul>
+<li><a href="#sec-1.1">1.1 字符 </a></li>
+<li><a href="#sec-1.2">1.2 希腊字母 </a></li>
+<li><a href="#sec-1.3">1.3 上标、下标 </a></li>
+<li><a href="#sec-1.4">1.4 分数、开方 </a></li>
+<li><a href="#sec-1.5">1.5 数学函数 </a></li>
+<li><a href="#sec-1.6">1.6 插入文本 </a></li>
+<li><a href="#sec-1.7">1.7 省略号 </a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 开始 </h2>
+<div class="outline-text-2" id="text-1">
+
+<p>LaTeX 中，数学公式需要使用 $ 包括起来 ，或者使用 \( 和 \) 括起来。比如：
+</p>
+
+
+
+<pre class="src src-latex"><span style="color: #deb887;">$y(t) = x(t)*h(t)
+</span><span style="color: #deb887;">\(y(t) = x(t)*h(t)\)</span><span style="color: #deb887;">
+</span></pre>
+
+
+
+
+<p>
+这两者的效果是一样的。
+</p>
+<p>
+还可以使用 \[ 和 \]，或者使用 $$ 和 $$，这样使用，公式会独占一行
+</p>
+<p>
+若使用 equation 环境，则公式不仅独占一行，同时自动被添加序号。
+</p>
+<p>
+如果不想公式被编号，则这样用 \begin{equation*} … \end{equation*}。当然，你需要使用 amsmath 宏包。
+</p>
+
+<div style="text-align: center">
+<p><img src="images/3.png"  alt="./images/3.png" />
+</p>
+</div>
+
+<p>
+如果你想像我一样使用 preview 查看数学公式，请参考这里<a href="../Linux/preview.htm">preview 预览公式</a>。如果提示找不到images，也许是因为你编译emacs及auctex时缺少了点参数。具体请参照auctex wiki。
+</p>
+
+</div>
+
+<div id="outline-container-1.1" class="outline-3">
+<h3 id="sec-1.1"><span class="section-number-3">1.1</span> 字符 </h3>
+<div class="outline-text-3" id="text-1.1">
+
+<p>普通字符在数学公式中含义一样，但需要使用 # $ % ^ &amp; ~ _ \ { } 这些字符时，需要在他们前面加上\ , 例如 \{ 。
+</p></div>
+
+</div>
+
+<div id="outline-container-1.2" class="outline-3">
+<h3 id="sec-1.2"><span class="section-number-3">1.2</span> 希腊字母 </h3>
+<div class="outline-text-3" id="text-1.2">
+
+<p>请点击 <a href="http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html">这里</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-1.3" class="outline-3">
+<h3 id="sec-1.3"><span class="section-number-3">1.3</span> 上标、下标 </h3>
+<div class="outline-text-3" id="text-1.3">
+
+<p>用 ^ 表示上标，用 _ 表示下标。
+</p>
+
+
+
+<pre class="src src-latex"><span style="color: #deb887;">$$F(t) = </span><span style="color: #deb887;">\sum</span><span style="color: #deb887;">_</span><span style="color: #deb887; font-size: 80%;">{n=-</span><span style="color: #deb887; font-size: 80%;">\infty</span><span style="color: #deb887; font-size: 80%;">}</span><span style="color: #deb887;">^</span><span style="color: #deb887; font-size: 80%;">\infty</span><span style="color: #deb887;"> F_</span><span style="color: #deb887; font-size: 80%;">n</span><span style="color: #deb887;"> e^</span><span style="color: #deb887; font-size: 80%;">{j2 </span><span style="color: #deb887; font-size: 80%;">\pi</span><span style="color: #deb887; font-size: 80%;"> nf_0 t}</span><span style="color: #deb887;">$$</span>
+</pre>
+
+
+
+
+<div style="text-align: center">
+<p><img src="images/2.png"  alt="./images/2.png" />
+</p>
+</div>
+<p>是的，如果上标或者下标不止一个字符，你需要使用 {} 将它们包括在一起。
+</p></div>
+
+</div>
+
+<div id="outline-container-1.4" class="outline-3">
+<h3 id="sec-1.4"><span class="section-number-3">1.4</span> 分数、开方 </h3>
+<div class="outline-text-3" id="text-1.4">
+
+<ul>
+<li>
+分数： \frac{分子}{分母}
+</li>
+<li>
+开方： \sqrt{}
+</li>
+<li>
+n次方： \sqrt[n]{}
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-1.5" class="outline-3">
+<h3 id="sec-1.5"><span class="section-number-3">1.5</span> 数学函数 </h3>
+<div class="outline-text-3" id="text-1.5">
+
+<p>LaTeX 提供诸如以下命令排版一些重要的数学函数:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" /><col align="left" /><col align="left" />
+</colgroup>
+<tbody>
+<tr><td>cos</td><td>sin</td><td>tan</td><td>cot</td></tr>
+<tr><td>cosh</td><td>sinh</td><td>tanh</td><td>coth</td></tr>
+<tr><td>lim</td><td>liminf</td><td>log</td><td>lg</td></tr>
+<tr><td>ln</td><td>max</td><td>min</td><td>Pr</td></tr>
+<tr><td>&hellip;</td><td>&hellip;</td><td>&hellip;</td><td>&hellip;</td></tr>
+</tbody>
+</table>
+
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1.6" class="outline-3">
+<h3 id="sec-1.6"><span class="section-number-3">1.6</span> 插入文本 </h3>
+<div class="outline-text-3" id="text-1.6">
+
+<p>有时我们需要在公式中输入添加文本，这时可以使用 \mbox{}:
+</p>
+
+
+<pre class="src src-latex"><span style="color: #deb887;">$$E_</span><span style="color: #deb887; font-size: 80%;">T</span><span style="color: #deb887;"> = </span><span style="color: #deb887;">\int</span><span style="color: #deb887;">_</span><span style="color: #deb887; font-size: 80%;">{-</span><span style="color: #deb887; font-size: 80%;">\infty</span><span style="color: #deb887; font-size: 80%;">}</span><span style="color: #deb887;">^</span><span style="color: #deb887; font-size: 80%;">\infty</span><span style="color: #deb887;"> f_</span><span style="color: #deb887; font-size: 80%;">T</span><span style="color: #deb887;">^</span><span style="color: #deb887; font-size: 80%;">2</span><span style="color: #deb887;">(t)d_</span><span style="color: #deb887; font-size: 80%;">t</span><span style="color: #deb887;"> = </span><span style="color: #deb887;">\int</span><span style="color: #deb887;">_</span><span style="color: #deb887; font-size: 80%;">{-</span><span style="color: #deb887; font-size: 80%;">\infty</span><span style="color: #deb887; font-size: 80%;">}</span><span style="color: #deb887;">^</span><span style="color: #deb887; font-size: 80%;">\infty</span><span style="color: #deb887;"> |F_</span><span style="color: #deb887; font-size: 80%;">T</span><span style="color: #deb887;">(f)|^</span><span style="color: #deb887; font-size: 80%;">2</span><span style="color: #deb887;">d_</span><span style="color: #deb887; font-size: 80%;">f</span><span style="color: #deb887;"> \ \ </span><span style="color: #deb887;">\mbox</span><span style="color: #deb887;">{</span><span style="color: #deb887;">(&#26681;&#25454;&#24085;&#33394;&#29926;&#23572;&#23450;&#29702;)</span><span style="color: #deb887;">}$$</span>
+</pre>
+
+
+
+<p>
+效果：
+</p>
+<div style="text-align: center">
+<p><img src="images/1.png"  alt="./images/1.png" />
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1.7" class="outline-3">
+<h3 id="sec-1.7"><span class="section-number-3">1.7</span> 省略号 </h3>
+<div class="outline-text-3" id="text-1.7">
+
+<ul>
+<li>
+\ldots 与文本底线对齐的省略号
+</li>
+<li>
+\cdots 与文本中线对齐的省略号
+
+
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</dvi>
+</body>
+<div id="footer">
+  <p>you're the
+    <script language="javascript" type="text/javascript" src="http://quote.51.la/?id=4499176&amp;mb=1"></script>th visitor
+    <script language="javascript" type="text/javascript" src="http://js.users.51.la/4499176.js">
+    </script> 
+  </p>
+</div>
+</html>

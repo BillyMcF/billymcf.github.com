@@ -1,0 +1,64 @@
+body {
+    font-family: serif, Helvetica;
+    margin: 10px 50px 10px 50px;
+}
+.menu {
+    font-size: 15pt;
+    font-weight: bold;
+}
+.menu a { text-decoration: none; color: green; }
+.menu a:visited { text-decoration: none; }  
+.menu a:hover { text-decoration:underline; color: green;}
+.programlisting {
+    display: block;
+    font-family: serif;
+    color: #012345;
+}
+
+a { text-decoration: none; color: blue; }
+a:visited { text-decoration: none; }  
+a:hover { text-decoration:underline; color: blue;}
+
+.navheader {
+}
+
+.navfooter {
+}
+
+code {
+    font-family: serif;
+    color: #012345;
+}
+
+pre {
+    margin-left: 1em;
+    margin-right: 5em;
+}
+
+dt {
+    margin: 0em;
+    padding: 0em;
+}
+dd{ margin-left: 2em;}
+dl {
+    margin: 0em 0em 1em 0em;
+}
+
+/* 表格标题 */
+caption {
+    font-weight:bold;
+    margin-bottom: 0.5em;
+}
+
+#copyright {
+    text-align: right;
+    font-family: Times New Roman;
+    font-size: 14pt;
+    font-style: italic;
+}
+#copyright a {color:black;}
+
+.tip, .important, .note {
+    border: #aaa 1px dotted;
+    background: #eee;
+}
